@@ -497,9 +497,47 @@ employee_attrition_tbl %>%
 
 ```
 
-```{r}
+##Challenge
 
-```
+1. What can you deduce about the interaction between Monthly Income and Attrition?
+
+A: Most people that are leaving have a lower Monthly Income as indicated by the big spike in the beginning of the graph, which is much higher than the density of "no".
+
+2. What can you deduce about the interaction between Percent Salary Hike and Attrition?
+
+A: It's difficult to deduce anything based on the visualization, due to the fact that the density graphs are almost the same. This means that it may not be a correlating factor for attrition.
+
+3. What can you deduce about the interaction between Stock Option Level and Attrition?
+
+A: Those that are staying have a higher stock option level, as depicted by the lowering of the density of "yes" of the graph at x = 1, x= 2 and x = 3 and being less than the density of "no". Not having any StockOptionLevel, meaning x = 0 seems to not have any correlation to attrition. However, having StockOptionLevel may reduce the attrition.
+
+4. What can you deduce about the interaction between Environment Satisfaction and Attrition?
+
+A: A higher proportion of those leaving have a low environment satisfaction level. As represented in the graph, the "no" density increases at each satisfaction level, which means that having a higher environment level is beneficial for reducing the atrition.
+
+5. What can you deduce about the interaction between Work Life Balance and Attrition
+
+A: Those that are staying have a higher density of 2's and 3's
+
+6. What Can you deduce about the interaction between Job Involvement and Attrition?
+
+A: Those that are leaving have a lower density of 3's and 4's
+
+7. What can you deduce about the interaction between Over Time and Attrition?
+
+A: The proportion of those leaving that are working Over Time are high compared to those that are not leaving
+
+8: What can you deduce about the interaction between Training Times Last Year and Attrition
+
+A: It's difficult to deduce anything based on the visualization. May not have any correlation, the "no" density is always higher than the "yes" density.
+
+9: What can you deduce about the interaction between Years At Company and Attrition
+
+A: People that leave tend to have less working years at the company
+
+10: What can you deduce about the interaction between Years Since Last Promotion and Attrition?
+
+A: It's difficult to deduce anything based on the visualization, because the densities overlap almost similarly. However, it seems that the "yes" density is higher than the "no" density in the foremost left part of the density graph. This would mean that people who just recently got a promotion are more likely to leave, which may not make much sense in this context.
 
 ```{r}
 
