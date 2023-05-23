@@ -1,0 +1,637 @@
+---
+title: "Challenge4"
+author: "Danny Cam Hoa Tien"
+date: "2023-05-23"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+
+# Load data
+library(tidyverse)
+library(readxl)
+
+employee_attrition_tbl <- read_csv("datasets-1067-1925-WA_Fn-UseC_-HR-Employee-Attrition.csv")
+definitions_raw_tbl    <- read_excel("data_definitions.xlsx", sheet = 1, col_names = FALSE)
+View(definitions_raw_tbl)
+
+```
+
+```{r}
+
+employee_attrition_tbl %>% 
+        ggplot(aes(Education)) +
+        geom_bar()
+
+```
+# Data preparation ----
+# Human readable
+```{r}
+
+
+
+definitions_tbl <- definitions_raw_tbl %>% 
+  fill(...1, .direction = "down") %>%
+  filter(!is.na(...2)) %>%
+  separate(...2, into = c("key", "value"), sep = " '", remove = TRUE) %>%
+  rename(column_name = ...1) %>%
+  mutate(key = as.numeric(key)) %>%
+  mutate(value = value %>% str_replace(pattern = "'", replacement = "")) 
+definitions_tbl
+
+```
+
+# DATA PREPARATION ----
+# Human readable ----
+```{r}
+
+
+definitions_list <- definitions_tbl %>% 
+  
+  # Mapping over lists
+  
+  # Split into multiple tibbles
+  split(.$column_name) %>%
+  # Remove column_name
+  map(~ select(., -column_name)) %>%
+  # Convert to factors because they are ordered an we want to maintain that order
+  map(~ mutate(., value = as_factor(value))) 
+  
+# definitions_list[[1]]
+definitions_list[["Education"]]
+
+```
+
+# Rename columns
+```{r}
+
+for (i in seq_along(definitions_list)) {
+  list_name <- names(definitions_list)[i]
+  colnames(definitions_list[[i]]) <- c(list_name, paste0(list_name, "_value"))
+}
+
+definitions_list[["Education"]]
+
+```
+
+```{r}
+
+data_merged_tbl <- list(HR_Data = employee_attrition_tbl) %>%
+    
+        # Join everything
+        append(definitions_list, after = 1) %>%
+        reduce(left_join) %>%
+        
+        # Remove unnecessary columns
+        select(-one_of(names(definitions_list))) %>%
+        
+        # Format the "_value"
+        set_names(str_replace_all(names(.), pattern = "_value", replacement = "")) %>%
+        
+        # Resort
+        select(sort(names(.))) 
+
+```
+# Return only unique values of BusinessTravel
+```{r}
+
+data_merged_tbl %>% 
+  distinct(BusinessTravel)
+
+```
+#Mutate To Factors
+```{r}
+
+data_merged_tbl %>%
+        mutate_if(is.character, as.factor) %>%
+        glimpse()
+
+```
+
+```{r}
+
+data_merged_tbl %>%
+        mutate_if(is.character, as.factor) %>%
+        select_if(is.factor) %>%
+        glimpse()
+        
+data_merged_tbl %>%
+        mutate_if(is.character, as.factor) %>%
+        select_if(is.factor) %>%
+        map(levels)
+
+```
+
+```{r}
+
+data_processed_tbl <- data_merged_tbl %>%        
+        mutate_if(is.character, as.factor) %>%
+        mutate(
+            BusinessTravel = BusinessTravel %>% fct_relevel("Non-Travel", 
+                                                            "Travel_Rarely", 
+                                                            "Travel_Frequently"),
+            MaritalStatus  = MaritalStatus %>% fct_relevel("Single", 
+                                                           "Married", 
+                                                           "Divorced")
+        )
+        
+data_processed_tbl %>% 
+  select_if(is.factor) %>% 
+  map(levels)
+
+```
+
+```{r}
+
+source("process_hr_data_readable.R")
+
+process_hr_data_readable(employee_attrition_tbl, definitions_raw_tbl) %>% 
+  glimpse()
+
+```
+# DATA PREPARATION ----
+# Machine readable ----
+```{r}
+
+
+
+# libraries
+library(rsample)
+library(recipes)
+
+# Processing pipeline
+
+employee_attrition_readable_tbl <- process_hr_data_readable(employee_attrition_tbl, definitions_raw_tbl)
+
+# Split into test and train
+set.seed(seed = 1113)
+split_obj <- rsample::initial_split(employee_attrition_readable_tbl, prop = 0.85)
+
+# Assign training and test data
+train_readable_tbl <- training(split_obj)
+test_readable_tbl  <- testing(split_obj)
+
+```
+# Plot Faceted Histgoram function
+```{r}
+
+source("plot_hist_facet.R")
+
+
+# To create a function and test it, we can assign our data temporarily to data
+data <- train_readable_tbl 
+
+# Example calls
+train_readable_tbl %>% plot_hist_facet()
+train_readable_tbl %>% plot_hist_facet(fct_rev = T)
+
+# Bring attirtion to the top (alt.: select(Attrition, everything()))
+train_readable_tbl %>% 
+  relocate(Attrition) %>% 
+  plot_hist_facet()
+
+```
+# Data Preprocessing With Recipes ----
+```{r}
+
+# Plan: Correlation Analysis
+
+# 1. Zero Variance Features ----
+
+recipe_obj <- recipe(Attrition ~ ., data = train_readable_tbl) %>%
+    step_zv(all_predictors())
+
+recipe_obj %>% 
+      prep()
+
+```
+
+```{r}
+
+# 2. Transformations ---- (for skewed features)
+library(PerformanceAnalytics)  # for skewness  
+
+skewed_feature_names <- train_readable_tbl %>%
+    select(where(is.numeric)) %>%
+    map_df(skewness) %>%
+    pivot_longer(cols = everything(),
+                 names_to = "key",
+                 values_to = "value",
+                 names_transform = list(key = forcats::fct_inorder)) %>%
+    arrange(desc(value)) %>%
+    
+    # Let's set the cutoff value to 0.7 (beccause TrainingTimesLastYear does not seem to be that skewed)
+    filter(value >= 0.7) %>%
+    pull(key) %>%
+    as.character()
+
+train_readable_tbl %>%
+    select(all_of(skewed_feature_names)) %>%
+    plot_hist_facet()
+
+```
+
+```{r}
+
+!skewed_feature_names %in% c("JobLevel", "StockOptionLevel")
+
+skewed_feature_names <- train_readable_tbl %>%
+    select(where(is.numeric)) %>%
+    map_df(skewness) %>%
+    pivot_longer(cols = everything(),
+                 names_to = "key",
+                 values_to = "value",
+                 names_transform = list(key = forcats::fct_inorder)) %>%
+    arrange(desc(value)) %>%
+    filter(value >= 0.7) %>%
+    filter(!key %in% c("JobLevel", "StockOptionLevel")) %>%
+    pull(key) %>%
+    as.character()
+    
+# We need to convert those columns to factors in the next step
+factor_names <- c("JobLevel", "StockOptionLevel")
+
+```
+#Fix Skewness with step_yeoJohnson()
+```{r}
+
+recipe_obj <- recipe(Attrition ~ ., data = train_readable_tbl) %>%
+    step_zv(all_predictors()) %>%
+    step_YeoJohnson(skewed_feature_names) %>%
+    step_mutate_at(factor_names, fn = as.factor)
+    
+recipe_obj %>% 
+    prep() %>% 
+    bake(train_readable_tbl) %>% 
+    select(skewed_feature_names) %>%
+    plot_hist_facet()
+
+```
+# 3. Center and scale
+```{r}
+
+
+
+# Plot numeric data
+train_readable_tbl %>% 
+  select(where(is.numeric)) %>% 
+  plot_hist_facet()
+
+```
+
+```{r}
+
+recipe_obj <- recipe(Attrition ~ ., data = train_readable_tbl) %>%
+    step_zv(all_predictors()) %>%
+    step_YeoJohnson(skewed_feature_names) %>%
+    step_mutate_at(factor_names, fn = as.factor) %>%
+    step_center(all_numeric()) %>%
+    step_scale(all_numeric())
+
+# You can compare the means attribute before and after prepping the recipe
+recipe_obj$steps[[4]] # before prep
+prepared_recipe <- recipe_obj %>% prep()
+prepared_recipe$steps[[4]]
+
+prepared_recipe %>%
+    bake(new_data = train_readable_tbl) %>%
+    select(where(is.numeric)) %>% 
+    plot_hist_facet()
+
+```
+
+```{r}
+
+# 4. Dummy variables ----
+
+recipe_obj <- recipe(Attrition ~ ., data = train_readable_tbl) %>%
+    step_zv(all_predictors()) %>%
+    step_YeoJohnson(skewed_feature_names) %>%
+    step_mutate_at(factor_names, fn = as.factor) %>%
+    step_center(all_numeric()) %>%
+    step_scale(all_numeric()) %>%
+    step_dummy(all_nominal()) %>% 
+    
+    # prepare the final recipe
+    prep()
+
+```
+
+```{r}
+
+train_tbl <- bake(recipe_obj, new_data = train_readable_tbl)
+
+train_tbl %>% glimpse()
+
+test_tbl <- bake(recipe_obj, new_data = test_readable_tbl)
+
+```
+
+```{r}
+
+train_tbl %>%
+
+        # Convert characters & factors to numeric
+        mutate(across(where(is.character), as.factor)) %>%
+        mutate(across(where(is.factor), as.numeric)) %>%
+        
+        # Correlation
+        cor(use = "pairwise.complete.obs") %>% 
+        as_tibble() %>%
+        mutate(feature = names(.)) %>% 
+        select(feature, Attrition_Yes) %>% 
+        
+        # Filter the target, because we now the correlation is 100%
+        filter(!(feature == "Attrition_Yes")) %>% 
+        
+        # Convert character back to factors
+        mutate(across(where(is.character), as_factor))
+
+```
+
+```{r}
+
+source("get_cor.R")
+
+source("plot_cor.R")
+
+plot_cor(data = train_tbl, target = Attrition_Yes, fct_reorder = T, fct_rev = T)
+
+
+```
+
+```{r}
+
+train_tbl %>% 
+  select(Attrition_Yes, contains("JobRole")) %>% 
+  plot_cor(target = Attrition_Yes, fct_reorder = T, fct_rev = T)
+
+```
+# Correlation Evaluation ----
+```{r}
+
+
+
+#   1. Descriptive features: age, gender, marital status 
+train_tbl %>%
+    select(Attrition_Yes, Age, contains("Gender"), 
+           contains("MaritalStatus"), NumCompaniesWorked, 
+           contains("Over18"), DistanceFromHome) %>%
+    plot_cor(target = Attrition_Yes, fct_reorder = T, fct_rev = F)
+
+```
+
+```{r}
+
+#   2. Employment features: department, job role, job level
+train_tbl %>%
+     select(Attrition_Yes, contains("employee"), contains("department"), contains("job")) %>%
+     plot_cor(target = Attrition_Yes, fct_reorder = F, fct_rev = F) 
+
+#   3. Compensation features: HourlyRate, MonthlyIncome, StockOptionLevel 
+train_tbl %>%
+    select(Attrition_Yes, contains("income"), contains("rate"), contains("salary"), contains("stock")) %>%
+    plot_cor(target = Attrition_Yes, fct_reorder = F, fct_rev = F)
+
+#   4. Survey Results: Satisfaction level, WorkLifeBalance 
+train_tbl %>%
+    select(Attrition_Yes, contains("satisfaction"), contains("life")) %>%
+    plot_cor(target = Attrition_Yes, fct_reorder = F, fct_rev = F)
+
+#   5. Performance Data: Job Involvment, Performance Rating
+train_tbl %>%
+    select(Attrition_Yes, contains("performance"), contains("involvement")) %>%
+    plot_cor(target = Attrition_Yes, fct_reorder = F, fct_rev = F)
+
+#   6. Work-Life Features 
+train_tbl %>%
+    select(Attrition_Yes, contains("overtime"), contains("travel")) %>%
+    plot_cor(target = Attrition_Yes, fct_reorder = F, fct_rev = F)
+
+#   7. Training and Education 
+train_tbl %>%
+    select(Attrition_Yes, contains("training"), contains("education")) %>%
+    plot_cor(target = Attrition_Yes, fct_reorder = F, fct_rev = F)
+
+#   8. Time-Based Features: Years at company, years in current role
+train_tbl %>%
+    select(Attrition_Yes, contains("years")) %>%
+    plot_cor(target = Attrition_Yes, fct_reorder = F, fct_rev = F)
+
+```
+#H2o
+```{r}
+
+# H2O modeling
+library(h2o)
+
+employee_attrition_tbl          <- read_csv("datasets-1067-1925-WA_Fn-UseC_-HR-Employee-Attrition.csv")
+definitions_raw_tbl             <- read_excel("data_definitions.xlsx", sheet = 1, col_names = FALSE)
+employee_attrition_readable_tbl <- process_hr_data_readable(employee_attrition_tbl, definitions_raw_tbl)
+set.seed(seed = 1113)
+split_obj                       <- rsample::initial_split(employee_attrition_readable_tbl, prop = 0.85)
+train_readable_tbl              <- training(split_obj)
+test_readable_tbl               <- testing(split_obj)
+
+recipe_obj <- recipe(Attrition ~., data = train_readable_tbl) %>% 
+    step_zv(all_predictors()) %>% 
+    step_mutate_at(JobLevel, StockOptionLevel, fn = as.factor) %>% 
+    prep()
+
+train_tbl <- bake(recipe_obj, new_data = train_readable_tbl)
+test_tbl  <- bake(recipe_obj, new_data = test_readable_tbl)
+
+```
+# Modeling
+```{r}
+
+h2o.init()
+
+# Split data into a training and a validation data frame
+# Setting the seed is just for reproducability
+split_h2o <- h2o.splitFrame(as.h2o(train_tbl), ratios = c(0.85), seed = 1234)
+train_h2o <- split_h2o[[1]]
+valid_h2o <- split_h2o[[2]]
+test_h2o  <- as.h2o(test_tbl)
+
+# Set the target and predictors
+y <- "Attrition"
+x <- setdiff(names(train_h2o), y)
+
+```
+
+```{r}
+
+automl_models_h2o <- h2o.automl(
+  x = x,
+  y = y,
+  training_frame    = train_h2o,
+  validation_frame  = valid_h2o,
+  leaderboard_frame = test_h2o,
+  max_runtime_secs  = 30,
+  nfolds            = 5 
+)
+
+```
+
+```{r}
+
+typeof(automl_models_h2o)
+## "S4"
+
+slotNames(automl_models_h2o)
+## [1] "project_name"   "leader"         "leaderboard"    "event_log"      "modeling_steps" "training_info" 
+
+automl_models_h2o@leaderboard
+##                                              model_id       auc   logloss     aucpr mean_per_class_error      rmse        mse
+## 1 StackedEnsemble_BestOfFamily_AutoML_20200820_190823 0.8585439 0.2992854 0.5869929            0.2406915 0.2978416 0.08870964
+## 2          GBM_grid__1_AutoML_20200820_190823_model_3 0.8494016 0.3137896 0.5165541            0.2386968 0.3098134 0.09598435
+## 3 DeepLearning_grid__1_AutoML_20200820_190823_model_1 0.8479056 0.3066365 0.6154288            0.2583112 0.3071528 0.09434283
+## 4      XGBoost_grid__1_AutoML_20200820_190823_model_5 0.8439162 0.3057109 0.5299331            0.2061170 0.3071419 0.09433613
+## 5    StackedEnsemble_AllModels_AutoML_20200820_190823 0.8425864 0.3211612 0.5205591            0.2539894 0.3107399 0.09655928
+## 6      XGBoost_grid__1_AutoML_20200820_190823_model_6 0.8257979 0.3211936 0.5009608            0.2536569 0.3111129 0.09679122
+##
+## [30 rows x 7 columns] 
+
+automl_models_h2o@leader
+
+```
+# Depending on the algorithm, the output will be different
+```{r}
+
+h2o.getModel("DRF_1_AutoML_1_20230523_214315")
+
+# Extracts and H2O model name by a position so can more easily use h2o.getModel()
+extract_h2o_model_name_by_position <- function(h2o_leaderboard, n = 1, verbose = T) {
+    
+    model_name <- h2o_leaderboard %>%
+        as.tibble() %>%
+        slice(n) %>%
+        pull(model_id)
+    
+    if (verbose) message(model_name)
+    
+    return(model_name)
+    
+}
+
+automl_models_h2o@leaderboard %>% 
+  extract_h2o_model_name_by_position(6) %>% 
+  h2o.getModel()
+
+```
+
+```{r}
+h2o.getModel("DRF_1_AutoML_1_20230523_214315") %>% 
+  h2o.saveModel(path = "04_Modeling/h20_models/")
+
+h2o.loadModel("04_Modeling/h20_models/DRF_1_AutoML_1_20230523_214315")
+
+```
+
+```{r}
+
+# Choose whatever model you want
+stacked_ensemble_h2o <- h2o.loadModel("04_Modeling/h20_models/DRF_1_AutoML_1_20230523_214315")
+stacked_ensemble_h2o
+
+predictions <- h2o.predict(stacked_ensemble_h2o, newdata = as.h2o(test_tbl))
+
+typeof(predictions)
+## [1] "environment"
+
+predictions_tbl <- predictions %>% as_tibble()
+
+predictions_tbl
+
+```
+
+```{r}
+deep_learning_h2o <- h2o.loadModel("04_Modeling/h20_models/DRF_1_AutoML_1_20230523_214315")
+
+# To see all possible parameters
+?h2o.deeplearning
+
+# to get all paramteres
+deep_learning_h2o@allparameters
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
