@@ -14,12 +14,28 @@ knitr::opts_chunk$set(echo = TRUE)
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
 When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+```{r}
+
+library(tidyverse)
+library(readxl)
+
+# libraries
+library(rsample)
+library(recipes)
+
+library(PerformanceAnalytics)  # for skewness 
+
+# H2O modeling
+library(h2o)
+
+
+```
+
 
 ```{r}
 
 # Load data
-library(tidyverse)
-library(readxl)
+
 
 employee_attrition_tbl <- read_csv("datasets-1067-1925-WA_Fn-UseC_-HR-Employee-Attrition.csv")
 definitions_raw_tbl    <- read_excel("data_definitions.xlsx", sheet = 1, col_names = FALSE)
@@ -165,9 +181,7 @@ process_hr_data_readable(employee_attrition_tbl, definitions_raw_tbl) %>%
 
 
 
-# libraries
-library(rsample)
-library(recipes)
+
 
 # Processing pipeline
 
@@ -219,7 +233,7 @@ recipe_obj %>%
 ```{r}
 
 # 2. Transformations ---- (for skewed features)
-library(PerformanceAnalytics)  # for skewness  
+
 
 skewed_feature_names <- train_readable_tbl %>%
     select(where(is.numeric)) %>%
@@ -432,8 +446,7 @@ train_tbl %>%
 #H2o
 ```{r}
 
-# H2O modeling
-library(h2o)
+
 
 employee_attrition_tbl          <- read_csv("datasets-1067-1925-WA_Fn-UseC_-HR-Employee-Attrition.csv")
 definitions_raw_tbl             <- read_excel("data_definitions.xlsx", sheet = 1, col_names = FALSE)
@@ -509,21 +522,10 @@ automl_models_h2o@leader
 # Depending on the algorithm, the output will be different
 ```{r}
 
-h2o.getModel("DRF_1_AutoML_1_20230523_214315")
+h2o.getModel("DeepLearning_1_AutoML_1_20230524_195722")
 
 # Extracts and H2O model name by a position so can more easily use h2o.getModel()
-extract_h2o_model_name_by_position <- function(h2o_leaderboard, n = 1, verbose = T) {
-    
-    model_name <- h2o_leaderboard %>%
-        as.tibble() %>%
-        slice(n) %>%
-        pull(model_id)
-    
-    if (verbose) message(model_name)
-    
-    return(model_name)
-    
-}
+source("extract_h2o_model_name_by_position.R")
 
 automl_models_h2o@leaderboard %>% 
   extract_h2o_model_name_by_position(6) %>% 
@@ -532,7 +534,7 @@ automl_models_h2o@leaderboard %>%
 ```
 
 ```{r}
-h2o.getModel("DRF_1_AutoML_1_20230523_214315") %>% 
+h2o.getModel("DeepLearning_1_AutoML_1_20230524_195722") %>% 
   h2o.saveModel(path = "04_Modeling/h20_models/")
 
 h2o.loadModel("04_Modeling/h20_models/DRF_1_AutoML_1_20230523_214315")
@@ -542,7 +544,7 @@ h2o.loadModel("04_Modeling/h20_models/DRF_1_AutoML_1_20230523_214315")
 ```{r}
 
 # Choose whatever model you want
-stacked_ensemble_h2o <- h2o.loadModel("04_Modeling/h20_models/DRF_1_AutoML_1_20230523_214315")
+stacked_ensemble_h2o <- h2o.loadModel("04_Modeling/h20_models/DeepLearning_1_AutoML_1_20230524_195722")
 stacked_ensemble_h2o
 
 predictions <- h2o.predict(stacked_ensemble_h2o, newdata = as.h2o(test_tbl))
@@ -557,7 +559,7 @@ predictions_tbl
 ```
 
 ```{r}
-deep_learning_h2o <- h2o.loadModel("04_Modeling/h20_models/DRF_1_AutoML_1_20230523_214315")
+deep_learning_h2o <- h2o.loadModel("04_Modeling/h20_models/DeepLearning_1_AutoML_1_20230524_195722")
 
 # To see all possible parameters
 ?h2o.deeplearning
@@ -566,72 +568,107 @@ deep_learning_h2o <- h2o.loadModel("04_Modeling/h20_models/DRF_1_AutoML_1_202305
 deep_learning_h2o@allparameters
 
 ```
-
+#Challenge 4
+#1. Load the training & test dataset
 ```{r}
+
+
+product_backorder_tbl          <- read_csv("product_backorders.csv")
 
 ```
 
+#2. Specifiy the response and predictor variables
 ```{r}
+set.seed(seed = 1113)
+split_obj                       <- rsample::initial_split(product_backorder_tbl, prop = 0.85)
+train_readable_tbl              <- training(split_obj)
+test_readable_tbl               <- testing(split_obj)
+
+recipe_obj <- recipe(went_on_backorder ~., data = train_readable_tbl) %>% 
+    step_zv(all_predictors()) %>% 
+    prep()
+
+train_tbl <- bake(recipe_obj, new_data = train_readable_tbl)
+test_tbl  <- bake(recipe_obj, new_data = test_readable_tbl)
+
 
 ```
-
+#Modeling
 ```{r}
+
+h2o.init()
+
+# Split data into a training and a validation data frame
+# Setting the seed is just for reproducability
+split_h2o <- h2o.splitFrame(as.h2o(train_tbl), ratios = c(0.85), seed = 1234)
+train_h2o <- split_h2o[[1]]
+valid_h2o <- split_h2o[[2]]
+test_h2o  <- as.h2o(test_tbl)
+
+# Set the target and predictors
+y <- "went_on_backorder"
+x <- setdiff(names(train_h2o), y)
+
 
 ```
-
+# 3. Run AutoML specifying the stopping criterion
 ```{r}
+
+automl_models_h2o <- h2o.automl(
+  x = x,
+  y = y,
+  training_frame    = train_h2o,
+  validation_frame  = valid_h2o,
+  leaderboard_frame = test_h2o,
+  max_runtime_secs  = 30,
+  nfolds            = 5 
+)
 
 ```
-
+# 4. View the leaderboard
 ```{r}
+
+typeof(automl_models_h2o)
+## "S4"
+
+slotNames(automl_models_h2o)
+## [1] "project_name"   "leader"         "leaderboard"    "event_log"      "modeling_steps" "training_info" 
+
+automl_models_h2o@leaderboard
+##                                              model_id       auc   logloss     aucpr mean_per_class_error      rmse        mse
+## 1 StackedEnsemble_BestOfFamily_AutoML_20200820_190823 0.8585439 0.2992854 0.5869929            0.2406915 0.2978416 0.08870964
+## 2          GBM_grid__1_AutoML_20200820_190823_model_3 0.8494016 0.3137896 0.5165541            0.2386968 0.3098134 0.09598435
+## 3 DeepLearning_grid__1_AutoML_20200820_190823_model_1 0.8479056 0.3066365 0.6154288            0.2583112 0.3071528 0.09434283
+## 4      XGBoost_grid__1_AutoML_20200820_190823_model_5 0.8439162 0.3057109 0.5299331            0.2061170 0.3071419 0.09433613
+## 5    StackedEnsemble_AllModels_AutoML_20200820_190823 0.8425864 0.3211612 0.5205591            0.2539894 0.3107399 0.09655928
+## 6      XGBoost_grid__1_AutoML_20200820_190823_model_6 0.8257979 0.3211936 0.5009608            0.2536569 0.3111129 0.09679122
+##
+## [30 rows x 7 columns] 
+
+automl_models_h2o@leader
+
+
+source("extract_h2o_model_name_by_position.R")
+
+model <- automl_models_h2o@leaderboard %>% 
+  extract_h2o_model_name_by_position(6) %>% 
+  h2o.getModel()
+
+model
 
 ```
-
+#5. Predictions
 ```{r}
+
+predictions <- h2o.predict(model, newdata = as.h2o(test_tbl))
+
+predictions
 
 ```
-
+#6. Save the leader model
 ```{r}
 
-```
-
-```{r}
-
-```
-
-```{r}
-
-```
-
-```{r}
-
-```
-
-```{r}
-
-```
-
-```{r}
-
-```
-
-```{r}
-
-```
-
-```{r}
-
-```
-
-```{r}
-
-```
-
-```{r}
-
-```
-
-```{r}
+model %>% h2o.saveModel(path = "04_Modeling/h20_models/")
 
 ```
 
