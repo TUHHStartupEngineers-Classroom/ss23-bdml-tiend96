@@ -169,6 +169,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <a class="dropdown-item" href="../../../content/01_journal/Challenge1/05_Machine_Learning_Fundamentals.html">
  <span class="dropdown-text">05 Machine Learning Fundamentals</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../../content/01_journal/Challenge2/Chapter_2_Challenge.html">
+ <span class="dropdown-text">06 Supervised ML - Regression (II)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../content/01_journal/Challenge3/Challenge3.html">
+ <span class="dropdown-text">07 Automated Machine Learning with H2O (I)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../content/01_journal/Challenge4/Challenge4.html">
+ <span class="dropdown-text">07 Automated Machine Learning with H2O (II)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../content/01_journal/Challenge5/Challenge5.html">
+ <span class="dropdown-text">08 Performance Measure</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../content/01_journal/Challenge6/Challenge6.html">
+ <span class="dropdown-text">09 Explaining Black-Box Models with LIME</span></a>
+  </li>  
     </ul>
 </li>
   <li class="nav-item">
@@ -194,22 +214,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    
   <ul class="collapse">
 <li><a href="#r-markdown" id="toc-r-markdown" class="nav-link active" data-scroll-target="#r-markdown"><span class="toc-section-number">0.1</span>  R Markdown</a></li>
-  <li><a href="#modeling" id="toc-modeling" class="nav-link" data-scroll-target="#modeling"><span class="toc-section-number">1</span>  Modeling</a></li>
-  <li><a href="#depending-on-the-algorithm-the-output-will-be-different" id="toc-depending-on-the-algorithm-the-output-will-be-different" class="nav-link" data-scroll-target="#depending-on-the-algorithm-the-output-will-be-different"><span class="toc-section-number">2</span>  Depending on the algorithm, the output will be different</a></li>
-  <li><a href="#visualize-the-h2o-leaderboard-to-help-with-model-selection" id="toc-visualize-the-h2o-leaderboard-to-help-with-model-selection" class="nav-link" data-scroll-target="#visualize-the-h2o-leaderboard-to-help-with-model-selection"><span class="toc-section-number">3</span>  Visualize the H2O leaderboard to help with model selection</a></li>
-  <li><a href="#to-see-if-on-of-the-model-performs-better-on-the-test-set-pull-that-model-out-with-h2o.getmodel" id="toc-to-see-if-on-of-the-model-performs-better-on-the-test-set-pull-that-model-out-with-h2o.getmodel" class="nav-link" data-scroll-target="#to-see-if-on-of-the-model-performs-better-on-the-test-set-pull-that-model-out-with-h2o.getmodel"><span class="toc-section-number">4</span>  To see if on of the model performs better on the test set pull that model out with h2o.getModel():</a></li>
-  <li><a href="#classifier-summary-metrics" id="toc-classifier-summary-metrics" class="nav-link" data-scroll-target="#classifier-summary-metrics"><span class="toc-section-number">5</span>  Classifier Summary Metrics</a></li>
+  <li><a href="#h2o" id="toc-h2o" class="nav-link" data-scroll-target="#h2o"><span class="toc-section-number">1</span>  H2o</a></li>
+  <li><a href="#modeling" id="toc-modeling" class="nav-link" data-scroll-target="#modeling"><span class="toc-section-number">2</span>  Modeling</a></li>
+  <li><a href="#depending-on-the-algorithm-the-output-will-be-different" id="toc-depending-on-the-algorithm-the-output-will-be-different" class="nav-link" data-scroll-target="#depending-on-the-algorithm-the-output-will-be-different"><span class="toc-section-number">3</span>  Depending on the algorithm, the output will be different</a></li>
+  <li><a href="#visualize-the-h2o-leaderboard-to-help-with-model-selection" id="toc-visualize-the-h2o-leaderboard-to-help-with-model-selection" class="nav-link" data-scroll-target="#visualize-the-h2o-leaderboard-to-help-with-model-selection"><span class="toc-section-number">4</span>  Visualize the H2O leaderboard to help with model selection</a></li>
+  <li><a href="#plot-data" id="toc-plot-data" class="nav-link" data-scroll-target="#plot-data"><span class="toc-section-number">5</span>  Plot Data</a></li>
+  <li><a href="#grid-search" id="toc-grid-search" class="nav-link" data-scroll-target="#grid-search"><span class="toc-section-number">6</span>  Grid Search</a></li>
+  <li><a href="#to-see-if-on-of-the-model-performs-better-on-the-test-set-pull-that-model-out-with-h2o.getmodel" id="toc-to-see-if-on-of-the-model-performs-better-on-the-test-set-pull-that-model-out-with-h2o.getmodel" class="nav-link" data-scroll-target="#to-see-if-on-of-the-model-performs-better-on-the-test-set-pull-that-model-out-with-h2o.getmodel"><span class="toc-section-number">7</span>  To see if on of the model performs better on the test set pull that model out with h2o.getModel():</a></li>
+  <li><a href="#classifier-summary-metrics" id="toc-classifier-summary-metrics" class="nav-link" data-scroll-target="#classifier-summary-metrics"><span class="toc-section-number">8</span>  Classifier Summary Metrics</a></li>
+  <li><a href="#precision-vs-recall-plot" id="toc-precision-vs-recall-plot" class="nav-link" data-scroll-target="#precision-vs-recall-plot"><span class="toc-section-number">9</span>  Precision vs Recall Plot</a></li>
   <li>
-<a href="#precision-vs-recall-plot" id="toc-precision-vs-recall-plot" class="nav-link" data-scroll-target="#precision-vs-recall-plot"><span class="toc-section-number">6</span>  Precision vs Recall Plot</a>
+<a href="#challenge-5-start--" id="toc-challenge-5-start--" class="nav-link" data-scroll-target="#challenge-5-start--"><span class="toc-section-number">10</span>  - Challenge 5 Start —————————————————-</a>
   <ul class="collapse">
-<li><a href="#challenge-5-start--" id="toc-challenge-5-start--" class="nav-link" data-scroll-target="#challenge-5-start--"><span class="toc-section-number">6.1</span>  - Challenge 5 Start -</a></li>
+<li><a href="#load-the-training-test-dataset" id="toc-load-the-training-test-dataset" class="nav-link" data-scroll-target="#load-the-training-test-dataset"><span class="toc-section-number">10.1</span>  1. Load the training &amp; test dataset</a></li>
+  <li><a href="#specifiy-the-response-and-predictor-variables" id="toc-specifiy-the-response-and-predictor-variables" class="nav-link" data-scroll-target="#specifiy-the-response-and-predictor-variables"><span class="toc-section-number">10.2</span>  2. Specifiy the response and predictor variables</a></li>
+  <li><a href="#modeling-1" id="toc-modeling-1" class="nav-link" data-scroll-target="#modeling-1"><span class="toc-section-number">10.3</span>  Modeling</a></li>
+  <li><a href="#run-automl-specifying-the-stopping-criterion" id="toc-run-automl-specifying-the-stopping-criterion" class="nav-link" data-scroll-target="#run-automl-specifying-the-stopping-criterion"><span class="toc-section-number">10.4</span>  3. Run AutoML specifying the stopping criterion</a></li>
+  <li><a href="#view-the-leaderboard" id="toc-view-the-leaderboard" class="nav-link" data-scroll-target="#view-the-leaderboard"><span class="toc-section-number">10.5</span>  4. View the leaderboard</a></li>
+  <li><a href="#predictions" id="toc-predictions" class="nav-link" data-scroll-target="#predictions"><span class="toc-section-number">10.6</span>  5. Predictions</a></li>
+  <li><a href="#save-the-leader-model" id="toc-save-the-leader-model" class="nav-link" data-scroll-target="#save-the-leader-model"><span class="toc-section-number">10.7</span>  6. Save the leader model</a></li>
+  <li><a href="#leaderboard-visualization" id="toc-leaderboard-visualization" class="nav-link" data-scroll-target="#leaderboard-visualization"><span class="toc-section-number">10.8</span>  1. Leaderboard Visualization</a></li>
+  <li><a href="#tune-a-model-with-grid-search" id="toc-tune-a-model-with-grid-search" class="nav-link" data-scroll-target="#tune-a-model-with-grid-search"><span class="toc-section-number">10.9</span>  2. Tune a model with grid search</a></li>
+  <li><a href="#visualize-the-trade-of-between-the-precision-and-the-recall-and-the-optimal-threshold" id="toc-visualize-the-trade-of-between-the-precision-and-the-recall-and-the-optimal-threshold" class="nav-link" data-scroll-target="#visualize-the-trade-of-between-the-precision-and-the-recall-and-the-optimal-threshold"><span class="toc-section-number">10.10</span>  3 Visualize the trade of between the precision and the recall and the optimal threshold</a></li>
+  <li><a href="#h2o-performance" id="toc-h2o-performance" class="nav-link" data-scroll-target="#h2o-performance"><span class="toc-section-number">10.11</span>  H2o Performance</a></li>
+  <li><a href="#create-a-performance-object" id="toc-create-a-performance-object" class="nav-link" data-scroll-target="#create-a-performance-object"><span class="toc-section-number">10.12</span>  Create a Performance Object</a></li>
+  <li><a href="#classifier-summary-metrics-1" id="toc-classifier-summary-metrics-1" class="nav-link" data-scroll-target="#classifier-summary-metrics-1"><span class="toc-section-number">10.13</span>  Classifier Summary Metrics</a></li>
   </ul>
 </li>
-  <li><a href="#run-automl-specifying-the-stopping-criterion" id="toc-run-automl-specifying-the-stopping-criterion" class="nav-link" data-scroll-target="#run-automl-specifying-the-stopping-criterion"><span class="toc-section-number">7</span>  3. Run AutoML specifying the stopping criterion</a></li>
-  <li><a href="#view-the-leaderboard" id="toc-view-the-leaderboard" class="nav-link" data-scroll-target="#view-the-leaderboard"><span class="toc-section-number">8</span>  4. View the leaderboard</a></li>
-  <li><a href="#leaderboard-visualization" id="toc-leaderboard-visualization" class="nav-link" data-scroll-target="#leaderboard-visualization"><span class="toc-section-number">9</span>  1. Leaderboard Visualization</a></li>
-  <li><a href="#tune-a-model-with-grid-search" id="toc-tune-a-model-with-grid-search" class="nav-link" data-scroll-target="#tune-a-model-with-grid-search"><span class="toc-section-number">10</span>  2. Tune a model with grid search</a></li>
-  <li><a href="#classifier-summary-metrics-1" id="toc-classifier-summary-metrics-1" class="nav-link" data-scroll-target="#classifier-summary-metrics-1"><span class="toc-section-number">11</span>  Classifier Summary Metrics</a></li>
+  <li>
+<a href="#roc-plot" id="toc-roc-plot" class="nav-link" data-scroll-target="#roc-plot"><span class="toc-section-number">11</span>  4 ROC Plot</a>
+  <ul class="collapse">
+<li><a href="#precision-vs-recall-plot-1" id="toc-precision-vs-recall-plot-1" class="nav-link" data-scroll-target="#precision-vs-recall-plot-1"><span class="toc-section-number">11.1</span>  5 Precision vs Recall Plot</a></li>
+  <li><a href="#gain-plot" id="toc-gain-plot" class="nav-link" data-scroll-target="#gain-plot"><span class="toc-section-number">11.2</span>  6 Gain Plot</a></li>
+  <li><a href="#lift-plot" id="toc-lift-plot" class="nav-link" data-scroll-target="#lift-plot"><span class="toc-section-number">11.3</span>  7. Lift Plot</a></li>
+  <li><a href="#dashboard-with-cowplot" id="toc-dashboard-with-cowplot" class="nav-link" data-scroll-target="#dashboard-with-cowplot"><span class="toc-section-number">11.4</span>  8. Dashboard with cowplot</a></li>
+  </ul>
+</li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -351,7 +391,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt;     log10, log1p, log2, round, signif, trunc</code></pre>
 </div>
 </div>
-<p>#H2o</p>
+</section><section id="h2o" class="level1" data-number="1"><h1 data-number="1">
+<span class="header-section-number">1</span> H2o</h1>
 <div class="cell" data-hash="Challenge5_cache/html/unnamed-chunk-2_58eb1d78fbd68382452aa37c78a4584a">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">source</span>(<span class="st">"process_hr_data_readable.R"</span>)</span>
 <span id="cb9-2"><a href="#cb9-2"></a></span>
@@ -395,22 +436,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb15-11"><a href="#cb15-11"></a>train_tbl <span class="ot">&lt;-</span> <span class="fu">bake</span>(recipe_obj, <span class="at">new_data =</span> train_readable_tbl)</span>
 <span id="cb15-12"><a href="#cb15-12"></a>test_tbl  <span class="ot">&lt;-</span> <span class="fu">bake</span>(recipe_obj, <span class="at">new_data =</span> test_readable_tbl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="modeling" class="level1" data-number="1"><h1 data-number="1">
-<span class="header-section-number">1</span> Modeling</h1>
+</section><section id="modeling" class="level1" data-number="2"><h1 data-number="2">
+<span class="header-section-number">2</span> Modeling</h1>
 <div class="cell" data-hash="Challenge5_cache/html/unnamed-chunk-3_0ed0af8518f48b31359ed158752d1dbc">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">h2o.init</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt;  Connection successful!
 #&gt; 
 #&gt; R is connected to the H2O cluster: 
-#&gt;     H2O cluster uptime:         1 hours 41 minutes 
+#&gt;     H2O cluster uptime:         9 minutes 39 seconds 
 #&gt;     H2O cluster timezone:       Europe/Berlin 
 #&gt;     H2O data parsing timezone:  UTC 
 #&gt;     H2O cluster version:        3.40.0.1 
 #&gt;     H2O cluster version age:    3 months and 21 days 
-#&gt;     H2O cluster name:           H2O_started_from_R_tiend_ham688 
+#&gt;     H2O cluster name:           H2O_started_from_R_tiend_drs368 
 #&gt;     H2O cluster total nodes:    1 
-#&gt;     H2O cluster total memory:   3.09 GB 
+#&gt;     H2O cluster total memory:   3.72 GB 
 #&gt;     H2O cluster total cores:    12 
 #&gt;     H2O cluster allowed cores:  12 
 #&gt;     H2O cluster healthy:        TRUE 
@@ -464,11 +505,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   |                                                                            
   |                                                                      |   0%
   |                                                                            
-  |===                                                                   |   4%
-#&gt; 23:39:15.484: User specified a validation frame with cross-validation still enabled. Please note that the models will still be validated using cross-validation only, the validation frame will be used to provide purely informative validation metrics on the trained models.
-#&gt; 23:39:15.486: AutoML: XGBoost is not available; skipping it.
+  |====                                                                  |   6%
+#&gt; 17:53:06.702: User specified a validation frame with cross-validation still enabled. Please note that the models will still be validated using cross-validation only, the validation frame will be used to provide purely informative validation metrics on the trained models.
+#&gt; 17:53:06.704: AutoML: XGBoost is not available; skipping it.
   |                                                                            
-  |===========                                                           |  16%
+  |=============                                                         |  18%
   |                                                                            
   |==================                                                    |  26%
   |                                                                            
@@ -476,15 +517,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   |                                                                            
   |======================                                                |  31%
   |                                                                            
-  |==========================================                            |  59%
+  |===========================                                           |  38%
   |                                                                            
-  |===================================================                   |  73%
+  |===========================================                           |  61%
   |                                                                            
-  |========================================================              |  81%
+  |=====================================================                 |  76%
   |                                                                            
-  |===============================================================       |  89%
+  |==========================================================            |  83%
   |                                                                            
-  |====================================================================  |  97%
+  |================================================================      |  92%
   |                                                                            
   |======================================================================| 100%</code></pre>
 </div>
@@ -505,22 +546,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb30-2"><a href="#cb30-2"></a></span>
 <span id="cb30-3"><a href="#cb30-3"></a>automl_models_h2o<span class="sc">@</span>leaderboard</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt;                                                   model_id       auc   logloss
-#&gt; 1    StackedEnsemble_AllModels_2_AutoML_15_20230529_233915 0.8605547 0.3481745
-#&gt; 2 StackedEnsemble_BestOfFamily_3_AutoML_15_20230529_233915 0.8587571 0.3484847
-#&gt; 3    StackedEnsemble_AllModels_1_AutoML_15_20230529_233915 0.8586287 0.3486140
-#&gt; 4 StackedEnsemble_BestOfFamily_2_AutoML_15_20230529_233915 0.8585003 0.3475128
-#&gt; 5                 DeepLearning_1_AutoML_15_20230529_233915 0.8579866 0.4001910
-#&gt; 6    StackedEnsemble_AllModels_4_AutoML_15_20230529_233915 0.8568310 0.3480101
+<pre><code>#&gt;                                                  model_id       auc   logloss
+#&gt; 1    StackedEnsemble_AllModels_1_AutoML_4_20230530_175306 0.8574730 0.3482051
+#&gt; 2 StackedEnsemble_BestOfFamily_2_AutoML_4_20230530_175306 0.8569594 0.3491563
+#&gt; 3 StackedEnsemble_BestOfFamily_3_AutoML_4_20230530_175306 0.8565742 0.3495879
+#&gt; 4    StackedEnsemble_AllModels_4_AutoML_4_20230530_175306 0.8565742 0.3436019
+#&gt; 5    StackedEnsemble_AllModels_3_AutoML_4_20230530_175306 0.8561890 0.3452501
+#&gt; 6    StackedEnsemble_AllModels_2_AutoML_4_20230530_175306 0.8554186 0.3483164
 #&gt;       aucpr mean_per_class_error      rmse       mse
-#&gt; 1 0.7079862            0.2157165 0.3232519 0.1044918
-#&gt; 2 0.7087921            0.2186055 0.3229873 0.1043208
-#&gt; 3 0.7072216            0.2299692 0.3233761 0.1045721
-#&gt; 4 0.7137608            0.2186055 0.3221133 0.1037570
-#&gt; 5 0.6554714            0.2127632 0.3415542 0.1166593
-#&gt; 6 0.7109194            0.2299692 0.3242397 0.1051314
+#&gt; 1 0.7076183            0.2214304 0.3228039 0.1042023
+#&gt; 2 0.7060821            0.2214304 0.3232843 0.1045127
+#&gt; 3 0.7062644            0.2214304 0.3231945 0.1044547
+#&gt; 4 0.7153592            0.2271443 0.3199338 0.1023576
+#&gt; 5 0.7165204            0.2271443 0.3195265 0.1020972
+#&gt; 6 0.7092452            0.2186055 0.3216430 0.1034542
 #&gt; 
-#&gt; [41 rows x 7 columns]</code></pre>
+#&gt; [50 rows x 7 columns]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="do">##                                              model_id       auc   logloss     aucpr mean_per_class_error      rmse        mse</span></span>
 <span id="cb32-2"><a href="#cb32-2"></a><span class="do">## 1 StackedEnsemble_BestOfFamily_AutoML_20200820_190823 0.8585439 0.2992854 0.5869929            0.2406915 0.2978416 0.08870964</span></span>
@@ -538,173 +579,172 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; ==============
 #&gt; 
 #&gt; H2OBinomialModel: stackedensemble
-#&gt; Model ID:  StackedEnsemble_AllModels_2_AutoML_15_20230529_233915 
+#&gt; Model ID:  StackedEnsemble_AllModels_1_AutoML_4_20230530_175306 
 #&gt; Model Summary for Stacked Ensemble: 
-#&gt;                                          key            value
-#&gt; 1                          Stacking strategy cross_validation
-#&gt; 2       Number of base models (used / total)              4/9
-#&gt; 3           # GBM base models (used / total)              2/5
-#&gt; 4  # DeepLearning base models (used / total)              1/1
-#&gt; 5           # GLM base models (used / total)              1/1
-#&gt; 6           # DRF base models (used / total)              0/2
-#&gt; 7                      Metalearner algorithm              GLM
-#&gt; 8         Metalearner fold assignment scheme           Random
-#&gt; 9                         Metalearner nfolds                5
-#&gt; 10                   Metalearner fold_column               NA
-#&gt; 11        Custom metalearner hyperparameters             None
+#&gt;                                     key            value
+#&gt; 1                     Stacking strategy cross_validation
+#&gt; 2  Number of base models (used / total)              4/6
+#&gt; 3      # GBM base models (used / total)              2/4
+#&gt; 4      # GLM base models (used / total)              1/1
+#&gt; 5      # DRF base models (used / total)              1/1
+#&gt; 6                 Metalearner algorithm              GLM
+#&gt; 7    Metalearner fold assignment scheme           Random
+#&gt; 8                    Metalearner nfolds                5
+#&gt; 9               Metalearner fold_column               NA
+#&gt; 10   Custom metalearner hyperparameters             None
 #&gt; 
 #&gt; 
 #&gt; H2OBinomialMetrics: stackedensemble
 #&gt; ** Reported on training data. **
 #&gt; 
-#&gt; MSE:  0.06024413
-#&gt; RMSE:  0.2454468
-#&gt; LogLoss:  0.2215864
-#&gt; Mean Per-Class Error:  0.1486852
-#&gt; AUC:  0.9239859
-#&gt; AUCPR:  0.8242775
-#&gt; Gini:  0.8479719
+#&gt; MSE:  0.0620975
+#&gt; RMSE:  0.2491937
+#&gt; LogLoss:  0.2255987
+#&gt; Mean Per-Class Error:  0.1578871
+#&gt; AUC:  0.9218461
+#&gt; AUCPR:  0.8122936
+#&gt; Gini:  0.8436921
 #&gt; 
 #&gt; Confusion Matrix (vertical: actual; across: predicted) for F1-optimal threshold:
 #&gt;         No Yes    Error      Rate
-#&gt; No     885  24 0.026403   =24/909
-#&gt; Yes     42 113 0.270968   =42/155
-#&gt; Totals 927 137 0.062030  =66/1064
+#&gt; No     880  29 0.031903   =29/909
+#&gt; Yes     44 111 0.283871   =44/155
+#&gt; Totals 924 140 0.068609  =73/1064
 #&gt; 
 #&gt; Maximum Metrics: Maximum metrics at their respective thresholds
 #&gt;                         metric threshold      value idx
-#&gt; 1                       max f1  0.368001   0.773973 112
-#&gt; 2                       max f2  0.195730   0.771028 181
-#&gt; 3                 max f0point5  0.524789   0.821918  76
-#&gt; 4                 max accuracy  0.368001   0.937970 112
-#&gt; 5                max precision  0.963874   1.000000   0
-#&gt; 6                   max recall  0.003894   1.000000 393
-#&gt; 7              max specificity  0.963874   1.000000   0
-#&gt; 8             max absolute_mcc  0.368001   0.740072 112
-#&gt; 9   max min_per_class_accuracy  0.187906   0.858065 188
-#&gt; 10 max mean_per_class_accuracy  0.195730   0.868601 181
-#&gt; 11                     max tns  0.963874 909.000000   0
-#&gt; 12                     max fns  0.963874 154.000000   0
-#&gt; 13                     max fps  0.000677 909.000000 399
-#&gt; 14                     max tps  0.003894 155.000000 393
-#&gt; 15                     max tnr  0.963874   1.000000   0
-#&gt; 16                     max fnr  0.963874   0.993548   0
-#&gt; 17                     max fpr  0.000677   1.000000 399
-#&gt; 18                     max tpr  0.003894   1.000000 393
+#&gt; 1                       max f1  0.353001   0.752542 115
+#&gt; 2                       max f2  0.242106   0.763126 159
+#&gt; 3                 max f0point5  0.519851   0.808679  73
+#&gt; 4                 max accuracy  0.387133   0.931391 102
+#&gt; 5                max precision  0.967632   1.000000   0
+#&gt; 6                   max recall  0.003391   1.000000 393
+#&gt; 7              max specificity  0.967632   1.000000   0
+#&gt; 8             max absolute_mcc  0.353001   0.714081 115
+#&gt; 9   max min_per_class_accuracy  0.178193   0.856986 196
+#&gt; 10 max mean_per_class_accuracy  0.242106   0.862522 159
+#&gt; 11                     max tns  0.967632 909.000000   0
+#&gt; 12                     max fns  0.967632 154.000000   0
+#&gt; 13                     max fps  0.000447 909.000000 399
+#&gt; 14                     max tps  0.003391 155.000000 393
+#&gt; 15                     max tnr  0.967632   1.000000   0
+#&gt; 16                     max fnr  0.967632   0.993548   0
+#&gt; 17                     max fpr  0.000447   1.000000 399
+#&gt; 18                     max tpr  0.003391   1.000000 393
 #&gt; 
 #&gt; Gains/Lift Table: Extract with `h2o.gainsLift(&lt;model&gt;, &lt;data&gt;)` or `h2o.gainsLift(&lt;model&gt;, valid=&lt;T/F&gt;, xval=&lt;T/F&gt;)`
 #&gt; H2OBinomialMetrics: stackedensemble
 #&gt; ** Reported on validation data. **
 #&gt; 
-#&gt; MSE:  0.1026589
-#&gt; RMSE:  0.3204043
-#&gt; LogLoss:  0.337762
-#&gt; Mean Per-Class Error:  0.2021124
+#&gt; MSE:  0.1017265
+#&gt; RMSE:  0.318946
+#&gt; LogLoss:  0.3364264
+#&gt; Mean Per-Class Error:  0.1889545
 #&gt; AUC:  0.868063
-#&gt; AUCPR:  0.7214617
+#&gt; AUCPR:  0.7321009
 #&gt; Gini:  0.736126
 #&gt; 
 #&gt; Confusion Matrix (vertical: actual; across: predicted) for F1-optimal threshold:
 #&gt;         No Yes    Error     Rate
 #&gt; No     134  13 0.088435  =13/147
-#&gt; Yes     12  26 0.315789   =12/38
-#&gt; Totals 146  39 0.135135  =25/185
+#&gt; Yes     11  27 0.289474   =11/38
+#&gt; Totals 145  40 0.129730  =24/185
 #&gt; 
 #&gt; Maximum Metrics: Maximum metrics at their respective thresholds
 #&gt;                         metric threshold      value idx
-#&gt; 1                       max f1  0.309134   0.675325  38
-#&gt; 2                       max f2  0.085045   0.711382  93
-#&gt; 3                 max f0point5  0.466512   0.730769  22
-#&gt; 4                 max accuracy  0.466512   0.875676  22
-#&gt; 5                max precision  0.922758   1.000000   0
-#&gt; 6                   max recall  0.018222   1.000000 143
-#&gt; 7              max specificity  0.922758   1.000000   0
-#&gt; 8             max absolute_mcc  0.309134   0.590098  38
-#&gt; 9   max min_per_class_accuracy  0.210641   0.763158  55
-#&gt; 10 max mean_per_class_accuracy  0.269215   0.807197  45
-#&gt; 11                     max tns  0.922758 147.000000   0
-#&gt; 12                     max fns  0.922758  37.000000   0
-#&gt; 13                     max fps  0.001346 147.000000 184
-#&gt; 14                     max tps  0.018222  38.000000 143
-#&gt; 15                     max tnr  0.922758   1.000000   0
-#&gt; 16                     max fnr  0.922758   0.973684   0
-#&gt; 17                     max fpr  0.001346   1.000000 184
-#&gt; 18                     max tpr  0.018222   1.000000 143
+#&gt; 1                       max f1  0.308396   0.692308  39
+#&gt; 2                       max f2  0.266558   0.710660  44
+#&gt; 3                 max f0point5  0.550770   0.722222  12
+#&gt; 4                 max accuracy  0.365597   0.875676  32
+#&gt; 5                max precision  0.917635   1.000000   0
+#&gt; 6                   max recall  0.017752   1.000000 143
+#&gt; 7              max specificity  0.917635   1.000000   0
+#&gt; 8             max absolute_mcc  0.308396   0.610507  39
+#&gt; 9   max min_per_class_accuracy  0.164495   0.768707  63
+#&gt; 10 max mean_per_class_accuracy  0.308396   0.811045  39
+#&gt; 11                     max tns  0.917635 147.000000   0
+#&gt; 12                     max fns  0.917635  37.000000   0
+#&gt; 13                     max fps  0.001166 147.000000 184
+#&gt; 14                     max tps  0.017752  38.000000 143
+#&gt; 15                     max tnr  0.917635   1.000000   0
+#&gt; 16                     max fnr  0.917635   0.973684   0
+#&gt; 17                     max fpr  0.001166   1.000000 184
+#&gt; 18                     max tpr  0.017752   1.000000 143
 #&gt; 
 #&gt; Gains/Lift Table: Extract with `h2o.gainsLift(&lt;model&gt;, &lt;data&gt;)` or `h2o.gainsLift(&lt;model&gt;, valid=&lt;T/F&gt;, xval=&lt;T/F&gt;)`
 #&gt; H2OBinomialMetrics: stackedensemble
 #&gt; ** Reported on cross-validation data. **
 #&gt; ** 5-fold cross-validation on training data (Metrics computed for combined holdout predictions) **
 #&gt; 
-#&gt; MSE:  0.08570036
-#&gt; RMSE:  0.2927462
-#&gt; LogLoss:  0.3022053
-#&gt; Mean Per-Class Error:  0.2207992
-#&gt; AUC:  0.8386174
-#&gt; AUCPR:  0.6068139
-#&gt; Gini:  0.6772348
+#&gt; MSE:  0.08468585
+#&gt; RMSE:  0.2910083
+#&gt; LogLoss:  0.2992377
+#&gt; Mean Per-Class Error:  0.2122964
+#&gt; AUC:  0.8447816
+#&gt; AUCPR:  0.6152021
+#&gt; Gini:  0.6895631
 #&gt; 
 #&gt; Confusion Matrix (vertical: actual; across: predicted) for F1-optimal threshold:
 #&gt;         No Yes    Error       Rate
-#&gt; No     836  73 0.080308    =73/909
-#&gt; Yes     56  99 0.361290    =56/155
-#&gt; Totals 892 172 0.121241  =129/1064
+#&gt; No     828  81 0.089109    =81/909
+#&gt; Yes     52 103 0.335484    =52/155
+#&gt; Totals 880 184 0.125000  =133/1064
 #&gt; 
 #&gt; Maximum Metrics: Maximum metrics at their respective thresholds
 #&gt;                         metric threshold      value idx
-#&gt; 1                       max f1  0.280567   0.605505 128
-#&gt; 2                       max f2  0.216855   0.641932 168
-#&gt; 3                 max f0point5  0.444884   0.645472  74
-#&gt; 4                 max accuracy  0.444884   0.894737  74
-#&gt; 5                max precision  0.976569   1.000000   0
-#&gt; 6                   max recall  0.000714   1.000000 399
-#&gt; 7              max specificity  0.976569   1.000000   0
-#&gt; 8             max absolute_mcc  0.280567   0.535116 128
-#&gt; 9   max min_per_class_accuracy  0.148148   0.762376 221
-#&gt; 10 max mean_per_class_accuracy  0.251836   0.786454 146
-#&gt; 11                     max tns  0.976569 909.000000   0
-#&gt; 12                     max fns  0.976569 154.000000   0
-#&gt; 13                     max fps  0.000714 909.000000 399
-#&gt; 14                     max tps  0.000714 155.000000 399
-#&gt; 15                     max tnr  0.976569   1.000000   0
-#&gt; 16                     max fnr  0.976569   0.993548   0
-#&gt; 17                     max fpr  0.000714   1.000000 399
-#&gt; 18                     max tpr  0.000714   1.000000 399
+#&gt; 1                       max f1  0.274891   0.607670 139
+#&gt; 2                       max f2  0.154975   0.648734 217
+#&gt; 3                 max f0point5  0.449960   0.660750  78
+#&gt; 4                 max accuracy  0.449960   0.897556  78
+#&gt; 5                max precision  0.968271   1.000000   0
+#&gt; 6                   max recall  0.000510   1.000000 399
+#&gt; 7              max specificity  0.968271   1.000000   0
+#&gt; 8             max absolute_mcc  0.365036   0.544338 100
+#&gt; 9   max min_per_class_accuracy  0.155537   0.777778 216
+#&gt; 10 max mean_per_class_accuracy  0.240984   0.790706 155
+#&gt; 11                     max tns  0.968271 909.000000   0
+#&gt; 12                     max fns  0.968271 154.000000   0
+#&gt; 13                     max fps  0.000510 909.000000 399
+#&gt; 14                     max tps  0.000510 155.000000 399
+#&gt; 15                     max tnr  0.968271   1.000000   0
+#&gt; 16                     max fnr  0.968271   0.993548   0
+#&gt; 17                     max fpr  0.000510   1.000000 399
+#&gt; 18                     max tpr  0.000510   1.000000 399
 #&gt; 
 #&gt; Gains/Lift Table: Extract with `h2o.gainsLift(&lt;model&gt;, &lt;data&gt;)` or `h2o.gainsLift(&lt;model&gt;, valid=&lt;T/F&gt;, xval=&lt;T/F&gt;)`
 #&gt; Cross-Validation Metrics Summary: 
 #&gt;                mean       sd cv_1_valid cv_2_valid cv_3_valid cv_4_valid
-#&gt; accuracy   0.890235 0.017451   0.906250   0.878641   0.903553   0.865672
-#&gt; auc        0.839251 0.047879   0.864383   0.886674   0.763118   0.825444
-#&gt; err        0.109765 0.017451   0.093750   0.121359   0.096447   0.134328
-#&gt; err_count 23.200000 3.193744  24.000000  25.000000  19.000000  27.000000
-#&gt; f0point5   0.620379 0.046527   0.654450   0.612245   0.569620   0.585106
+#&gt; accuracy   0.895105 0.034732   0.842105   0.921296   0.882076   0.928571
+#&gt; auc        0.840098 0.030077   0.787174   0.855108   0.846181   0.851078
+#&gt; err        0.104895 0.034732   0.157895   0.078704   0.117925   0.071429
+#&gt; err_count 22.200000 6.978538  33.000000  17.000000  25.000000  16.000000
+#&gt; f0point5   0.662895 0.156424   0.414201   0.809524   0.611111   0.741935
 #&gt;           cv_5_valid
-#&gt; accuracy    0.897059
-#&gt; auc         0.856637
-#&gt; err         0.102941
-#&gt; err_count  21.000000
-#&gt; f0point5    0.680473
+#&gt; accuracy    0.901478
+#&gt; auc         0.860947
+#&gt; err         0.098522
+#&gt; err_count  20.000000
+#&gt; f0point5    0.737705
 #&gt; 
 #&gt; ---
 #&gt;                         mean       sd cv_1_valid cv_2_valid cv_3_valid
-#&gt; precision           0.621964 0.045984   0.641026   0.585366   0.642857
-#&gt; r2                  0.307887 0.090820   0.396970   0.337645   0.155844
-#&gt; recall              0.648012 0.145472   0.714286   0.750000   0.391304
-#&gt; residual_deviance 126.478010 7.750070 133.435870 118.383880 120.364044
-#&gt; rmse                0.291983 0.014596   0.266784   0.294800   0.295042
-#&gt; specificity         0.929059 0.029487   0.936652   0.902299   0.971264
+#&gt; precision           0.697609 0.214097   0.388889   0.944444   0.594595
+#&gt; r2                  0.318770 0.105280   0.140357   0.394150   0.315774
+#&gt; recall              0.606800 0.101677   0.560000   0.515151   0.687500
+#&gt; residual_deviance 126.657910 3.390132 128.250370 120.907560 129.491000
+#&gt; rmse                0.289405 0.014657   0.300879   0.280034   0.296125
+#&gt; specificity         0.945303 0.046341   0.880435   0.994536   0.916667
 #&gt;                   cv_4_valid cv_5_valid
-#&gt; precision           0.564103   0.676471
-#&gt; r2                  0.308618   0.340356
-#&gt; recall              0.687500   0.696970
-#&gt; residual_deviance 135.700620 124.505620
-#&gt; rmse                0.304215   0.299075
-#&gt; specificity         0.899408   0.935673</code></pre>
+#&gt; precision           0.741935   0.818182
+#&gt; r2                  0.396203   0.347366
+#&gt; recall              0.741935   0.529412
+#&gt; residual_deviance 128.176350 126.464290
+#&gt; rmse                0.268322   0.301663
+#&gt; specificity         0.958549   0.976331</code></pre>
 </div>
 </div>
-</section><section id="depending-on-the-algorithm-the-output-will-be-different" class="level1" data-number="2"><h1 data-number="2">
-<span class="header-section-number">2</span> Depending on the algorithm, the output will be different</h1>
+</section><section id="depending-on-the-algorithm-the-output-will-be-different" class="level1" data-number="3"><h1 data-number="3">
+<span class="header-section-number">3</span> Depending on the algorithm, the output will be different</h1>
 <div class="cell" data-hash="Challenge5_cache/html/unnamed-chunk-6_1d6bbf48577ba166bb8556e839dfe462">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="co"># Extracts and H2O model name by a position so can more easily use h2o.getModel()</span></span>
 <span id="cb34-2"><a href="#cb34-2"></a><span class="fu">source</span>(<span class="st">"extract_h2o_model_name_by_position.R"</span>)</span>
@@ -718,22 +758,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; ℹ The signature and semantics have changed, see `?as_tibble`.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>#&gt; StackedEnsemble_AllModels_4_AutoML_15_20230529_233915</code></pre>
+<pre><code>#&gt; StackedEnsemble_AllModels_2_AutoML_4_20230530_175306</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; Model Details:
 #&gt; ==============
 #&gt; 
 #&gt; H2OBinomialModel: stackedensemble
-#&gt; Model ID:  StackedEnsemble_AllModels_4_AutoML_15_20230529_233915 
+#&gt; Model ID:  StackedEnsemble_AllModels_2_AutoML_4_20230530_175306 
 #&gt; Model Summary for Stacked Ensemble: 
 #&gt;                                          key            value
 #&gt; 1                          Stacking strategy cross_validation
-#&gt; 2       Number of base models (used / total)             6/33
-#&gt; 3           # GBM base models (used / total)             2/19
-#&gt; 4  # DeepLearning base models (used / total)             3/11
-#&gt; 5           # GLM base models (used / total)              1/1
-#&gt; 6           # DRF base models (used / total)              0/2
+#&gt; 2       Number of base models (used / total)              4/9
+#&gt; 3           # GBM base models (used / total)              2/5
+#&gt; 4           # GLM base models (used / total)              1/1
+#&gt; 5  # DeepLearning base models (used / total)              0/1
+#&gt; 6           # DRF base models (used / total)              1/2
 #&gt; 7                      Metalearner algorithm              GLM
 #&gt; 8         Metalearner fold assignment scheme           Random
 #&gt; 9                         Metalearner nfolds                5
@@ -744,150 +784,150 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; H2OBinomialMetrics: stackedensemble
 #&gt; ** Reported on training data. **
 #&gt; 
-#&gt; MSE:  0.0582135
-#&gt; RMSE:  0.2412747
-#&gt; LogLoss:  0.2185467
-#&gt; Mean Per-Class Error:  0.1373576
-#&gt; AUC:  0.9351077
-#&gt; AUCPR:  0.8476703
-#&gt; Gini:  0.8702154
+#&gt; MSE:  0.05444193
+#&gt; RMSE:  0.2333279
+#&gt; LogLoss:  0.2038207
+#&gt; Mean Per-Class Error:  0.1438092
+#&gt; AUC:  0.9369034
+#&gt; AUCPR:  0.854152
+#&gt; Gini:  0.8738067
 #&gt; 
 #&gt; Confusion Matrix (vertical: actual; across: predicted) for F1-optimal threshold:
 #&gt;         No Yes    Error      Rate
 #&gt; No     888  21 0.023102   =21/909
-#&gt; Yes     39 116 0.251613   =39/155
-#&gt; Totals 927 137 0.056391  =60/1064
+#&gt; Yes     41 114 0.264516   =41/155
+#&gt; Totals 929 135 0.058271  =62/1064
 #&gt; 
 #&gt; Maximum Metrics: Maximum metrics at their respective thresholds
 #&gt;                         metric threshold      value idx
-#&gt; 1                       max f1  0.367257   0.794521 110
-#&gt; 2                       max f2  0.243830   0.792978 159
-#&gt; 3                 max f0point5  0.457164   0.842881  92
-#&gt; 4                 max accuracy  0.399641   0.943609 104
-#&gt; 5                max precision  0.947358   1.000000   0
-#&gt; 6                   max recall  0.007983   1.000000 391
-#&gt; 7              max specificity  0.947358   1.000000   0
-#&gt; 8             max absolute_mcc  0.367257   0.763935 110
-#&gt; 9   max min_per_class_accuracy  0.204079   0.870968 178
-#&gt; 10 max mean_per_class_accuracy  0.243830   0.881327 159
-#&gt; 11                     max tns  0.947358 909.000000   0
-#&gt; 12                     max fns  0.947358 154.000000   0
-#&gt; 13                     max fps  0.001938 909.000000 399
-#&gt; 14                     max tps  0.007983 155.000000 391
-#&gt; 15                     max tnr  0.947358   1.000000   0
-#&gt; 16                     max fnr  0.947358   0.993548   0
-#&gt; 17                     max fpr  0.001938   1.000000 399
-#&gt; 18                     max tpr  0.007983   1.000000 391
+#&gt; 1                       max f1  0.388690   0.786207 112
+#&gt; 2                       max f2  0.206942   0.801663 176
+#&gt; 3                 max f0point5  0.555816   0.860421  76
+#&gt; 4                 max accuracy  0.388690   0.941729 112
+#&gt; 5                max precision  0.977387   1.000000   0
+#&gt; 6                   max recall  0.004344   1.000000 391
+#&gt; 7              max specificity  0.977387   1.000000   0
+#&gt; 8             max absolute_mcc  0.388690   0.755067 112
+#&gt; 9   max min_per_class_accuracy  0.206942   0.870968 176
+#&gt; 10 max mean_per_class_accuracy  0.206942   0.887629 176
+#&gt; 11                     max tns  0.977387 909.000000   0
+#&gt; 12                     max fns  0.977387 154.000000   0
+#&gt; 13                     max fps  0.000412 909.000000 399
+#&gt; 14                     max tps  0.004344 155.000000 391
+#&gt; 15                     max tnr  0.977387   1.000000   0
+#&gt; 16                     max fnr  0.977387   0.993548   0
+#&gt; 17                     max fpr  0.000412   1.000000 399
+#&gt; 18                     max tpr  0.004344   1.000000 391
 #&gt; 
 #&gt; Gains/Lift Table: Extract with `h2o.gainsLift(&lt;model&gt;, &lt;data&gt;)` or `h2o.gainsLift(&lt;model&gt;, valid=&lt;T/F&gt;, xval=&lt;T/F&gt;)`
 #&gt; H2OBinomialMetrics: stackedensemble
 #&gt; ** Reported on validation data. **
 #&gt; 
-#&gt; MSE:  0.1044466
-#&gt; RMSE:  0.323182
-#&gt; LogLoss:  0.3403339
-#&gt; Mean Per-Class Error:  0.1957573
-#&gt; AUC:  0.8651987
-#&gt; AUCPR:  0.7025287
-#&gt; Gini:  0.7303974
+#&gt; MSE:  0.101423
+#&gt; RMSE:  0.3184697
+#&gt; LogLoss:  0.3361411
+#&gt; Mean Per-Class Error:  0.2084676
+#&gt; AUC:  0.8664518
+#&gt; AUCPR:  0.7293267
+#&gt; Gini:  0.7329037
 #&gt; 
 #&gt; Confusion Matrix (vertical: actual; across: predicted) for F1-optimal threshold:
 #&gt;         No Yes    Error     Rate
-#&gt; No     132  15 0.102041  =15/147
-#&gt; Yes     11  27 0.289474   =11/38
-#&gt; Totals 143  42 0.140541  =26/185
+#&gt; No     136  11 0.074830  =11/147
+#&gt; Yes     13  25 0.342105   =13/38
+#&gt; Totals 149  36 0.129730  =24/185
 #&gt; 
 #&gt; Maximum Metrics: Maximum metrics at their respective thresholds
 #&gt;                         metric threshold      value idx
-#&gt; 1                       max f1  0.327030   0.675000  41
-#&gt; 2                       max f2  0.110496   0.717213  91
-#&gt; 3                 max f0point5  0.422383   0.692771  31
-#&gt; 4                 max accuracy  0.422383   0.870270  31
-#&gt; 5                max precision  0.923496   1.000000   0
-#&gt; 6                   max recall  0.026681   1.000000 145
-#&gt; 7              max specificity  0.923496   1.000000   0
-#&gt; 8             max absolute_mcc  0.327030   0.586824  41
-#&gt; 9   max min_per_class_accuracy  0.194298   0.789474  59
-#&gt; 10 max mean_per_class_accuracy  0.327030   0.804243  41
-#&gt; 11                     max tns  0.923496 147.000000   0
-#&gt; 12                     max fns  0.923496  37.000000   0
-#&gt; 13                     max fps  0.003865 147.000000 184
-#&gt; 14                     max tps  0.026681  38.000000 145
-#&gt; 15                     max tnr  0.923496   1.000000   0
-#&gt; 16                     max fnr  0.923496   0.973684   0
-#&gt; 17                     max fpr  0.003865   1.000000 184
-#&gt; 18                     max tpr  0.026681   1.000000 145
+#&gt; 1                       max f1  0.361253   0.675676  35
+#&gt; 2                       max f2  0.271261   0.707071  45
+#&gt; 3                 max f0point5  0.531404   0.727273  17
+#&gt; 4                 max accuracy  0.531404   0.870270  17
+#&gt; 5                max precision  0.941818   1.000000   0
+#&gt; 6                   max recall  0.017598   1.000000 142
+#&gt; 7              max specificity  0.941818   1.000000   0
+#&gt; 8             max absolute_mcc  0.361253   0.595008  35
+#&gt; 9   max min_per_class_accuracy  0.205478   0.763158  54
+#&gt; 10 max mean_per_class_accuracy  0.271261   0.807197  45
+#&gt; 11                     max tns  0.941818 147.000000   0
+#&gt; 12                     max fns  0.941818  37.000000   0
+#&gt; 13                     max fps  0.001037 147.000000 184
+#&gt; 14                     max tps  0.017598  38.000000 142
+#&gt; 15                     max tnr  0.941818   1.000000   0
+#&gt; 16                     max fnr  0.941818   0.973684   0
+#&gt; 17                     max fpr  0.001037   1.000000 184
+#&gt; 18                     max tpr  0.017598   1.000000 142
 #&gt; 
 #&gt; Gains/Lift Table: Extract with `h2o.gainsLift(&lt;model&gt;, &lt;data&gt;)` or `h2o.gainsLift(&lt;model&gt;, valid=&lt;T/F&gt;, xval=&lt;T/F&gt;)`
 #&gt; H2OBinomialMetrics: stackedensemble
 #&gt; ** Reported on cross-validation data. **
 #&gt; ** 5-fold cross-validation on training data (Metrics computed for combined holdout predictions) **
 #&gt; 
-#&gt; MSE:  0.08574982
-#&gt; RMSE:  0.2928307
-#&gt; LogLoss:  0.3014429
-#&gt; Mean Per-Class Error:  0.2300011
-#&gt; AUC:  0.8349729
-#&gt; AUCPR:  0.5959933
-#&gt; Gini:  0.6699457
+#&gt; MSE:  0.08422753
+#&gt; RMSE:  0.2902198
+#&gt; LogLoss:  0.3010319
+#&gt; Mean Per-Class Error:  0.2219738
+#&gt; AUC:  0.8393591
+#&gt; AUCPR:  0.6183627
+#&gt; Gini:  0.6787182
 #&gt; 
 #&gt; Confusion Matrix (vertical: actual; across: predicted) for F1-optimal threshold:
 #&gt;         No Yes    Error       Rate
-#&gt; No     831  78 0.085809    =78/909
-#&gt; Yes     58  97 0.374194    =58/155
-#&gt; Totals 889 175 0.127820  =136/1064
+#&gt; No     828  81 0.089109    =81/909
+#&gt; Yes     55 100 0.354839    =55/155
+#&gt; Totals 883 181 0.127820  =136/1064
 #&gt; 
 #&gt; Maximum Metrics: Maximum metrics at their respective thresholds
 #&gt;                         metric threshold      value idx
-#&gt; 1                       max f1  0.279874   0.587879 136
-#&gt; 2                       max f2  0.154723   0.644637 206
-#&gt; 3                 max f0point5  0.433595   0.654206  81
-#&gt; 4                 max accuracy  0.433595   0.896617  81
-#&gt; 5                max precision  0.979165   1.000000   0
-#&gt; 6                   max recall  0.000745   1.000000 399
-#&gt; 7              max specificity  0.979165   1.000000   0
-#&gt; 8             max absolute_mcc  0.375114   0.534111  98
-#&gt; 9   max min_per_class_accuracy  0.142348   0.774194 214
-#&gt; 10 max mean_per_class_accuracy  0.154723   0.782661 206
-#&gt; 11                     max tns  0.979165 909.000000   0
-#&gt; 12                     max fns  0.979165 154.000000   0
-#&gt; 13                     max fps  0.000745 909.000000 399
-#&gt; 14                     max tps  0.000745 155.000000 399
-#&gt; 15                     max tnr  0.979165   1.000000   0
-#&gt; 16                     max fnr  0.979165   0.993548   0
-#&gt; 17                     max fpr  0.000745   1.000000 399
-#&gt; 18                     max tpr  0.000745   1.000000 399
+#&gt; 1                       max f1  0.281517   0.595238 142
+#&gt; 2                       max f2  0.213578   0.644028 178
+#&gt; 3                 max f0point5  0.427354   0.666075  89
+#&gt; 4                 max accuracy  0.427354   0.899436  89
+#&gt; 5                max precision  0.968182   1.000000   0
+#&gt; 6                   max recall  0.000397   1.000000 399
+#&gt; 7              max specificity  0.968182   1.000000   0
+#&gt; 8             max absolute_mcc  0.427354   0.544223  89
+#&gt; 9   max min_per_class_accuracy  0.147386   0.771177 220
+#&gt; 10 max mean_per_class_accuracy  0.213578   0.786632 178
+#&gt; 11                     max tns  0.968182 909.000000   0
+#&gt; 12                     max fns  0.968182 154.000000   0
+#&gt; 13                     max fps  0.000397 909.000000 399
+#&gt; 14                     max tps  0.000397 155.000000 399
+#&gt; 15                     max tnr  0.968182   1.000000   0
+#&gt; 16                     max fnr  0.968182   0.993548   0
+#&gt; 17                     max fpr  0.000397   1.000000 399
+#&gt; 18                     max tpr  0.000397   1.000000 399
 #&gt; 
 #&gt; Gains/Lift Table: Extract with `h2o.gainsLift(&lt;model&gt;, &lt;data&gt;)` or `h2o.gainsLift(&lt;model&gt;, valid=&lt;T/F&gt;, xval=&lt;T/F&gt;)`
 #&gt; Cross-Validation Metrics Summary: 
 #&gt;                mean       sd cv_1_valid cv_2_valid cv_3_valid cv_4_valid
-#&gt; accuracy   0.894713 0.015420   0.889447   0.872807   0.909910   0.892308
-#&gt; auc        0.844033 0.020898   0.848333   0.814723   0.846647   0.837742
-#&gt; err        0.105287 0.015420   0.110553   0.127193   0.090090   0.107692
-#&gt; err_count 22.400000 3.781534  22.000000  29.000000  20.000000  21.000000
-#&gt; f0point5   0.636710 0.060318   0.541667   0.673077   0.691057   0.614035
+#&gt; accuracy   0.898315 0.019824   0.884956   0.870536   0.910891   0.907317
+#&gt; auc        0.845844 0.037528   0.899917   0.806759   0.813953   0.850975
+#&gt; err        0.101685 0.019824   0.115044   0.129464   0.089109   0.092683
+#&gt; err_count 21.800000 5.357238  26.000000  29.000000  18.000000  19.000000
+#&gt; f0point5   0.665928 0.080401   0.586592   0.569948   0.720339   0.732759
 #&gt;           cv_5_valid
-#&gt; accuracy    0.909091
-#&gt; auc         0.872721
-#&gt; err         0.090909
-#&gt; err_count  20.000000
-#&gt; f0point5    0.663717
+#&gt; accuracy    0.917874
+#&gt; auc         0.857613
+#&gt; err         0.082126
+#&gt; err_count  17.000000
+#&gt; f0point5    0.720000
 #&gt; 
 #&gt; ---
 #&gt;                         mean        sd cv_1_valid cv_2_valid cv_3_valid
-#&gt; precision           0.652269  0.085609   0.541667   0.682927   0.739130
-#&gt; r2                  0.304237  0.036332   0.254688   0.320242   0.348783
-#&gt; recall              0.604287  0.106947   0.541667   0.636364   0.548387
-#&gt; residual_deviance 127.512220 24.395355 109.023155 170.186690 123.072450
-#&gt; rmse                0.291757  0.019534   0.281152   0.325370   0.279710
-#&gt; specificity         0.942876  0.025359   0.937143   0.929348   0.968586
+#&gt; precision           0.689964  0.121778   0.567568   0.550000   0.772727
+#&gt; r2                  0.319297  0.041594   0.326708   0.249819   0.319504
+#&gt; recall              0.612538  0.063083   0.677419   0.666667   0.566667
+#&gt; residual_deviance 126.525055 12.479700 118.039680 146.852690 126.323135
+#&gt; rmse                0.290975  0.010337   0.282287   0.306979   0.293350
+#&gt; specificity         0.947562  0.033094   0.917949   0.905759   0.970930
 #&gt;                   cv_4_valid cv_5_valid
-#&gt; precision           0.583333   0.714286
-#&gt; r2                  0.282550   0.314924
-#&gt; recall              0.777778   0.517241
-#&gt; residual_deviance 118.847946 116.430870
-#&gt; rmse                0.292548   0.280003
-#&gt; specificity         0.910714   0.968586</code></pre>
+#&gt; precision           0.809524   0.750000
+#&gt; r2                  0.358132   0.342320
+#&gt; recall              0.531250   0.620690
+#&gt; residual_deviance 126.619576 114.790180
+#&gt; rmse                0.290782   0.281479
+#&gt; specificity         0.976879   0.966292</code></pre>
 </div>
 </div>
 <div class="cell" data-hash="Challenge5_cache/html/unnamed-chunk-7_026866f182fd7b408bfa8e57969a817c">
@@ -1367,8 +1407,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; [1] "Attrition"</code></pre>
 </div>
 </div>
-</section><section id="visualize-the-h2o-leaderboard-to-help-with-model-selection" class="level1" data-number="3"><h1 data-number="3">
-<span class="header-section-number">3</span> Visualize the H2O leaderboard to help with model selection</h1>
+</section><section id="visualize-the-h2o-leaderboard-to-help-with-model-selection" class="level1" data-number="4"><h1 data-number="4">
+<span class="header-section-number">4</span> Visualize the H2O leaderboard to help with model selection</h1>
 <div class="cell" data-hash="Challenge5_cache/html/unnamed-chunk-9_0db010af0f508a743572016e35c55ed2">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a>data_transformed_tbl <span class="ot">&lt;-</span> automl_models_h2o<span class="sc">@</span>leaderboard <span class="sc">%&gt;%</span></span>
 <span id="cb49-2"><a href="#cb49-2"></a>        <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span></span>
@@ -1389,7 +1429,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb49-17"><a href="#cb49-17"></a>                       ) <span class="sc">%&gt;%</span> </span>
 <span id="cb49-18"><a href="#cb49-18"></a>        <span class="fu">mutate</span>(<span class="at">model_id =</span> <span class="fu">paste0</span>(rowname, <span class="st">". "</span>, model_id) <span class="sc">%&gt;%</span> <span class="fu">as_factor</span>() <span class="sc">%&gt;%</span> <span class="fu">fct_rev</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>#Plot Data</p>
+</section><section id="plot-data" class="level1" data-number="5"><h1 data-number="5">
+<span class="header-section-number">5</span> Plot Data</h1>
 <div class="cell" data-hash="Challenge5_cache/html/unnamed-chunk-10_2f435f0fbc4f37529877c5f0b0dbfbde">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a>data_transformed_tbl <span class="sc">%&gt;%</span></span>
 <span id="cb50-2"><a href="#cb50-2"></a>        <span class="fu">ggplot</span>(<span class="fu">aes</span>(value, model_id, <span class="at">color =</span> model_type)) <span class="sc">+</span></span>
@@ -1420,7 +1461,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<p>#Grid Search</p>
+</section><section id="grid-search" class="level1" data-number="6"><h1 data-number="6">
+<span class="header-section-number">6</span> Grid Search</h1>
 <div class="cell" data-hash="Challenge5_cache/html/unnamed-chunk-12_fa409672c77473acde95d7c5b694460f">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a>deeplearning_h2o <span class="ot">&lt;-</span> <span class="fu">h2o.loadModel</span>(<span class="st">"DeepLearning_grid_1_AutoML_2_20230525_211824_model_3"</span>)</span>
 <span id="cb52-2"><a href="#cb52-2"></a></span>
@@ -1711,25 +1753,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; Used hyper parameters: 
 #&gt;   -  epochs 
 #&gt;   -  hidden 
-#&gt; Number of models: 45 
+#&gt; Number of models: 36 
 #&gt; Number of failed models: 0 
 #&gt; 
 #&gt; Hyper-Parameter Search Summary: ordered by increasing logloss
-#&gt;     epochs       hidden                     model_ids logloss
-#&gt; 1 10.37119 [10, 10, 10] deeplearning_grid_01_model_37 0.32595
-#&gt; 2 10.37999 [10, 10, 10] deeplearning_grid_01_model_28 0.32828
-#&gt; 3 10.39210 [10, 10, 10]  deeplearning_grid_01_model_1 0.33347
-#&gt; 4 10.39405 [10, 10, 10] deeplearning_grid_01_model_19 0.33506
-#&gt; 5 10.37904 [20, 20, 20] deeplearning_grid_01_model_16 0.33641
+#&gt;      epochs       hidden                     model_ids logloss
+#&gt; 1 101.38806 [10, 10, 10] deeplearning_grid_01_model_21 0.24401
+#&gt; 2 101.42416 [20, 20, 20] deeplearning_grid_01_model_27 0.25220
+#&gt; 3  52.01883 [20, 20, 20] deeplearning_grid_01_model_26 0.25380
+#&gt; 4 101.39731 [50, 20, 10] deeplearning_grid_01_model_24 0.25976
+#&gt; 5  51.99626 [50, 20, 10] deeplearning_grid_01_model_23 0.26168
 #&gt; 
 #&gt; ---
 #&gt;       epochs       hidden                     model_ids logloss
-#&gt; 40 104.03264 [50, 20, 10] deeplearning_grid_01_model_15 0.43373
-#&gt; 41 104.01025 [20, 20, 20] deeplearning_grid_01_model_36 0.43472
-#&gt; 42  52.74954 [50, 20, 10] deeplearning_grid_01_model_23 0.44610
-#&gt; 43 104.04631 [50, 20, 10] deeplearning_grid_01_model_42 0.47673
-#&gt; 44 103.95748 [50, 20, 10] deeplearning_grid_01_model_24 0.48374
-#&gt; 45 103.95512 [50, 20, 10]  deeplearning_grid_01_model_6 0.50556</code></pre>
+#&gt; 31  52.03909 [20, 20, 20] deeplearning_grid_01_model_35 0.40105
+#&gt; 32  10.42099 [50, 20, 10] deeplearning_grid_01_model_13 0.40287
+#&gt; 33 104.05887 [50, 20, 10] deeplearning_grid_01_model_15 0.42832
+#&gt; 34 104.06317 [20, 20, 20] deeplearning_grid_01_model_18 0.43517
+#&gt; 35 103.95825 [50, 20, 10]  deeplearning_grid_01_model_6 0.45414
+#&gt; 36 103.98630 [50, 20, 10] deeplearning_grid_01_model_33 0.46758</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1"></a><span class="fu">h2o.getGrid</span>(<span class="at">grid_id =</span> <span class="st">"deeplearning_grid_01"</span>, <span class="at">sort_by =</span> <span class="st">"auc"</span>, <span class="at">decreasing =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1740,36 +1782,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; Used hyper parameters: 
 #&gt;   -  epochs 
 #&gt;   -  hidden 
-#&gt; Number of models: 45 
+#&gt; Number of models: 36 
 #&gt; Number of failed models: 0 
 #&gt; 
 #&gt; Hyper-Parameter Search Summary: ordered by decreasing auc
 #&gt;      epochs       hidden                     model_ids     auc
-#&gt; 1  10.37904 [20, 20, 20] deeplearning_grid_01_model_16 0.83060
-#&gt; 2  10.39210 [10, 10, 10]  deeplearning_grid_01_model_1 0.81574
-#&gt; 3  10.44179 [50, 20, 10] deeplearning_grid_01_model_40 0.81534
-#&gt; 4 104.02309 [20, 20, 20] deeplearning_grid_01_model_18 0.81511
-#&gt; 5  10.37999 [10, 10, 10] deeplearning_grid_01_model_28 0.81433
+#&gt; 1 101.38806 [10, 10, 10] deeplearning_grid_01_model_21 0.89950
+#&gt; 2 101.42416 [20, 20, 20] deeplearning_grid_01_model_27 0.89442
+#&gt; 3 101.39731 [50, 20, 10] deeplearning_grid_01_model_24 0.89307
+#&gt; 4  52.01883 [20, 20, 20] deeplearning_grid_01_model_26 0.88302
+#&gt; 5  51.99626 [50, 20, 10] deeplearning_grid_01_model_23 0.88177
 #&gt; 
 #&gt; ---
 #&gt;       epochs       hidden                     model_ids     auc
-#&gt; 40 104.01309 [10, 10, 10] deeplearning_grid_01_model_21 0.74721
-#&gt; 41 103.95512 [50, 20, 10]  deeplearning_grid_01_model_6 0.74329
-#&gt; 42 103.98237 [10, 10, 10]  deeplearning_grid_01_model_3 0.73530
-#&gt; 43  51.99016 [50, 20, 10] deeplearning_grid_01_model_41 0.73400
-#&gt; 44  51.99442 [10, 10, 10] deeplearning_grid_01_model_29 0.72666
-#&gt; 45  51.93576 [10, 10, 10]  deeplearning_grid_01_model_2 0.71050</code></pre>
+#&gt; 31 104.07222 [20, 20, 20] deeplearning_grid_01_model_36 0.77415
+#&gt; 32  52.04538 [20, 20, 20]  deeplearning_grid_01_model_8 0.77149
+#&gt; 33 103.95825 [50, 20, 10]  deeplearning_grid_01_model_6 0.76178
+#&gt; 34 104.06317 [20, 20, 20] deeplearning_grid_01_model_18 0.75614
+#&gt; 35  52.03909 [20, 20, 20] deeplearning_grid_01_model_35 0.73630
+#&gt; 36  52.65658 [10, 10, 10]  deeplearning_grid_01_model_2 0.70864</code></pre>
 </div>
 </div>
-</section><section id="to-see-if-on-of-the-model-performs-better-on-the-test-set-pull-that-model-out-with-h2o.getmodel" class="level1" data-number="4"><h1 data-number="4">
-<span class="header-section-number">4</span> To see if on of the model performs better on the test set pull that model out with h2o.getModel():</h1>
+</section><section id="to-see-if-on-of-the-model-performs-better-on-the-test-set-pull-that-model-out-with-h2o.getmodel" class="level1" data-number="7"><h1 data-number="7">
+<span class="header-section-number">7</span> To see if on of the model performs better on the test set pull that model out with h2o.getModel():</h1>
 <div class="cell" data-hash="Challenge5_cache/html/unnamed-chunk-14_d818977af5b8eeb2afe8b49037a2e3d6">
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1"></a>deeplearning_grid_01_model_1 <span class="ot">&lt;-</span> <span class="fu">h2o.getModel</span>(<span class="st">"deeplearning_grid_01_model_1"</span>)</span>
 <span id="cb64-2"><a href="#cb64-2"></a></span>
 <span id="cb64-3"><a href="#cb64-3"></a>deeplearning_grid_01_model_1 <span class="sc">%&gt;%</span> <span class="fu">h2o.auc</span>(<span class="at">train =</span> T, <span class="at">valid =</span> T, <span class="at">xval =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt;     train     valid      xval 
-#&gt; 0.9140850 0.8193699 0.8157351</code></pre>
+#&gt; 0.9336385 0.8394200 0.8044856</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1"></a><span class="do">##     train     valid      xval </span></span>
 <span id="cb66-2"><a href="#cb66-2"></a><span class="do">## 0.9093134 0.7922078 0.8299115 </span></span>
@@ -1789,49 +1831,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; H2OBinomialMetrics: deeplearning
 #&gt; 
-#&gt; MSE:  0.1057695
-#&gt; RMSE:  0.3252223
-#&gt; LogLoss:  0.3572899
-#&gt; Mean Per-Class Error:  0.2184771
-#&gt; AUC:  0.8718541
-#&gt; AUCPR:  0.7090698
-#&gt; Gini:  0.7437083
+#&gt; MSE:  0.1452267
+#&gt; RMSE:  0.3810862
+#&gt; LogLoss:  0.5158298
+#&gt; Mean Per-Class Error:  0.2663071
+#&gt; AUC:  0.7380586
+#&gt; AUCPR:  0.5102449
+#&gt; Gini:  0.4761171
 #&gt; 
 #&gt; Confusion Matrix (vertical: actual; across: predicted) for F1-optimal threshold:
 #&gt;         No Yes    Error     Rate
-#&gt; No     160  17 0.096045  =17/177
-#&gt; Yes     15  29 0.340909   =15/44
-#&gt; Totals 175  46 0.144796  =32/221
+#&gt; No     131  46 0.259887  =46/177
+#&gt; Yes     12  32 0.272727   =12/44
+#&gt; Totals 143  78 0.262443  =58/221
 #&gt; 
 #&gt; Maximum Metrics: Maximum metrics at their respective thresholds
 #&gt;                         metric threshold      value idx
-#&gt; 1                       max f1  0.162383   0.644444  45
-#&gt; 2                       max f2  0.058544   0.725191  85
-#&gt; 3                 max f0point5  0.661704   0.694444  15
-#&gt; 4                 max accuracy  0.330765   0.868778  30
-#&gt; 5                max precision  0.981417   1.000000   0
-#&gt; 6                   max recall  0.009042   1.000000 166
-#&gt; 7              max specificity  0.981417   1.000000   0
-#&gt; 8             max absolute_mcc  0.193389   0.560261  39
-#&gt; 9   max min_per_class_accuracy  0.081160   0.772727  71
-#&gt; 10 max mean_per_class_accuracy  0.058544   0.796225  85
-#&gt; 11                     max tns  0.981417 177.000000   0
-#&gt; 12                     max fns  0.981417  43.000000   0
-#&gt; 13                     max fps  0.000220 177.000000 220
-#&gt; 14                     max tps  0.009042  44.000000 166
-#&gt; 15                     max tnr  0.981417   1.000000   0
-#&gt; 16                     max fnr  0.981417   0.977273   0
-#&gt; 17                     max fpr  0.000220   1.000000 220
-#&gt; 18                     max tpr  0.009042   1.000000 166
+#&gt; 1                       max f1  0.143157   0.524590  77
+#&gt; 2                       max f2  0.122393   0.632184  84
+#&gt; 3                 max f0point5  0.796137   0.528846  14
+#&gt; 4                 max accuracy  0.858074   0.832579  10
+#&gt; 5                max precision  0.991079   1.000000   0
+#&gt; 6                   max recall  0.001253   1.000000 213
+#&gt; 7              max specificity  0.991079   1.000000   0
+#&gt; 8             max absolute_mcc  0.143157   0.390547  77
+#&gt; 9   max min_per_class_accuracy  0.143157   0.727273  77
+#&gt; 10 max mean_per_class_accuracy  0.143157   0.733693  77
+#&gt; 11                     max tns  0.991079 177.000000   0
+#&gt; 12                     max fns  0.991079  43.000000   0
+#&gt; 13                     max fps  0.000050 177.000000 220
+#&gt; 14                     max tps  0.001253  44.000000 213
+#&gt; 15                     max tnr  0.991079   1.000000   0
+#&gt; 16                     max fnr  0.991079   0.977273   0
+#&gt; 17                     max fpr  0.000050   1.000000 220
+#&gt; 18                     max tpr  0.001253   1.000000 213
 #&gt; 
 #&gt; Gains/Lift Table: Extract with `h2o.gainsLift(&lt;model&gt;, &lt;data&gt;)` or `h2o.gainsLift(&lt;model&gt;, valid=&lt;T/F&gt;, xval=&lt;T/F&gt;)`</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1"></a><span class="co"># error is ~9.5 %</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-hash="Challenge5_cache/html/unnamed-chunk-15_a18094dec16f3968d74c28c4790f1694">
+<div class="cell" data-hash="Challenge5_cache/html/unnamed-chunk-15_a736647d5c53b402c03b58b31f2d56b6">
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1"></a>deeplearning_h2o <span class="ot">&lt;-</span> <span class="fu">h2o.getModel</span>(<span class="st">"DeepLearning_grid_1_AutoML_2_20230525_211824_model_3"</span>)</span>
-<span id="cb70-2"><a href="#cb70-2"></a>stacked_AllModels <span class="ot">&lt;-</span> <span class="fu">h2o.getModel</span>(<span class="st">"StackedEnsemble_AllModels_4_AutoML_1_20230525_205021"</span>)</span>
-<span id="cb70-3"><a href="#cb70-3"></a>stacked_BestFamily <span class="ot">&lt;-</span> <span class="fu">h2o.getModel</span>(<span class="st">"StackedEnsemble_BestOfFamily_3_AutoML_2_20230525_211824"</span>)</span>
+<span id="cb70-2"><a href="#cb70-2"></a>stacked_AllModels <span class="ot">&lt;-</span> <span class="fu">h2o.getModel</span>(<span class="st">"StackedEnsemble_AllModels_3_AutoML_1_20230530_174332"</span>)</span>
+<span id="cb70-3"><a href="#cb70-3"></a>stacked_BestFamily <span class="ot">&lt;-</span> <span class="fu">h2o.getModel</span>(<span class="st">"StackedEnsemble_BestOfFamily_3_AutoML_1_20230530_174332"</span>)</span>
 <span id="cb70-4"><a href="#cb70-4"></a></span>
 <span id="cb70-5"><a href="#cb70-5"></a>performance_h2o <span class="ot">&lt;-</span> <span class="fu">h2o.performance</span>(stacked_ensemble_h2o, <span class="at">newdata =</span> <span class="fu">as.h2o</span>(test_tbl))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1879,7 +1921,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; 
 #&gt; $frame
 #&gt; $frame$name
-#&gt; [1] "test_tbl_sid_b6f1_222"
+#&gt; [1] "test_tbl_sid_8eab_230"
 #&gt; 
 #&gt; 
 #&gt; $frame_checksum
@@ -1889,7 +1931,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; NULL
 #&gt; 
 #&gt; $scoring_time
-#&gt; [1] 1.685396e+12
+#&gt; [1] 1.685462e+12
 #&gt; 
 #&gt; $predictions
 #&gt; NULL
@@ -2088,8 +2130,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; 16           0.000000</code></pre>
 </div>
 </div>
-</section><section id="classifier-summary-metrics" class="level1" data-number="5"><h1 data-number="5">
-<span class="header-section-number">5</span> Classifier Summary Metrics</h1>
+</section><section id="classifier-summary-metrics" class="level1" data-number="8"><h1 data-number="8">
+<span class="header-section-number">8</span> Classifier Summary Metrics</h1>
 <div class="cell" data-hash="Challenge5_cache/html/unnamed-chunk-16_9b19e6211e07bd80ab7ad2b6547fc101">
 <div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1"></a><span class="fu">h2o.auc</span>(performance_h2o, <span class="at">train =</span> T, <span class="at">valid =</span> T, <span class="at">xval =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2149,8 +2191,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb88-4"><a href="#cb88-4"></a><span class="do">## Yes     14  18 0.437500   =14/32</span></span>
 <span id="cb88-5"><a href="#cb88-5"></a><span class="do">## Totals 193  27 0.104545  =23/220</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="precision-vs-recall-plot" class="level1" data-number="6"><h1 data-number="6">
-<span class="header-section-number">6</span> Precision vs Recall Plot</h1>
+</section><section id="precision-vs-recall-plot" class="level1" data-number="9"><h1 data-number="9">
+<span class="header-section-number">9</span> Precision vs Recall Plot</h1>
 <div class="cell" data-hash="Challenge5_cache/html/unnamed-chunk-17_6df988eb36698c41487ee7ea34e073d3">
 <div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1"></a><span class="co"># This is on the test set</span></span>
 <span id="cb89-2"><a href="#cb89-2"></a>performance_tbl <span class="ot">&lt;-</span> performance_h2o <span class="sc">%&gt;%</span></span>
@@ -2684,9 +2726,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<section id="challenge-5-start--" class="level2" data-number="6.1"><h2 data-number="6.1" class="anchored" data-anchor-id="challenge-5-start--">
-<span class="header-section-number">6.1</span> - Challenge 5 Start -</h2>
-<p>#1. Load the training &amp; test dataset</p>
+</section><section id="challenge-5-start--" class="level1" data-number="10"><h1 data-number="10">
+<span class="header-section-number">10</span> - Challenge 5 Start —————————————————-</h1>
+<section id="load-the-training-test-dataset" class="level2" data-number="10.1"><h2 data-number="10.1" class="anchored" data-anchor-id="load-the-training-test-dataset">
+<span class="header-section-number">10.1</span> 1. Load the training &amp; test dataset</h2>
 <div class="cell" data-hash="Challenge5_cache/html/unnamed-chunk-28_2bbd52f990c5a5f4338a8f593210cd21">
 <div class="sourceCode cell-code" id="cb111"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1"></a>product_backorder_tbl          <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"product_backorders.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -2700,7 +2743,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
 </div>
-<p>#2. Specifiy the response and predictor variables</p>
+</section><section id="specifiy-the-response-and-predictor-variables" class="level2" data-number="10.2"><h2 data-number="10.2" class="anchored" data-anchor-id="specifiy-the-response-and-predictor-variables">
+<span class="header-section-number">10.2</span> 2. Specifiy the response and predictor variables</h2>
 <div class="cell" data-hash="Challenge5_cache/html/unnamed-chunk-29_6b5432fe995f1cf416704a04558d3fd6">
 <div class="sourceCode cell-code" id="cb113"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1"></a><span class="fu">set.seed</span>(<span class="at">seed =</span> <span class="dv">1113</span>)</span>
 <span id="cb113-2"><a href="#cb113-2"></a>split_obj                       <span class="ot">&lt;-</span> rsample<span class="sc">::</span><span class="fu">initial_split</span>(product_backorder_tbl, <span class="at">prop =</span> <span class="fl">0.85</span>)</span>
@@ -2714,21 +2758,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb113-10"><a href="#cb113-10"></a>train_tbl <span class="ot">&lt;-</span> <span class="fu">bake</span>(recipe_obj, <span class="at">new_data =</span> train_readable_tbl)</span>
 <span id="cb113-11"><a href="#cb113-11"></a>test_tbl  <span class="ot">&lt;-</span> <span class="fu">bake</span>(recipe_obj, <span class="at">new_data =</span> test_readable_tbl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>#Modeling</p>
+</section><section id="modeling-1" class="level2" data-number="10.3"><h2 data-number="10.3" class="anchored" data-anchor-id="modeling-1">
+<span class="header-section-number">10.3</span> Modeling</h2>
 <div class="cell" data-hash="Challenge5_cache/html/unnamed-chunk-30_1dc335c934f28a5fa9cf06b88e92d209">
 <div class="sourceCode cell-code" id="cb114"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1"></a><span class="fu">h2o.init</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt;  Connection successful!
 #&gt; 
 #&gt; R is connected to the H2O cluster: 
-#&gt;     H2O cluster uptime:         1 hours 43 minutes 
+#&gt;     H2O cluster uptime:         11 minutes 11 seconds 
 #&gt;     H2O cluster timezone:       Europe/Berlin 
 #&gt;     H2O data parsing timezone:  UTC 
 #&gt;     H2O cluster version:        3.40.0.1 
 #&gt;     H2O cluster version age:    3 months and 21 days 
-#&gt;     H2O cluster name:           H2O_started_from_R_tiend_ham688 
+#&gt;     H2O cluster name:           H2O_started_from_R_tiend_drs368 
 #&gt;     H2O cluster total nodes:    1 
-#&gt;     H2O cluster total memory:   2.97 GB 
+#&gt;     H2O cluster total memory:   3.48 GB 
 #&gt;     H2O cluster total cores:    12 
 #&gt;     H2O cluster allowed cores:  12 
 #&gt;     H2O cluster healthy:        TRUE 
@@ -2767,8 +2812,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb121-2"><a href="#cb121-2"></a>y <span class="ot">&lt;-</span> <span class="st">"went_on_backorder"</span></span>
 <span id="cb121-3"><a href="#cb121-3"></a>x <span class="ot">&lt;-</span> <span class="fu">setdiff</span>(<span class="fu">names</span>(train_h2o), y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section></section><section id="run-automl-specifying-the-stopping-criterion" class="level1" data-number="7"><h1 data-number="7">
-<span class="header-section-number">7</span> 3. Run AutoML specifying the stopping criterion</h1>
+</section><section id="run-automl-specifying-the-stopping-criterion" class="level2" data-number="10.4"><h2 data-number="10.4" class="anchored" data-anchor-id="run-automl-specifying-the-stopping-criterion">
+<span class="header-section-number">10.4</span> 3. Run AutoML specifying the stopping criterion</h2>
 <div class="cell" data-hash="Challenge5_cache/html/unnamed-chunk-31_d2ad98b960af2f5aa12303f1f07b3c32">
 <div class="sourceCode cell-code" id="cb122"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb122-1"><a href="#cb122-1"></a>automl_models_h2o <span class="ot">&lt;-</span> <span class="fu">h2o.automl</span>(</span>
 <span id="cb122-2"><a href="#cb122-2"></a>  <span class="at">x =</span> x,</span>
@@ -2785,38 +2830,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   |                                                                      |   0%
   |                                                                            
   |==                                                                    |   3%
-#&gt; 23:40:45.493: User specified a validation frame with cross-validation still enabled. Please note that the models will still be validated using cross-validation only, the validation frame will be used to provide purely informative validation metrics on the trained models.
-#&gt; 23:40:45.494: AutoML: XGBoost is not available; skipping it.
+#&gt; 17:54:39.295: User specified a validation frame with cross-validation still enabled. Please note that the models will still be validated using cross-validation only, the validation frame will be used to provide purely informative validation metrics on the trained models.
+#&gt; 17:54:39.296: AutoML: XGBoost is not available; skipping it.
   |                                                                            
-  |==========                                                            |  14%
+  |=======                                                               |  10%
   |                                                                            
-  |===============                                                       |  22%
+  |============                                                          |  17%
   |                                                                            
-  |====================                                                  |  29%
+  |=================                                                     |  24%
   |                                                                            
-  |=========================                                             |  36%
+  |======================                                                |  31%
   |                                                                            
-  |==============================                                        |  43%
+  |===========================                                           |  38%
   |                                                                            
-  |===================================                                   |  50%
+  |================================                                      |  45%
   |                                                                            
-  |========================================                              |  57%
+  |=====================================                                 |  52%
   |                                                                            
-  |=============================================                         |  64%
+  |=========================================                             |  59%
   |                                                                            
-  |==================================================                    |  71%
+  |==============================================                        |  66%
   |                                                                            
-  |=======================================================               |  78%
+  |===================================================                   |  73%
   |                                                                            
-  |=============================================================         |  87%
+  |========================================================              |  80%
   |                                                                            
-  |==================================================================    |  94%
+  |==============================================================        |  88%
+  |                                                                            
+  |===================================================================   |  95%
   |                                                                            
   |======================================================================| 100%</code></pre>
 </div>
 </div>
-</section><section id="view-the-leaderboard" class="level1" data-number="8"><h1 data-number="8">
-<span class="header-section-number">8</span> 4. View the leaderboard</h1>
+</section><section id="view-the-leaderboard" class="level2" data-number="10.5"><h2 data-number="10.5" class="anchored" data-anchor-id="view-the-leaderboard">
+<span class="header-section-number">10.5</span> 4. View the leaderboard</h2>
 <div class="cell" data-hash="Challenge5_cache/html/unnamed-chunk-32_010617c4fd8a0c6dd740709139091947">
 <div class="sourceCode cell-code" id="cb124"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb124-1"><a href="#cb124-1"></a><span class="fu">typeof</span>(automl_models_h2o)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2833,22 +2880,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb128-2"><a href="#cb128-2"></a></span>
 <span id="cb128-3"><a href="#cb128-3"></a>automl_models_h2o<span class="sc">@</span>leaderboard</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt;                                                   model_id       auc   logloss
-#&gt; 1 StackedEnsemble_BestOfFamily_2_AutoML_16_20230529_234045 0.9511434 0.1742193
-#&gt; 2 StackedEnsemble_BestOfFamily_3_AutoML_16_20230529_234045 0.9505612 0.1744878
-#&gt; 3    StackedEnsemble_AllModels_1_AutoML_16_20230529_234045 0.9504450 0.1745325
-#&gt; 4    StackedEnsemble_AllModels_2_AutoML_16_20230529_234045 0.9501096 0.1746815
-#&gt; 5                          GBM_3_AutoML_16_20230529_234045 0.9484289 0.1793382
-#&gt; 6                          GBM_4_AutoML_16_20230529_234045 0.9477039 0.1813069
+<pre><code>#&gt;                                                  model_id       auc   logloss
+#&gt; 1                          GBM_4_AutoML_5_20230530_175439 0.9508884 0.1750208
+#&gt; 2 StackedEnsemble_BestOfFamily_3_AutoML_5_20230530_175439 0.9503594 0.1729756
+#&gt; 3 StackedEnsemble_BestOfFamily_2_AutoML_5_20230530_175439 0.9501189 0.1736990
+#&gt; 4    StackedEnsemble_AllModels_2_AutoML_5_20230530_175439 0.9495251 0.1743236
+#&gt; 5    StackedEnsemble_AllModels_1_AutoML_5_20230530_175439 0.9490799 0.1749026
+#&gt; 6                          GBM_3_AutoML_5_20230530_175439 0.9458353 0.1799821
 #&gt;       aucpr mean_per_class_error      rmse        mse
-#&gt; 1 0.7406092            0.1543588 0.2292039 0.05253441
-#&gt; 2 0.7389307            0.1508552 0.2290772 0.05247635
-#&gt; 3 0.7448932            0.1682820 0.2296530 0.05274050
-#&gt; 4 0.7432620            0.1638603 0.2295893 0.05271126
-#&gt; 5 0.7336909            0.1490803 0.2316825 0.05367680
-#&gt; 6 0.7322449            0.1460507 0.2331758 0.05437093
+#&gt; 1 0.7599759            0.1745550 0.2295620 0.05269870
+#&gt; 2 0.7595392            0.1544814 0.2279107 0.05194327
+#&gt; 3 0.7543256            0.1571282 0.2283527 0.05214494
+#&gt; 4 0.7534890            0.1472903 0.2290302 0.05245481
+#&gt; 5 0.7500123            0.1451176 0.2293033 0.05258002
+#&gt; 6 0.7393275            0.1229475 0.2311978 0.05345241
 #&gt; 
-#&gt; [15 rows x 7 columns]</code></pre>
+#&gt; [16 rows x 7 columns]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb130"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1"></a><span class="do">##                                              model_id       auc   logloss     aucpr mean_per_class_error      rmse        mse</span></span>
 <span id="cb130-2"><a href="#cb130-2"></a><span class="do">## 1 StackedEnsemble_BestOfFamily_AutoML_20200820_190823 0.8585439 0.2992854 0.5869929            0.2406915 0.2978416 0.08870964</span></span>
@@ -2865,169 +2912,179 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>#&gt; Model Details:
 #&gt; ==============
 #&gt; 
-#&gt; H2OBinomialModel: stackedensemble
-#&gt; Model ID:  StackedEnsemble_BestOfFamily_2_AutoML_16_20230529_234045 
-#&gt; Model Summary for Stacked Ensemble: 
-#&gt;                                     key            value
-#&gt; 1                     Stacking strategy cross_validation
-#&gt; 2  Number of base models (used / total)              3/3
-#&gt; 3      # GBM base models (used / total)              1/1
-#&gt; 4      # DRF base models (used / total)              1/1
-#&gt; 5      # GLM base models (used / total)              1/1
-#&gt; 6                 Metalearner algorithm              GLM
-#&gt; 7    Metalearner fold assignment scheme           Random
-#&gt; 8                    Metalearner nfolds                5
-#&gt; 9               Metalearner fold_column               NA
-#&gt; 10   Custom metalearner hyperparameters             None
+#&gt; H2OBinomialModel: gbm
+#&gt; Model ID:  GBM_4_AutoML_5_20230530_175439 
+#&gt; Model Summary: 
+#&gt;   number_of_trees number_of_internal_trees model_size_in_bytes min_depth
+#&gt; 1              59                       59              121213        10
+#&gt;   max_depth mean_depth min_leaves max_leaves mean_leaves
+#&gt; 1        10   10.00000         43        256   158.61017
 #&gt; 
 #&gt; 
-#&gt; H2OBinomialMetrics: stackedensemble
+#&gt; H2OBinomialMetrics: gbm
 #&gt; ** Reported on training data. **
 #&gt; 
-#&gt; MSE:  0.02341166
-#&gt; RMSE:  0.1530087
-#&gt; LogLoss:  0.08917851
-#&gt; Mean Per-Class Error:  0.07907345
-#&gt; AUC:  0.9916657
-#&gt; AUCPR:  0.9514765
-#&gt; Gini:  0.9833314
+#&gt; MSE:  0.0233155
+#&gt; RMSE:  0.1526941
+#&gt; LogLoss:  0.09112173
+#&gt; Mean Per-Class Error:  0.06724254
+#&gt; AUC:  0.9920052
+#&gt; AUCPR:  0.956682
+#&gt; Gini:  0.9840104
+#&gt; R^2:  0.7770156
 #&gt; 
 #&gt; Confusion Matrix (vertical: actual; across: predicted) for F1-optimal threshold:
-#&gt;          No  Yes    Error        Rate
-#&gt; No     8751  107 0.012079   =107/8858
-#&gt; Yes     169  988 0.146067   =169/1157
-#&gt; Totals 8920 1095 0.027559  =276/10015
-#&gt; 
-#&gt; Maximum Metrics: Maximum metrics at their respective thresholds
-#&gt;                         metric threshold       value idx
-#&gt; 1                       max f1  0.461403    0.877442 167
-#&gt; 2                       max f2  0.261895    0.900298 223
-#&gt; 3                 max f0point5  0.528960    0.907270 150
-#&gt; 4                 max accuracy  0.472429    0.972641 164
-#&gt; 5                max precision  0.993427    1.000000   0
-#&gt; 6                   max recall  0.026993    1.000000 342
-#&gt; 7              max specificity  0.993427    1.000000   0
-#&gt; 8             max absolute_mcc  0.472429    0.862676 164
-#&gt; 9   max min_per_class_accuracy  0.218407    0.951599 238
-#&gt; 10 max mean_per_class_accuracy  0.188645    0.953307 249
-#&gt; 11                     max tns  0.993427 8858.000000   0
-#&gt; 12                     max fns  0.993427 1156.000000   0
-#&gt; 13                     max fps  0.000254 8858.000000 399
-#&gt; 14                     max tps  0.026993 1157.000000 342
-#&gt; 15                     max tnr  0.993427    1.000000   0
-#&gt; 16                     max fnr  0.993427    0.999136   0
-#&gt; 17                     max fpr  0.000254    1.000000 399
-#&gt; 18                     max tpr  0.026993    1.000000 342
-#&gt; 
-#&gt; Gains/Lift Table: Extract with `h2o.gainsLift(&lt;model&gt;, &lt;data&gt;)` or `h2o.gainsLift(&lt;model&gt;, valid=&lt;T/F&gt;, xval=&lt;T/F&gt;)`
-#&gt; H2OBinomialMetrics: stackedensemble
-#&gt; ** Reported on validation data. **
-#&gt; 
-#&gt; MSE:  0.04968332
-#&gt; RMSE:  0.2228976
-#&gt; LogLoss:  0.1678161
-#&gt; Mean Per-Class Error:  0.1198723
-#&gt; AUC:  0.9518431
-#&gt; AUCPR:  0.7573617
-#&gt; Gini:  0.9036861
-#&gt; 
-#&gt; Confusion Matrix (vertical: actual; across: predicted) for F1-optimal threshold:
-#&gt;          No Yes    Error       Rate
-#&gt; No     1970 134 0.063688  =134/2104
-#&gt; Yes      50 234 0.176056    =50/284
-#&gt; Totals 2020 368 0.077052  =184/2388
-#&gt; 
-#&gt; Maximum Metrics: Maximum metrics at their respective thresholds
-#&gt;                         metric threshold       value idx
-#&gt; 1                       max f1  0.225041    0.717791 217
-#&gt; 2                       max f2  0.143470    0.796875 254
-#&gt; 3                 max f0point5  0.669252    0.736229  94
-#&gt; 4                 max accuracy  0.416773    0.932998 154
-#&gt; 5                max precision  0.981400    1.000000   0
-#&gt; 6                   max recall  0.000578    1.000000 398
-#&gt; 7              max specificity  0.981400    1.000000   0
-#&gt; 8             max absolute_mcc  0.225041    0.681619 217
-#&gt; 9   max min_per_class_accuracy  0.143470    0.897887 254
-#&gt; 10 max mean_per_class_accuracy  0.136579    0.899611 257
-#&gt; 11                     max tns  0.981400 2104.000000   0
-#&gt; 12                     max fns  0.981400  283.000000   0
-#&gt; 13                     max fps  0.000318 2104.000000 399
-#&gt; 14                     max tps  0.000578  284.000000 398
-#&gt; 15                     max tnr  0.981400    1.000000   0
-#&gt; 16                     max fnr  0.981400    0.996479   0
-#&gt; 17                     max fpr  0.000318    1.000000 399
-#&gt; 18                     max tpr  0.000578    1.000000 398
-#&gt; 
-#&gt; Gains/Lift Table: Extract with `h2o.gainsLift(&lt;model&gt;, &lt;data&gt;)` or `h2o.gainsLift(&lt;model&gt;, valid=&lt;T/F&gt;, xval=&lt;T/F&gt;)`
-#&gt; H2OBinomialMetrics: stackedensemble
-#&gt; ** Reported on cross-validation data. **
-#&gt; ** 5-fold cross-validation on training data (Metrics computed for combined holdout predictions) **
-#&gt; 
-#&gt; MSE:  0.05080014
-#&gt; RMSE:  0.2253889
-#&gt; LogLoss:  0.1699782
-#&gt; Mean Per-Class Error:  0.1425143
-#&gt; AUC:  0.9520733
-#&gt; AUCPR:  0.7432404
-#&gt; Gini:  0.9041466
-#&gt; 
-#&gt; Confusion Matrix (vertical: actual; across: predicted) for F1-optimal threshold:
-#&gt;           No  Yes    Error         Rate
-#&gt; No     11479  690 0.056701   =690/12169
-#&gt; Yes      374 1264 0.228327    =374/1638
-#&gt; Totals 11853 1954 0.077062  =1064/13807
+#&gt;           No  Yes    Error        Rate
+#&gt; No     11996  173 0.014216  =173/12169
+#&gt; Yes      197 1441 0.120269   =197/1638
+#&gt; Totals 12193 1614 0.026798  =370/13807
 #&gt; 
 #&gt; Maximum Metrics: Maximum metrics at their respective thresholds
 #&gt;                         metric threshold        value idx
-#&gt; 1                       max f1  0.305725     0.703786 216
-#&gt; 2                       max f2  0.130229     0.777623 284
-#&gt; 3                 max f0point5  0.527964     0.732169 145
-#&gt; 4                 max accuracy  0.527964     0.932353 145
-#&gt; 5                max precision  0.987233     1.000000   0
-#&gt; 6                   max recall  0.001392     1.000000 396
-#&gt; 7              max specificity  0.987233     1.000000   0
-#&gt; 8             max absolute_mcc  0.305725     0.663280 216
-#&gt; 9   max min_per_class_accuracy  0.119120     0.886268 290
-#&gt; 10 max mean_per_class_accuracy  0.096609     0.888536 302
-#&gt; 11                     max tns  0.987233 12169.000000   0
-#&gt; 12                     max fns  0.987233  1635.000000   0
-#&gt; 13                     max fps  0.000255 12169.000000 399
-#&gt; 14                     max tps  0.001392  1638.000000 396
-#&gt; 15                     max tnr  0.987233     1.000000   0
-#&gt; 16                     max fnr  0.987233     0.998168   0
-#&gt; 17                     max fpr  0.000255     1.000000 399
-#&gt; 18                     max tpr  0.001392     1.000000 396
+#&gt; 1                       max f1  0.401949     0.886224 187
+#&gt; 2                       max f2  0.232500     0.906330 237
+#&gt; 3                 max f0point5  0.573163     0.912836 139
+#&gt; 4                 max accuracy  0.401949     0.973202 187
+#&gt; 5                max precision  0.986680     1.000000   0
+#&gt; 6                   max recall  0.015457     1.000000 366
+#&gt; 7              max specificity  0.986680     1.000000   0
+#&gt; 8             max absolute_mcc  0.401949     0.871068 187
+#&gt; 9   max min_per_class_accuracy  0.201774     0.955214 248
+#&gt; 10 max mean_per_class_accuracy  0.210165     0.956069 245
+#&gt; 11                     max tns  0.986680 12169.000000   0
+#&gt; 12                     max fns  0.986680  1633.000000   0
+#&gt; 13                     max fps  0.001396 12169.000000 399
+#&gt; 14                     max tps  0.015457  1638.000000 366
+#&gt; 15                     max tnr  0.986680     1.000000   0
+#&gt; 16                     max fnr  0.986680     0.996947   0
+#&gt; 17                     max fpr  0.001396     1.000000 399
+#&gt; 18                     max tpr  0.015457     1.000000 366
+#&gt; 
+#&gt; Gains/Lift Table: Extract with `h2o.gainsLift(&lt;model&gt;, &lt;data&gt;)` or `h2o.gainsLift(&lt;model&gt;, valid=&lt;T/F&gt;, xval=&lt;T/F&gt;)`
+#&gt; H2OBinomialMetrics: gbm
+#&gt; ** Reported on validation data. **
+#&gt; 
+#&gt; MSE:  0.05125612
+#&gt; RMSE:  0.2263981
+#&gt; LogLoss:  0.1720632
+#&gt; Mean Per-Class Error:  0.1357709
+#&gt; AUC:  0.9509243
+#&gt; AUCPR:  0.738279
+#&gt; Gini:  0.9018486
+#&gt; R^2:  0.5108407
+#&gt; 
+#&gt; Confusion Matrix (vertical: actual; across: predicted) for F1-optimal threshold:
+#&gt;          No Yes    Error       Rate
+#&gt; No     1992 112 0.053232  =112/2104
+#&gt; Yes      62 222 0.218310    =62/284
+#&gt; Totals 2054 334 0.072864  =174/2388
+#&gt; 
+#&gt; Maximum Metrics: Maximum metrics at their respective thresholds
+#&gt;                         metric threshold       value idx
+#&gt; 1                       max f1  0.236582    0.718447 202
+#&gt; 2                       max f2  0.100378    0.797057 267
+#&gt; 3                 max f0point5  0.364699    0.725076 161
+#&gt; 4                 max accuracy  0.364699    0.932998 161
+#&gt; 5                max precision  0.947366    0.909091   7
+#&gt; 6                   max recall  0.005218    1.000000 386
+#&gt; 7              max specificity  0.983762    0.999525   0
+#&gt; 8             max absolute_mcc  0.236582    0.679850 202
+#&gt; 9   max min_per_class_accuracy  0.115178    0.897887 258
+#&gt; 10 max mean_per_class_accuracy  0.100378    0.901900 267
+#&gt; 11                     max tns  0.983762 2103.000000   0
+#&gt; 12                     max fns  0.983762  284.000000   0
+#&gt; 13                     max fps  0.001382 2104.000000 399
+#&gt; 14                     max tps  0.005218  284.000000 386
+#&gt; 15                     max tnr  0.983762    0.999525   0
+#&gt; 16                     max fnr  0.983762    1.000000   0
+#&gt; 17                     max fpr  0.001382    1.000000 399
+#&gt; 18                     max tpr  0.005218    1.000000 386
+#&gt; 
+#&gt; Gains/Lift Table: Extract with `h2o.gainsLift(&lt;model&gt;, &lt;data&gt;)` or `h2o.gainsLift(&lt;model&gt;, valid=&lt;T/F&gt;, xval=&lt;T/F&gt;)`
+#&gt; H2OBinomialMetrics: gbm
+#&gt; ** Reported on cross-validation data. **
+#&gt; ** 5-fold cross-validation on training data (Metrics computed for combined holdout predictions) **
+#&gt; 
+#&gt; MSE:  0.05202655
+#&gt; RMSE:  0.2280933
+#&gt; LogLoss:  0.1747359
+#&gt; Mean Per-Class Error:  0.1583055
+#&gt; AUC:  0.9501769
+#&gt; AUCPR:  0.7306402
+#&gt; Gini:  0.9003539
+#&gt; R^2:  0.5024292
+#&gt; 
+#&gt; Confusion Matrix (vertical: actual; across: predicted) for F1-optimal threshold:
+#&gt;           No  Yes    Error         Rate
+#&gt; No     11585  584 0.047991   =584/12169
+#&gt; Yes      440 1198 0.268620    =440/1638
+#&gt; Totals 12025 1782 0.074165  =1024/13807
+#&gt; 
+#&gt; Maximum Metrics: Maximum metrics at their respective thresholds
+#&gt;                         metric threshold        value idx
+#&gt; 1                       max f1  0.317314     0.700585 212
+#&gt; 2                       max f2  0.103294     0.774768 296
+#&gt; 3                 max f0point5  0.570225     0.720026 133
+#&gt; 4                 max accuracy  0.450369     0.929891 169
+#&gt; 5                max precision  0.990661     1.000000   0
+#&gt; 6                   max recall  0.006345     1.000000 386
+#&gt; 7              max specificity  0.990661     1.000000   0
+#&gt; 8             max absolute_mcc  0.207829     0.660075 251
+#&gt; 9   max min_per_class_accuracy  0.103294     0.887057 296
+#&gt; 10 max mean_per_class_accuracy  0.099612     0.887244 298
+#&gt; 11                     max tns  0.990661 12169.000000   0
+#&gt; 12                     max fns  0.990661  1637.000000   0
+#&gt; 13                     max fps  0.001275 12169.000000 399
+#&gt; 14                     max tps  0.006345  1638.000000 386
+#&gt; 15                     max tnr  0.990661     1.000000   0
+#&gt; 16                     max fnr  0.990661     0.999389   0
+#&gt; 17                     max fpr  0.001275     1.000000 399
+#&gt; 18                     max tpr  0.006345     1.000000 386
 #&gt; 
 #&gt; Gains/Lift Table: Extract with `h2o.gainsLift(&lt;model&gt;, &lt;data&gt;)` or `h2o.gainsLift(&lt;model&gt;, valid=&lt;T/F&gt;, xval=&lt;T/F&gt;)`
 #&gt; Cross-Validation Metrics Summary: 
-#&gt;                 mean        sd cv_1_valid cv_2_valid cv_3_valid cv_4_valid
-#&gt; accuracy    0.929360  0.004493   0.927188   0.925939   0.936769   0.930425
-#&gt; auc         0.952166  0.001591   0.953685   0.952283   0.952847   0.949482
-#&gt; err         0.070640  0.004493   0.072812   0.074061   0.063231   0.069575
-#&gt; err_count 195.200000 15.530615 203.000000 209.000000 173.000000 185.000000
-#&gt; f0point5    0.699155  0.018272   0.683975   0.695876   0.728627   0.684564
-#&gt;           cv_5_valid
-#&gt; accuracy    0.926481
-#&gt; auc         0.952534
-#&gt; err         0.073519
-#&gt; err_count 206.000000
-#&gt; f0point5    0.702733
-#&gt; 
-#&gt; ---
-#&gt;                         mean        sd cv_1_valid cv_2_valid cv_3_valid
-#&gt; precision           0.692547  0.024774   0.669399   0.680101   0.732899
-#&gt; r2                  0.513927  0.008599   0.511530   0.518774   0.516449
-#&gt; recall              0.728849  0.029269   0.749235   0.767045   0.712025
-#&gt; residual_deviance 938.389400 44.663150 937.587770 986.706540 908.700740
-#&gt; rmse                0.225239  0.003393   0.224883   0.229212   0.222257
-#&gt; specificity         0.956185  0.007049   0.950833   0.948583   0.966116
-#&gt;                   cv_4_valid cv_5_valid
-#&gt; precision           0.682274   0.698061
-#&gt; r2                  0.500311   0.522573
-#&gt; recall              0.693878   0.722063
-#&gt; residual_deviance 881.498400 977.453400
-#&gt; rmse                0.221677   0.228164
-#&gt; specificity         0.959831   0.955565</code></pre>
+#&gt;                               mean        sd cv_1_valid cv_2_valid cv_3_valid
+#&gt; accuracy                  0.922647  0.007915   0.926141   0.931933   0.910540
+#&gt; auc                       0.949398  0.008029   0.960020   0.954273   0.948030
+#&gt; err                       0.077353  0.007915   0.073860   0.068067   0.089460
+#&gt; err_count               213.600000 21.824299 204.000000 188.000000 247.000000
+#&gt; f0point5                  0.667315  0.031318   0.704633   0.685048   0.621275
+#&gt; f1                        0.706768  0.024213   0.741117   0.719403   0.686945
+#&gt; f2                        0.752057  0.027827   0.781585   0.757385   0.768141
+#&gt; lift_top_group            7.125719  0.652002   6.576191   8.032806   7.281758
+#&gt; logloss                   0.175282  0.010640   0.168906   0.159526   0.183315
+#&gt; max_per_class_error       0.213696  0.040250   0.188889   0.214984   0.166154
+#&gt; mcc                       0.667927  0.025474   0.701972   0.684075   0.650381
+#&gt; mean_per_class_accuracy   0.863605  0.016771   0.877246   0.867661   0.877309
+#&gt; mean_per_class_error      0.136395  0.016771   0.122754   0.132339   0.122691
+#&gt; mse                       0.052119  0.003499   0.050890   0.046815   0.055686
+#&gt; pr_auc                    0.729275  0.037288   0.784088   0.751528   0.699162
+#&gt; precision                 0.643656  0.036946   0.682243   0.663912   0.584052
+#&gt; r2                        0.500647  0.037141   0.551048   0.526150   0.463813
+#&gt; recall                    0.786304  0.040250   0.811111   0.785016   0.833846
+#&gt; rmse                      0.228190  0.007739   0.225587   0.216367   0.235978
+#&gt; specificity               0.940906  0.011587   0.943381   0.950306   0.920772
+#&gt;                         cv_4_valid cv_5_valid
+#&gt; accuracy                  0.923941   0.920681
+#&gt; auc                       0.939202   0.945467
+#&gt; err                       0.076059   0.079319
+#&gt; err_count               210.000000 219.000000
+#&gt; f0point5                  0.668092   0.657527
+#&gt; f1                        0.704225   0.682148
+#&gt; f2                        0.744491   0.708685
+#&gt; lift_top_group            7.326847   6.410991
+#&gt; logloss                   0.182397   0.182268
+#&gt; max_per_class_error       0.226006   0.272446
+#&gt; mcc                       0.664547   0.638660
+#&gt; mean_per_class_accuracy   0.858900   0.836911
+#&gt; mean_per_class_error      0.141100   0.163089
+#&gt; mse                       0.052551   0.054653
+#&gt; pr_auc                    0.710933   0.700662
+#&gt; precision                 0.645995   0.642077
+#&gt; r2                        0.491285   0.470938
+#&gt; recall                    0.773994   0.727554
+#&gt; rmse                      0.229239   0.233779
+#&gt; specificity               0.943806   0.946267</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb132"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb132-1"><a href="#cb132-1"></a><span class="fu">source</span>(<span class="st">"extract_h2o_model_name_by_position.R"</span>)</span>
 <span id="cb132-2"><a href="#cb132-2"></a></span>
@@ -3035,7 +3092,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb132-4"><a href="#cb132-4"></a>  <span class="fu">extract_h2o_model_name_by_position</span>(<span class="dv">6</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb132-5"><a href="#cb132-5"></a>  <span class="fu">h2o.getModel</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>#&gt; GBM_4_AutoML_16_20230529_234045</code></pre>
+<pre><code>#&gt; GBM_3_AutoML_5_20230530_175439</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb134"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb134-1"><a href="#cb134-1"></a>model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -3043,181 +3100,182 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; ==============
 #&gt; 
 #&gt; H2OBinomialModel: gbm
-#&gt; Model ID:  GBM_4_AutoML_16_20230529_234045 
+#&gt; Model ID:  GBM_3_AutoML_5_20230530_175439 
 #&gt; Model Summary: 
 #&gt;   number_of_trees number_of_internal_trees model_size_in_bytes min_depth
-#&gt; 1              60                       60              117985        10
+#&gt; 1              75                       75               79408         8
 #&gt;   max_depth mean_depth min_leaves max_leaves mean_leaves
-#&gt; 1        10   10.00000         58        233   151.65000
+#&gt; 1         8    8.00000         38        140    79.46667
 #&gt; 
 #&gt; 
 #&gt; H2OBinomialMetrics: gbm
 #&gt; ** Reported on training data. **
 #&gt; 
-#&gt; MSE:  0.0243106
-#&gt; RMSE:  0.1559186
-#&gt; LogLoss:  0.09432219
-#&gt; Mean Per-Class Error:  0.07570737
-#&gt; AUC:  0.9911173
-#&gt; AUCPR:  0.9523446
-#&gt; Gini:  0.9822347
-#&gt; R^2:  0.7674986
+#&gt; MSE:  0.03227019
+#&gt; RMSE:  0.1796391
+#&gt; LogLoss:  0.1178047
+#&gt; Mean Per-Class Error:  0.09189692
+#&gt; AUC:  0.9831668
+#&gt; AUCPR:  0.9116702
+#&gt; Gini:  0.9663335
+#&gt; R^2:  0.6913748
 #&gt; 
 #&gt; Confusion Matrix (vertical: actual; across: predicted) for F1-optimal threshold:
 #&gt;           No  Yes    Error        Rate
-#&gt; No     11998  171 0.014052  =171/12169
-#&gt; Yes      225 1413 0.137363   =225/1638
-#&gt; Totals 12223 1584 0.028681  =396/13807
+#&gt; No     11864  305 0.025064  =305/12169
+#&gt; Yes      260 1378 0.158730   =260/1638
+#&gt; Totals 12124 1683 0.040921  =565/13807
 #&gt; 
 #&gt; Maximum Metrics: Maximum metrics at their respective thresholds
 #&gt;                         metric threshold        value idx
-#&gt; 1                       max f1  0.406851     0.877095 182
-#&gt; 2                       max f2  0.278235     0.900628 220
-#&gt; 3                 max f0point5  0.592361     0.912273 134
-#&gt; 4                 max accuracy  0.466127     0.971753 167
-#&gt; 5                max precision  0.993010     1.000000   0
-#&gt; 6                   max recall  0.017852     1.000000 363
-#&gt; 7              max specificity  0.993010     1.000000   0
-#&gt; 8             max absolute_mcc  0.406851     0.861020 182
-#&gt; 9   max min_per_class_accuracy  0.197586     0.949939 250
-#&gt; 10 max mean_per_class_accuracy  0.183752     0.951561 255
-#&gt; 11                     max tns  0.993010 12169.000000   0
-#&gt; 12                     max fns  0.993010  1637.000000   0
-#&gt; 13                     max fps  0.001365 12169.000000 399
-#&gt; 14                     max tps  0.017852  1638.000000 363
-#&gt; 15                     max tnr  0.993010     1.000000   0
-#&gt; 16                     max fnr  0.993010     0.999389   0
-#&gt; 17                     max fpr  0.001365     1.000000 399
-#&gt; 18                     max tpr  0.017852     1.000000 363
+#&gt; 1                       max f1  0.362588     0.829871 191
+#&gt; 2                       max f2  0.209274     0.859429 243
+#&gt; 3                 max f0point5  0.571826     0.867204 128
+#&gt; 4                 max accuracy  0.418468     0.960672 174
+#&gt; 5                max precision  0.988394     1.000000   0
+#&gt; 6                   max recall  0.021550     1.000000 361
+#&gt; 7              max specificity  0.988394     1.000000   0
+#&gt; 8             max absolute_mcc  0.418468     0.807813 174
+#&gt; 9   max min_per_class_accuracy  0.183491     0.931013 255
+#&gt; 10 max mean_per_class_accuracy  0.187581     0.931674 253
+#&gt; 11                     max tns  0.988394 12169.000000   0
+#&gt; 12                     max fns  0.988394  1633.000000   0
+#&gt; 13                     max fps  0.001207 12169.000000 399
+#&gt; 14                     max tps  0.021550  1638.000000 361
+#&gt; 15                     max tnr  0.988394     1.000000   0
+#&gt; 16                     max fnr  0.988394     0.996947   0
+#&gt; 17                     max fpr  0.001207     1.000000 399
+#&gt; 18                     max tpr  0.021550     1.000000 361
 #&gt; 
 #&gt; Gains/Lift Table: Extract with `h2o.gainsLift(&lt;model&gt;, &lt;data&gt;)` or `h2o.gainsLift(&lt;model&gt;, valid=&lt;T/F&gt;, xval=&lt;T/F&gt;)`
 #&gt; H2OBinomialMetrics: gbm
 #&gt; ** Reported on validation data. **
 #&gt; 
-#&gt; MSE:  0.05139825
-#&gt; RMSE:  0.2267118
-#&gt; LogLoss:  0.1726749
-#&gt; Mean Per-Class Error:  0.1293445
-#&gt; AUC:  0.9496022
-#&gt; AUCPR:  0.754116
-#&gt; Gini:  0.8992044
-#&gt; R^2:  0.5094843
+#&gt; MSE:  0.05029949
+#&gt; RMSE:  0.2242755
+#&gt; LogLoss:  0.1694448
+#&gt; Mean Per-Class Error:  0.153333
+#&gt; AUC:  0.9525987
+#&gt; AUCPR:  0.7577052
+#&gt; Gini:  0.9051973
+#&gt; R^2:  0.5199702
 #&gt; 
 #&gt; Confusion Matrix (vertical: actual; across: predicted) for F1-optimal threshold:
 #&gt;          No Yes    Error       Rate
-#&gt; No     1982 122 0.057985  =122/2104
-#&gt; Yes      57 227 0.200704    =57/284
-#&gt; Totals 2039 349 0.074958  =179/2388
+#&gt; No     2007  97 0.046103   =97/2104
+#&gt; Yes      74 210 0.260563    =74/284
+#&gt; Totals 2081 307 0.071608  =171/2388
 #&gt; 
 #&gt; Maximum Metrics: Maximum metrics at their respective thresholds
 #&gt;                         metric threshold       value idx
-#&gt; 1                       max f1  0.223122    0.717220 207
-#&gt; 2                       max f2  0.081461    0.775811 286
-#&gt; 3                 max f0point5  0.481199    0.733216 128
-#&gt; 4                 max accuracy  0.431925    0.931742 142
-#&gt; 5                max precision  0.978204    1.000000   0
-#&gt; 6                   max recall  0.004519    1.000000 389
-#&gt; 7              max specificity  0.978204    1.000000   0
-#&gt; 8             max absolute_mcc  0.223122    0.679299 207
-#&gt; 9   max min_per_class_accuracy  0.105349    0.884030 267
-#&gt; 10 max mean_per_class_accuracy  0.074485    0.893118 290
-#&gt; 11                     max tns  0.978204 2104.000000   0
-#&gt; 12                     max fns  0.978204  283.000000   0
-#&gt; 13                     max fps  0.001209 2104.000000 399
-#&gt; 14                     max tps  0.004519  284.000000 389
-#&gt; 15                     max tnr  0.978204    1.000000   0
-#&gt; 16                     max fnr  0.978204    0.996479   0
-#&gt; 17                     max fpr  0.001209    1.000000 399
-#&gt; 18                     max tpr  0.004519    1.000000 389
+#&gt; 1                       max f1  0.304765    0.710660 185
+#&gt; 2                       max f2  0.135394    0.794393 255
+#&gt; 3                 max f0point5  0.399969    0.731424 156
+#&gt; 4                 max accuracy  0.399969    0.933836 156
+#&gt; 5                max precision  0.984816    1.000000   0
+#&gt; 6                   max recall  0.005322    1.000000 387
+#&gt; 7              max specificity  0.984816    1.000000   0
+#&gt; 8             max absolute_mcc  0.349545    0.671298 172
+#&gt; 9   max min_per_class_accuracy  0.135394    0.897887 255
+#&gt; 10 max mean_per_class_accuracy  0.122125    0.898952 262
+#&gt; 11                     max tns  0.984816 2104.000000   0
+#&gt; 12                     max fns  0.984816  283.000000   0
+#&gt; 13                     max fps  0.001194 2104.000000 399
+#&gt; 14                     max tps  0.005322  284.000000 387
+#&gt; 15                     max tnr  0.984816    1.000000   0
+#&gt; 16                     max fnr  0.984816    0.996479   0
+#&gt; 17                     max fpr  0.001194    1.000000 399
+#&gt; 18                     max tpr  0.005322    1.000000 387
 #&gt; 
 #&gt; Gains/Lift Table: Extract with `h2o.gainsLift(&lt;model&gt;, &lt;data&gt;)` or `h2o.gainsLift(&lt;model&gt;, valid=&lt;T/F&gt;, xval=&lt;T/F&gt;)`
 #&gt; H2OBinomialMetrics: gbm
 #&gt; ** Reported on cross-validation data. **
 #&gt; ** 5-fold cross-validation on training data (Metrics computed for combined holdout predictions) **
 #&gt; 
-#&gt; MSE:  0.0514505
-#&gt; RMSE:  0.226827
-#&gt; LogLoss:  0.1732804
-#&gt; Mean Per-Class Error:  0.1536093
-#&gt; AUC:  0.9509251
-#&gt; AUCPR:  0.7339898
-#&gt; Gini:  0.9018502
-#&gt; R^2:  0.5079384
+#&gt; MSE:  0.05200347
+#&gt; RMSE:  0.2280427
+#&gt; LogLoss:  0.1747426
+#&gt; Mean Per-Class Error:  0.1482556
+#&gt; AUC:  0.949727
+#&gt; AUCPR:  0.7304455
+#&gt; Gini:  0.899454
+#&gt; R^2:  0.5026499
 #&gt; 
 #&gt; Confusion Matrix (vertical: actual; across: predicted) for F1-optimal threshold:
 #&gt;           No  Yes    Error         Rate
-#&gt; No     11573  596 0.048977   =596/12169
-#&gt; Yes      423 1215 0.258242    =423/1638
-#&gt; Totals 11996 1811 0.073803  =1019/13807
+#&gt; No     11525  644 0.052921   =644/12169
+#&gt; Yes      399 1239 0.243590    =399/1638
+#&gt; Totals 11924 1883 0.075541  =1043/13807
 #&gt; 
 #&gt; Maximum Metrics: Maximum metrics at their respective thresholds
 #&gt;                         metric threshold        value idx
-#&gt; 1                       max f1  0.304449     0.704552 216
-#&gt; 2                       max f2  0.129340     0.773725 282
-#&gt; 3                 max f0point5  0.643693     0.722142 113
-#&gt; 4                 max accuracy  0.419029     0.930180 180
-#&gt; 5                max precision  0.825524     0.876596  53
-#&gt; 6                   max recall  0.003100     1.000000 395
-#&gt; 7              max specificity  0.987296     0.999918   0
-#&gt; 8             max absolute_mcc  0.304449     0.663595 216
-#&gt; 9   max min_per_class_accuracy  0.096895     0.882653 297
-#&gt; 10 max mean_per_class_accuracy  0.083190     0.885284 305
-#&gt; 11                     max tns  0.987296 12168.000000   0
-#&gt; 12                     max fns  0.987296  1636.000000   0
-#&gt; 13                     max fps  0.001155 12169.000000 399
-#&gt; 14                     max tps  0.003100  1638.000000 395
-#&gt; 15                     max tnr  0.987296     0.999918   0
-#&gt; 16                     max fnr  0.987296     0.998779   0
-#&gt; 17                     max fpr  0.001155     1.000000 399
-#&gt; 18                     max tpr  0.003100     1.000000 395
+#&gt; 1                       max f1  0.305434     0.703777 213
+#&gt; 2                       max f2  0.123195     0.774443 282
+#&gt; 3                 max f0point5  0.533390     0.722410 140
+#&gt; 4                 max accuracy  0.527209     0.929529 142
+#&gt; 5                max precision  0.966924     0.906250   5
+#&gt; 6                   max recall  0.005931     1.000000 387
+#&gt; 7              max specificity  0.989873     0.999918   0
+#&gt; 8             max absolute_mcc  0.278764     0.663005 221
+#&gt; 9   max min_per_class_accuracy  0.109985     0.883474 289
+#&gt; 10 max mean_per_class_accuracy  0.120163     0.886035 284
+#&gt; 11                     max tns  0.989873 12168.000000   0
+#&gt; 12                     max fns  0.989873  1637.000000   0
+#&gt; 13                     max fps  0.001146 12169.000000 399
+#&gt; 14                     max tps  0.005931  1638.000000 387
+#&gt; 15                     max tnr  0.989873     0.999918   0
+#&gt; 16                     max fnr  0.989873     0.999389   0
+#&gt; 17                     max fpr  0.001146     1.000000 399
+#&gt; 18                     max tpr  0.005931     1.000000 387
 #&gt; 
 #&gt; Gains/Lift Table: Extract with `h2o.gainsLift(&lt;model&gt;, &lt;data&gt;)` or `h2o.gainsLift(&lt;model&gt;, valid=&lt;T/F&gt;, xval=&lt;T/F&gt;)`
 #&gt; Cross-Validation Metrics Summary: 
 #&gt;                               mean        sd cv_1_valid cv_2_valid cv_3_valid
-#&gt; accuracy                  0.926123  0.008542   0.930123   0.935916   0.912713
-#&gt; auc                       0.950611  0.006060   0.960226   0.950821   0.950409
-#&gt; err                       0.073877  0.008542   0.069877   0.064084   0.087287
-#&gt; err_count               204.000000 23.558437 193.000000 177.000000 241.000000
-#&gt; f0point5                  0.683756  0.036349   0.724227   0.706822   0.628272
-#&gt; f1                        0.709162  0.023723   0.744371   0.722135   0.686606
-#&gt; f2                        0.737668  0.024207   0.765668   0.738126   0.756881
-#&gt; lift_top_group            7.003449  0.475880   6.302183   7.390181   7.281758
-#&gt; logloss                   0.173868  0.007507   0.168822   0.163380   0.181224
-#&gt; max_per_class_error       0.241188  0.037747   0.219444   0.250814   0.187692
-#&gt; mcc                       0.669862  0.024757   0.705018   0.686542   0.647779
-#&gt; mean_per_class_accuracy   0.853682  0.014550   0.866548   0.854226   0.869208
-#&gt; mean_per_class_error      0.146318  0.014550   0.133452   0.145774   0.130792
-#&gt; mse                       0.051626  0.002868   0.050458   0.047661   0.055455
-#&gt; pr_auc                    0.731130  0.028967   0.777696   0.735224   0.701369
-#&gt; precision                 0.668230  0.045098   0.711392   0.696970   0.594595
-#&gt; r2                        0.505267  0.033295   0.554851   0.517589   0.466031
-#&gt; recall                    0.758812  0.037747   0.780556   0.749186   0.812308
-#&gt; rmse                      0.227143  0.006321   0.224629   0.218313   0.235490
-#&gt; specificity               0.948551  0.012917   0.952540   0.959267   0.926108
+#&gt; accuracy                  0.926848  0.005727   0.927589   0.931933   0.917421
+#&gt; auc                       0.949199  0.005360   0.958190   0.949558   0.946437
+#&gt; err                       0.073152  0.005727   0.072411   0.068067   0.082579
+#&gt; err_count               202.000000 15.795569 200.000000 188.000000 228.000000
+#&gt; f0point5                  0.685256  0.024456   0.710784   0.689445   0.646022
+#&gt; f1                        0.709516  0.023695   0.743590   0.706250   0.679775
+#&gt; f2                        0.735753  0.026207   0.779570   0.723895   0.717250
+#&gt; lift_top_group            7.424373  0.610397   6.850198   8.032806   7.585165
+#&gt; logloss                   0.175109  0.006994   0.168463   0.167852   0.184153
+#&gt; max_per_class_error       0.245521  0.030044   0.194444   0.263844   0.255385
+#&gt; mcc                       0.669544  0.025493   0.704548   0.668535   0.635965
+#&gt; mean_per_class_accuracy   0.852165  0.014155   0.875717   0.846286   0.842546
+#&gt; mean_per_class_error      0.147835  0.014155   0.124283   0.153714   0.157454
+#&gt; mse                       0.052086  0.002728   0.049852   0.049797   0.056001
+#&gt; pr_auc                    0.729292  0.036566   0.785022   0.730898   0.698756
+#&gt; precision                 0.670065  0.026114   0.690476   0.678679   0.625323
+#&gt; r2                        0.500522  0.037610   0.560197   0.495967   0.460782
+#&gt; recall                    0.754479  0.030044   0.805556   0.736156   0.744615
+#&gt; rmse                      0.228162  0.005941   0.223277   0.223152   0.236644
+#&gt; specificity               0.949850  0.006540   0.945878   0.956415   0.940476
 #&gt;                         cv_4_valid cv_5_valid
-#&gt; accuracy                  0.925752   0.926114
-#&gt; auc                       0.943791   0.947807
-#&gt; err                       0.074248   0.073886
-#&gt; err_count               205.000000 204.000000
-#&gt; f0point5                  0.678306   0.681151
-#&gt; f1                        0.698085   0.694611
-#&gt; f2                        0.719053   0.708613
-#&gt; lift_top_group            6.716276   7.326847
-#&gt; logloss                   0.179053   0.176859
-#&gt; max_per_class_error       0.266254   0.281734
-#&gt; mcc                       0.656879   0.653094
-#&gt; mean_per_class_accuracy   0.842468   0.835958
-#&gt; mean_per_class_error      0.157532   0.164042
-#&gt; mse                       0.051896   0.052659
-#&gt; pr_auc                    0.714889   0.726472
-#&gt; precision                 0.665730   0.672464
-#&gt; r2                        0.497623   0.490240
-#&gt; recall                    0.733746   0.718266
-#&gt; rmse                      0.227807   0.229475
-#&gt; specificity               0.951190   0.953651</code></pre>
+#&gt; accuracy                  0.930822   0.926476
+#&gt; auc                       0.944382   0.947427
+#&gt; err                       0.069178   0.073524
+#&gt; err_count               191.000000 203.000000
+#&gt; f0point5                  0.698340   0.681687
+#&gt; f1                        0.718704   0.699259
+#&gt; f2                        0.740291   0.717762
+#&gt; lift_top_group            7.937417   6.716276
+#&gt; logloss                   0.175920   0.179156
+#&gt; max_per_class_error       0.244582   0.269350
+#&gt; mcc                       0.680417   0.658254
+#&gt; mean_per_class_accuracy   0.854739   0.841535
+#&gt; mean_per_class_error      0.145261   0.158465
+#&gt; mse                       0.050969   0.053812
+#&gt; pr_auc                    0.737665   0.694118
+#&gt; precision                 0.685393   0.670455
+#&gt; r2                        0.506591   0.479074
+#&gt; recall                    0.755418   0.730650
+#&gt; rmse                      0.225764   0.231974
+#&gt; specificity               0.954061   0.952420</code></pre>
 </div>
 </div>
-<p>#5. Predictions</p>
+</section><section id="predictions" class="level2" data-number="10.6"><h2 data-number="10.6" class="anchored" data-anchor-id="predictions">
+<span class="header-section-number">10.6</span> 5. Predictions</h2>
 <div class="cell" data-hash="Challenge5_cache/html/unnamed-chunk-33_330e9503cfd991427ff25ae4045efc0c">
 <div class="sourceCode cell-code" id="cb136"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb136-1"><a href="#cb136-1"></a>predictions <span class="ot">&lt;-</span> <span class="fu">h2o.predict</span>(model, <span class="at">newdata =</span> <span class="fu">as.h2o</span>(test_tbl))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -3234,15 +3292,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="sourceCode cell-code" id="cb138"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb138-1"><a href="#cb138-1"></a>predictions_tbl <span class="ot">&lt;-</span> predictions<span class="sc">%&gt;%</span> <span class="fu">as_tibble</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>#6. Save the leader model</p>
+</section><section id="save-the-leader-model" class="level2" data-number="10.7"><h2 data-number="10.7" class="anchored" data-anchor-id="save-the-leader-model">
+<span class="header-section-number">10.7</span> 6. Save the leader model</h2>
 <div class="cell" data-hash="Challenge5_cache/html/unnamed-chunk-34_7c01358b4520bbe43196e63a45b26362">
 <div class="sourceCode cell-code" id="cb139"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb139-1"><a href="#cb139-1"></a>model <span class="sc">%&gt;%</span> <span class="fu">h2o.saveModel</span>(<span class="at">path =</span> <span class="st">"05_Modeling/h20_models/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] "C:\\Users\\tiend\\Documents\\GitHub\\ss23-bdml-tiend96\\content\\01_journal\\Challenge3\\05_Modeling\\h20_models\\GBM_4_AutoML_16_20230529_234045"</code></pre>
+<pre><code>#&gt; [1] "C:\\Users\\tiend\\Documents\\GitHub\\ss23-bdml-tiend96\\content\\01_journal\\Challenge5\\05_Modeling\\h20_models\\GBM_3_AutoML_5_20230530_175439"</code></pre>
 </div>
 </div>
-</section><section id="leaderboard-visualization" class="level1" data-number="9"><h1 data-number="9">
-<span class="header-section-number">9</span> 1. Leaderboard Visualization</h1>
+</section><section id="leaderboard-visualization" class="level2" data-number="10.8"><h2 data-number="10.8" class="anchored" data-anchor-id="leaderboard-visualization">
+<span class="header-section-number">10.8</span> 1. Leaderboard Visualization</h2>
 <div class="cell" data-hash="Challenge5_cache/html/unnamed-chunk-35_fcb50e23b1efdc8776436c22b3172646">
 <div class="sourceCode cell-code" id="cb141"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb141-1"><a href="#cb141-1"></a>data_transformed_tbl <span class="ot">&lt;-</span> automl_models_h2o<span class="sc">@</span>leaderboard <span class="sc">%&gt;%</span></span>
 <span id="cb141-2"><a href="#cb141-2"></a>        <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span></span>
@@ -3282,8 +3341,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-</section><section id="tune-a-model-with-grid-search" class="level1" data-number="10"><h1 data-number="10">
-<span class="header-section-number">10</span> 2. Tune a model with grid search</h1>
+</section><section id="tune-a-model-with-grid-search" class="level2" data-number="10.9"><h2 data-number="10.9" class="anchored" data-anchor-id="tune-a-model-with-grid-search">
+<span class="header-section-number">10.9</span> 2. Tune a model with grid search</h2>
 <div class="cell" data-hash="Challenge5_cache/html/unnamed-chunk-37_d1b59d39eb09874a74f7c0ac3c2ce95c">
 <div class="sourceCode cell-code" id="cb143"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb143-1"><a href="#cb143-1"></a><span class="co">#h2o.getModel("DeepLearning_1_AutoML_2_20230526_203055") %&gt;% </span></span>
 <span id="cb143-2"><a href="#cb143-2"></a><span class="co">#  h2o.saveModel(path = "05_Modeling/h20_models/")</span></span>
@@ -3582,25 +3641,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; Used hyper parameters: 
 #&gt;   -  epochs 
 #&gt;   -  hidden 
-#&gt; Number of models: 54 
+#&gt; Number of models: 45 
 #&gt; Number of failed models: 0 
 #&gt; 
 #&gt; Hyper-Parameter Search Summary: ordered by increasing logloss
 #&gt;      epochs       hidden                     model_ids logloss
-#&gt; 1 101.40044 [50, 20, 10] deeplearning_grid_01_model_51 0.24786
-#&gt; 2 101.37594 [20, 20, 20] deeplearning_grid_01_model_54 0.25087
-#&gt; 3  52.00451 [10, 10, 10] deeplearning_grid_01_model_47 0.25166
-#&gt; 4  52.01840 [20, 20, 20] deeplearning_grid_01_model_53 0.25758
-#&gt; 5 101.37799 [10, 10, 10] deeplearning_grid_01_model_48 0.26049
+#&gt; 1  51.98619 [50, 20, 10] deeplearning_grid_01_model_41 0.24401
+#&gt; 2 101.38806 [10, 10, 10] deeplearning_grid_01_model_21 0.24401
+#&gt; 3  51.99596 [10, 10, 10] deeplearning_grid_01_model_38 0.24427
+#&gt; 4 101.39909 [20, 20, 20] deeplearning_grid_01_model_45 0.24590
+#&gt; 5 101.42416 [20, 20, 20] deeplearning_grid_01_model_27 0.25220
 #&gt; 
 #&gt; ---
 #&gt;       epochs       hidden                     model_ids logloss
-#&gt; 49 104.03264 [50, 20, 10] deeplearning_grid_01_model_15 0.43373
-#&gt; 50 104.01025 [20, 20, 20] deeplearning_grid_01_model_36 0.43472
-#&gt; 51  52.74954 [50, 20, 10] deeplearning_grid_01_model_23 0.44610
-#&gt; 52 104.04631 [50, 20, 10] deeplearning_grid_01_model_42 0.47673
-#&gt; 53 103.95748 [50, 20, 10] deeplearning_grid_01_model_24 0.48374
-#&gt; 54 103.95512 [50, 20, 10]  deeplearning_grid_01_model_6 0.50556</code></pre>
+#&gt; 40  52.03909 [20, 20, 20] deeplearning_grid_01_model_35 0.40105
+#&gt; 41  10.42099 [50, 20, 10] deeplearning_grid_01_model_13 0.40287
+#&gt; 42 104.05887 [50, 20, 10] deeplearning_grid_01_model_15 0.42832
+#&gt; 43 104.06317 [20, 20, 20] deeplearning_grid_01_model_18 0.43517
+#&gt; 44 103.95825 [50, 20, 10]  deeplearning_grid_01_model_6 0.45414
+#&gt; 45 103.98630 [50, 20, 10] deeplearning_grid_01_model_33 0.46758</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb154"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb154-1"><a href="#cb154-1"></a><span class="fu">h2o.getGrid</span>(<span class="at">grid_id =</span> <span class="st">"deeplearning_grid_01"</span>, <span class="at">sort_by =</span> <span class="st">"auc"</span>, <span class="at">decreasing =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -3611,25 +3670,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; Used hyper parameters: 
 #&gt;   -  epochs 
 #&gt;   -  hidden 
-#&gt; Number of models: 54 
+#&gt; Number of models: 45 
 #&gt; Number of failed models: 0 
 #&gt; 
 #&gt; Hyper-Parameter Search Summary: ordered by decreasing auc
 #&gt;      epochs       hidden                     model_ids     auc
-#&gt; 1 101.40044 [50, 20, 10] deeplearning_grid_01_model_51 0.90259
-#&gt; 2 101.37594 [20, 20, 20] deeplearning_grid_01_model_54 0.89649
-#&gt; 3 101.37799 [10, 10, 10] deeplearning_grid_01_model_48 0.88800
-#&gt; 4  52.00451 [10, 10, 10] deeplearning_grid_01_model_47 0.88772
-#&gt; 5  52.01840 [20, 20, 20] deeplearning_grid_01_model_53 0.87821
+#&gt; 1 101.38806 [10, 10, 10] deeplearning_grid_01_model_21 0.89950
+#&gt; 2  51.99596 [10, 10, 10] deeplearning_grid_01_model_38 0.89682
+#&gt; 3 101.42416 [20, 20, 20] deeplearning_grid_01_model_27 0.89442
+#&gt; 4 101.39909 [20, 20, 20] deeplearning_grid_01_model_45 0.89384
+#&gt; 5 101.39731 [50, 20, 10] deeplearning_grid_01_model_24 0.89307
 #&gt; 
 #&gt; ---
 #&gt;       epochs       hidden                     model_ids     auc
-#&gt; 49 104.01309 [10, 10, 10] deeplearning_grid_01_model_21 0.74721
-#&gt; 50 103.95512 [50, 20, 10]  deeplearning_grid_01_model_6 0.74329
-#&gt; 51 103.98237 [10, 10, 10]  deeplearning_grid_01_model_3 0.73530
-#&gt; 52  51.99016 [50, 20, 10] deeplearning_grid_01_model_41 0.73400
-#&gt; 53  51.99442 [10, 10, 10] deeplearning_grid_01_model_29 0.72666
-#&gt; 54  51.93576 [10, 10, 10]  deeplearning_grid_01_model_2 0.71050</code></pre>
+#&gt; 40 104.07222 [20, 20, 20] deeplearning_grid_01_model_36 0.77415
+#&gt; 41  52.04538 [20, 20, 20]  deeplearning_grid_01_model_8 0.77149
+#&gt; 42 103.95825 [50, 20, 10]  deeplearning_grid_01_model_6 0.76178
+#&gt; 43 104.06317 [20, 20, 20] deeplearning_grid_01_model_18 0.75614
+#&gt; 44  52.03909 [20, 20, 20] deeplearning_grid_01_model_35 0.73630
+#&gt; 45  52.65658 [10, 10, 10]  deeplearning_grid_01_model_2 0.70864</code></pre>
 </div>
 </div>
 <div class="cell" data-hash="Challenge5_cache/html/unnamed-chunk-41_e4dc34ddb65b1cce7e2c8a219198a61b">
@@ -3638,7 +3697,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb156-3"><a href="#cb156-3"></a>deeplearning_grid_01_model_1 <span class="sc">%&gt;%</span> <span class="fu">h2o.auc</span>(<span class="at">train =</span> T, <span class="at">valid =</span> T, <span class="at">xval =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt;     train     valid      xval 
-#&gt; 0.9140850 0.8193699 0.8157351</code></pre>
+#&gt; 0.9336385 0.8394200 0.8044856</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb158"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb158-1"><a href="#cb158-1"></a><span class="do">##     train     valid      xval </span></span>
 <span id="cb158-2"><a href="#cb158-2"></a><span class="do">## 0.9093134 0.7922078 0.8299115 </span></span>
@@ -3660,13 +3719,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>#&gt; NULL</code></pre>
 </div>
 </div>
-<p>#3 Visualize the trade of between the precision and the recall and the optimal threshold #H2o Performance</p>
+</section><section id="visualize-the-trade-of-between-the-precision-and-the-recall-and-the-optimal-threshold" class="level2" data-number="10.10"><h2 data-number="10.10" class="anchored" data-anchor-id="visualize-the-trade-of-between-the-precision-and-the-recall-and-the-optimal-threshold">
+<span class="header-section-number">10.10</span> 3 Visualize the trade of between the precision and the recall and the optimal threshold</h2>
+</section><section id="h2o-performance" class="level2" data-number="10.11"><h2 data-number="10.11" class="anchored" data-anchor-id="h2o-performance">
+<span class="header-section-number">10.11</span> H2o Performance</h2>
 <div class="cell" data-hash="Challenge5_cache/html/unnamed-chunk-42_576672f1842515a20b72e6dde27228b6">
 <div class="sourceCode cell-code" id="cb161"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb161-1"><a href="#cb161-1"></a>stacked_ensemble_h2o <span class="ot">&lt;-</span> <span class="fu">h2o.loadModel</span>(<span class="st">"05_Modeling/h20_models/StackedEnsemble_AllModels_1_AutoML_2_20230526_203055"</span>)</span>
 <span id="cb161-2"><a href="#cb161-2"></a>deeplearning_h2o     <span class="ot">&lt;-</span> <span class="fu">h2o.loadModel</span>(<span class="st">"05_Modeling/h20_models/DeepLearning_1_AutoML_2_20230526_203055"</span>)</span>
 <span id="cb161-3"><a href="#cb161-3"></a>glm_h2o              <span class="ot">&lt;-</span> <span class="fu">h2o.loadModel</span>(<span class="st">"05_Modeling/h20_models/GBM_2_AutoML_2_20230526_203055"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>#Create a Performance Object</p>
+</section><section id="create-a-performance-object" class="level2" data-number="10.12"><h2 data-number="10.12" class="anchored" data-anchor-id="create-a-performance-object">
+<span class="header-section-number">10.12</span> Create a Performance Object</h2>
 <div class="cell" data-hash="Challenge5_cache/html/unnamed-chunk-43_7861a33337a1f424275f85245b6e5d96">
 <div class="sourceCode cell-code" id="cb162"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb162-1"><a href="#cb162-1"></a>performance_h2o <span class="ot">&lt;-</span> <span class="fu">h2o.performance</span>(stacked_ensemble_h2o, <span class="at">newdata =</span> <span class="fu">as.h2o</span>(test_tbl))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -3714,7 +3777,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; 
 #&gt; $frame
 #&gt; $frame$name
-#&gt; [1] "test_tbl_sid_b381_412"
+#&gt; [1] "test_tbl_sid_a122_421"
 #&gt; 
 #&gt; 
 #&gt; $frame_checksum
@@ -3938,8 +4001,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; [1] 2852</code></pre>
 </div>
 </div>
-</section><section id="classifier-summary-metrics-1" class="level1" data-number="11"><h1 data-number="11">
-<span class="header-section-number">11</span> Classifier Summary Metrics</h1>
+</section><section id="classifier-summary-metrics-1" class="level2" data-number="10.13"><h2 data-number="10.13" class="anchored" data-anchor-id="classifier-summary-metrics-1">
+<span class="header-section-number">10.13</span> Classifier Summary Metrics</h2>
 <div class="cell" data-hash="Challenge5_cache/html/unnamed-chunk-44_c1d6041bdd8ae03c4b9868e9cfb710f6">
 <div class="sourceCode cell-code" id="cb170"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb170-1"><a href="#cb170-1"></a><span class="fu">h2o.auc</span>(performance_h2o, <span class="at">train =</span> T, <span class="at">valid =</span> T, <span class="at">xval =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -4067,7 +4130,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<p>#4 ROC Plot</p>
+</section></section><section id="roc-plot" class="level1" data-number="11"><h1 data-number="11">
+<span class="header-section-number">11</span> 4 ROC Plot</h1>
 <div class="cell" data-hash="Challenge5_cache/html/unnamed-chunk-48_9108b24eadfd1fc20d4672bd952dc3f7">
 <div class="sourceCode cell-code" id="cb186"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb186-1"><a href="#cb186-1"></a>path <span class="ot">&lt;-</span> <span class="st">"05_Modeling/h2o_models/StackedEnsemble_AllModels_1_AutoML_2_20230526_203055"</span></span>
 <span id="cb186-2"><a href="#cb186-2"></a></span>
@@ -4090,6 +4154,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb186-19"><a href="#cb186-19"></a>    <span class="fu">unnest</span>(<span class="at">cols =</span> metrics)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; 
+  |                                                                            
+  |                                                                      |   0%
+  |                                                                            
+  |======================================================================| 100%
+#&gt; 
+  |                                                                            
+  |                                                                      |   0%
+  |                                                                            
+  |======================================================================| 100%
+#&gt; 
   |                                                                            
   |                                                                      |   0%
   |                                                                            
@@ -4134,7 +4208,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<p>#5 Precision vs Recall Plot</p>
+<section id="precision-vs-recall-plot-1" class="level2" data-number="11.1"><h2 data-number="11.1" class="anchored" data-anchor-id="precision-vs-recall-plot-1">
+<span class="header-section-number">11.1</span> 5 Precision vs Recall Plot</h2>
 <div class="cell" data-hash="Challenge5_cache/html/unnamed-chunk-50_1ff994d22e07e1b51f185397ab8fb222">
 <div class="sourceCode cell-code" id="cb189"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb189-1"><a href="#cb189-1"></a><span class="co"># Precision vs Recall</span></span>
 <span id="cb189-2"><a href="#cb189-2"></a></span>
@@ -4157,6 +4232,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb189-19"><a href="#cb189-19"></a>    <span class="fu">unnest</span>(<span class="at">cols =</span> metrics)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; 
+  |                                                                            
+  |                                                                      |   0%
+  |                                                                            
+  |======================================================================| 100%
+#&gt; 
+  |                                                                            
+  |                                                                      |   0%
+  |                                                                            
+  |======================================================================| 100%
+#&gt; 
   |                                                                            
   |                                                                      |   0%
   |                                                                            
@@ -4194,7 +4279,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<p>#6 Gain Plot</p>
+</section><section id="gain-plot" class="level2" data-number="11.2"><h2 data-number="11.2" class="anchored" data-anchor-id="gain-plot">
+<span class="header-section-number">11.2</span> 6 Gain Plot</h2>
 <div class="cell" data-hash="Challenge5_cache/html/unnamed-chunk-51_c4e252506cd123d37693d608494104c0">
 <div class="sourceCode cell-code" id="cb192"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb192-1"><a href="#cb192-1"></a><span class="co"># Gain &amp; Lift</span></span>
 <span id="cb192-2"><a href="#cb192-2"></a></span>
@@ -4217,7 +4303,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["ntile"],"name":[1],"type":["int"],"align":["right"]},{"label":["cases"],"name":[2],"type":["int"],"align":["right"]},{"label":["responses"],"name":[3],"type":["int"],"align":["right"]}],"data":[{"1":"10","2":"285","3":"209"},{"1":"9","2":"285","3":"92"},{"1":"8","2":"286","3":"20"},{"1":"7","2":"286","3":"13"},{"1":"6","2":"286","3":"7"},{"1":"5","2":"286","3":"2"},{"1":"4","2":"286","3":"1"},{"1":"3","2":"286","3":"0"},{"1":"2","2":"286","3":"0"},{"1":"1","2":"286","3":"0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["ntile"],"name":[1],"type":["int"],"align":["right"]},{"label":["cases"],"name":[2],"type":["int"],"align":["right"]},{"label":["responses"],"name":[3],"type":["int"],"align":["right"]}],"data":[{"1":"10","2":"285","3":"207"},{"1":"9","2":"285","3":"93"},{"1":"8","2":"286","3":"24"},{"1":"7","2":"286","3":"9"},{"1":"6","2":"286","3":"2"},{"1":"5","2":"286","3":"7"},{"1":"4","2":"286","3":"1"},{"1":"3","2":"286","3":"1"},{"1":"2","2":"286","3":"0"},{"1":"1","2":"286","3":"0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -4252,7 +4338,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["group"],"name":[1],"type":["int"],"align":["right"]},{"label":["cases"],"name":[2],"type":["int"],"align":["right"]},{"label":["responses"],"name":[3],"type":["int"],"align":["right"]},{"label":["cumulative_responses"],"name":[4],"type":["int"],"align":["right"]},{"label":["pct_responses"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["gain"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["cumulative_pct_cases"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["lift"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["gain_baseline"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["lift_baseline"],"name":[10],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"285","3":"209","4":"209","5":"0.607558140","6":"0.6075581","7":"0.09972008","8":"6.092636","9":"0.09972008","10":"1"},{"1":"2","2":"285","3":"92","4":"301","5":"0.267441860","6":"0.8750000","7":"0.19944017","8":"4.387281","9":"0.19944017","10":"1"},{"1":"3","2":"286","3":"20","4":"321","5":"0.058139535","6":"0.9331395","7":"0.29951015","8":"3.115552","9":"0.29951015","10":"1"},{"1":"4","2":"286","3":"13","4":"334","5":"0.037790698","6":"0.9709302","7":"0.39958013","8":"2.429876","9":"0.39958013","10":"1"},{"1":"5","2":"286","3":"7","4":"341","5":"0.020348837","6":"0.9912791","7":"0.49965010","8":"1.983946","9":"0.49965010","10":"1"},{"1":"6","2":"286","3":"2","4":"343","5":"0.005813953","6":"0.9970930","7":"0.59972008","8":"1.662597","9":"0.59972008","10":"1"},{"1":"7","2":"286","3":"1","4":"344","5":"0.002906977","6":"1.0000000","7":"0.69979006","8":"1.429000","9":"0.69979006","10":"1"},{"1":"8","2":"286","3":"0","4":"344","5":"0.000000000","6":"1.0000000","7":"0.79986004","8":"1.250219","9":"0.79986004","10":"1"},{"1":"9","2":"286","3":"0","4":"344","5":"0.000000000","6":"1.0000000","7":"0.89993002","8":"1.111198","9":"0.89993002","10":"1"},{"1":"10","2":"286","3":"0","4":"344","5":"0.000000000","6":"1.0000000","7":"1.00000000","8":"1.000000","9":"1.00000000","10":"1"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["group"],"name":[1],"type":["int"],"align":["right"]},{"label":["cases"],"name":[2],"type":["int"],"align":["right"]},{"label":["responses"],"name":[3],"type":["int"],"align":["right"]},{"label":["cumulative_responses"],"name":[4],"type":["int"],"align":["right"]},{"label":["pct_responses"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["gain"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["cumulative_pct_cases"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["lift"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["gain_baseline"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["lift_baseline"],"name":[10],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"285","3":"207","4":"207","5":"0.601744186","6":"0.6017442","7":"0.09972008","8":"6.034333","9":"0.09972008","10":"1"},{"1":"2","2":"285","3":"93","4":"300","5":"0.270348837","6":"0.8720930","7":"0.19944017","8":"4.372705","9":"0.19944017","10":"1"},{"1":"3","2":"286","3":"24","4":"324","5":"0.069767442","6":"0.9418605","7":"0.29951015","8":"3.144670","9":"0.29951015","10":"1"},{"1":"4","2":"286","3":"9","4":"333","5":"0.026162791","6":"0.9680233","7":"0.39958013","8":"2.422601","9":"0.39958013","10":"1"},{"1":"5","2":"286","3":"2","4":"335","5":"0.005813953","6":"0.9738372","7":"0.49965010","8":"1.949038","9":"0.49965010","10":"1"},{"1":"6","2":"286","3":"7","4":"342","5":"0.020348837","6":"0.9941860","7":"0.59972008","8":"1.657750","9":"0.59972008","10":"1"},{"1":"7","2":"286","3":"1","4":"343","5":"0.002906977","6":"0.9970930","7":"0.69979006","8":"1.424846","9":"0.69979006","10":"1"},{"1":"8","2":"286","3":"1","4":"344","5":"0.002906977","6":"1.0000000","7":"0.79986004","8":"1.250219","9":"0.79986004","10":"1"},{"1":"9","2":"286","3":"0","4":"344","5":"0.000000000","6":"1.0000000","7":"0.89993002","8":"1.111198","9":"0.89993002","10":"1"},{"1":"10","2":"286","3":"0","4":"344","5":"0.000000000","6":"1.0000000","7":"1.00000000","8":"1.000000","9":"1.00000000","10":"1"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -4288,7 +4374,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<p>#7. Lift Plot</p>
+</section><section id="lift-plot" class="level2" data-number="11.3"><h2 data-number="11.3" class="anchored" data-anchor-id="lift-plot">
+<span class="header-section-number">11.3</span> 7. Lift Plot</h2>
 <div class="cell" data-hash="Challenge5_cache/html/unnamed-chunk-55_cc7213504533b101541cb7ad38ffd587">
 <div class="sourceCode cell-code" id="cb196"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb196-1"><a href="#cb196-1"></a><span class="do">## Lift Plot</span></span>
 <span id="cb196-2"><a href="#cb196-2"></a></span>
@@ -4315,7 +4402,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<p>#8. Dashboard with cowplot</p>
+</section><section id="dashboard-with-cowplot" class="level2" data-number="11.4"><h2 data-number="11.4" class="anchored" data-anchor-id="dashboard-with-cowplot">
+<span class="header-section-number">11.4</span> 8. Dashboard with cowplot</h2>
 <div class="cell" data-hash="Challenge5_cache/html/unnamed-chunk-56_41bb9d5dd895a6c4d2452d8f915d5abc">
 <div class="sourceCode cell-code" id="cb197"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb197-1"><a href="#cb197-1"></a><span class="co"># 5. Performance Visualization ----  </span></span>
 <span id="cb197-2"><a href="#cb197-2"></a><span class="fu">library</span>(cowplot)</span>
@@ -4516,7 +4604,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -4765,7 +4853,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","selector":".lightbox","openEffect":"zoom","loop":true});</script>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","loop":true,"descPosition":"bottom","selector":".lightbox","openEffect":"zoom"});</script>
 
 
 </body></html>
