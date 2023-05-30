@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.475">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="author" content="Joschka Schwarz">
+<meta name="dcterms.date" content="2020-07-24">
+<title>MyLabJournal - Session 6 - Challenge - Company Segmentation</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../assets/icons/favicon.svg" rel="icon" type="image/svg+xml">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script><link href="../../../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="../../../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+</head>
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg navbar-dark "><div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">MyLabJournal</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+<li class="nav-item">
+    <a class="nav-link" href="../../../index.html">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-journal" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Journal</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-journal">
+<li>
+    <a class="dropdown-item" href="../../../content/01_journal/01_tidyverse.html">
+ <span class="dropdown-text">01 Tidyverse</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../content/01_journal/02_data_acquisition.html">
+ <span class="dropdown-text">02 Data Acquisition</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../content/01_journal/03_data_wrangling.html">
+ <span class="dropdown-text">03 Data Wrangling</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../content/01_journal/04_data_visualization.html">
+ <span class="dropdown-text">04 Data Visualization</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../content/01_journal/Challenge1/05_Machine_Learning_Fundamentals.html">
+ <span class="dropdown-text">05 Machine Learning Fundamentals</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../content/01_journal/Challenge2/Chapter_2_Challenge.html">
+ <span class="dropdown-text">06 Supervised ML - Regression (II)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../content/01_journal/Challenge3/Challenge3.html">
+ <span class="dropdown-text">07 Automated Machine Learning with H2O (I)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../content/01_journal/Challenge4/Challenge4.html">
+ <span class="dropdown-text">07 Automated Machine Learning with H2O (II)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../content/01_journal/Challenge5/Challenge5.html">
+ <span class="dropdown-text">08 Performance Measure</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../content/01_journal/Challenge6/Challenge6.html">
+ <span class="dropdown-text">09 Explaining Black-Box Models with LIME</span></a>
+  </li>  
+    </ul>
+</li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../../content/02_notes/05_class_notes.html">
+ <span class="menu-text">Class notes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../content/03_other/06_links.html">
+ <span class="menu-text">Links</span></a>
+  </li>  
+</ul>
+<div class="quarto-toggle-container">
+                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Contents</h2>
+   
+  <ul class="collapse">
+<li><a href="#libraries" id="toc-libraries" class="nav-link active" data-scroll-target="#libraries"><span class="toc-section-number">1</span>  Libraries</a></li>
+  <li><a href="#modeling--" id="toc-modeling--" class="nav-link" data-scroll-target="#modeling--"><span class="toc-section-number">2</span>  Modeling —————————————————————-</a></li>
+  <li><a href="#features" id="toc-features" class="nav-link" data-scroll-target="#features"><span class="toc-section-number">3</span>  Features</a></li>
+  <li><a href="#order-and-tidy-the-tibble" id="toc-order-and-tidy-the-tibble" class="nav-link" data-scroll-target="#order-and-tidy-the-tibble"><span class="toc-section-number">4</span>  Order and tidy the tibble</a></li>
+  <li>
+<a href="#recipe-challenge-2" id="toc-recipe-challenge-2" class="nav-link" data-scroll-target="#recipe-challenge-2"><span class="toc-section-number">5</span>  Recipe : Challenge 2 —————————————————–</a>
+  <ul class="collapse">
+<li><a href="#step-1-define-the-recipe" id="toc-step-1-define-the-recipe" class="nav-link" data-scroll-target="#step-1-define-the-recipe"><span class="toc-section-number">5.1</span>  Step 1: Define the recipe</a></li>
+  <li><a href="#splitting-the-data" id="toc-splitting-the-data" class="nav-link" data-scroll-target="#splitting-the-data"><span class="toc-section-number">5.2</span>  Splitting the Data</a></li>
+  <li><a href="#linear-methods--" id="toc-linear-methods--" class="nav-link" data-scroll-target="#linear-methods--"><span class="toc-section-number">5.3</span>  3.0 LINEAR METHODS —-</a></li>
+  <li><a href="#linear-regression---no-engineered-features--" id="toc-linear-regression---no-engineered-features--" class="nav-link" data-scroll-target="#linear-regression---no-engineered-features--"><span class="toc-section-number">5.4</span>  3.1 LINEAR REGRESSION - NO ENGINEERED FEATURES —-</a></li>
+  <li><a href="#predicting-with-a-recipe" id="toc-predicting-with-a-recipe" class="nav-link" data-scroll-target="#predicting-with-a-recipe"><span class="toc-section-number">5.5</span>  Predicting with a Recipe</a></li>
+  <li><a href="#calculating-the-common-metrics-comparing-a-truth-price-to-an-estimate-.pred." id="toc-calculating-the-common-metrics-comparing-a-truth-price-to-an-estimate-.pred." class="nav-link" data-scroll-target="#calculating-the-common-metrics-comparing-a-truth-price-to-an-estimate-.pred."><span class="toc-section-number">5.6</span>  Calculating the common metrics comparing a “truth” (price) to an “estimate” (.pred).</a></li>
+  <li><a href="#extracting-the-model-of-the-workflow" id="toc-extracting-the-model-of-the-workflow" class="nav-link" data-scroll-target="#extracting-the-model-of-the-workflow"><span class="toc-section-number">5.7</span>  Extracting the Model of the Workflow</a></li>
+  <li><a href="#model-explanation" id="toc-model-explanation" class="nav-link" data-scroll-target="#model-explanation"><span class="toc-section-number">5.8</span>  Model Explanation</a></li>
+  <li><a href="#feature-importance--" id="toc-feature-importance--" class="nav-link" data-scroll-target="#feature-importance--"><span class="toc-section-number">5.9</span>  3.1.2 Feature Importance —-</a></li>
+  <li><a href="#function-to-calculate-metrics-without-recipe--" id="toc-function-to-calculate-metrics-without-recipe--" class="nav-link" data-scroll-target="#function-to-calculate-metrics-without-recipe--"><span class="toc-section-number">5.10</span>  3.1.3 Function to Calculate Metrics Without Recipe —-</a></li>
+  <li><a href="#code-we-used-earlier" id="toc-code-we-used-earlier" class="nav-link" data-scroll-target="#code-we-used-earlier"><span class="toc-section-number">5.11</span>  Code we used earlier</a></li>
+  <li><a href="#generalized-into-a-function" id="toc-generalized-into-a-function" class="nav-link" data-scroll-target="#generalized-into-a-function"><span class="toc-section-number">5.12</span>  Generalized into a function</a></li>
+  <li><a href="#function-to-calculate-metrics-with-a-recipe" id="toc-function-to-calculate-metrics-with-a-recipe" class="nav-link" data-scroll-target="#function-to-calculate-metrics-with-a-recipe"><span class="toc-section-number">5.13</span>  Function to Calculate Metrics With a Recipe</a></li>
+  <li><a href="#linear-regression---with-engineered-features--" id="toc-linear-regression---with-engineered-features--" class="nav-link" data-scroll-target="#linear-regression---with-engineered-features--"><span class="toc-section-number">5.14</span>  3.2 LINEAR REGRESSION - WITH ENGINEERED FEATURES —-</a></li>
+  <li><a href="#new-recipe-preprocessing" id="toc-new-recipe-preprocessing" class="nav-link" data-scroll-target="#new-recipe-preprocessing"><span class="toc-section-number">5.15</span>  New Recipe (Preprocessing)</a></li>
+  <li><a href="#feature-importance---1" id="toc-feature-importance---1" class="nav-link" data-scroll-target="#feature-importance---1"><span class="toc-section-number">5.16</span>  3.2.2 Feature importance —-</a></li>
+  <li><a href="#penalized-regression--" id="toc-penalized-regression--" class="nav-link" data-scroll-target="#penalized-regression--"><span class="toc-section-number">5.17</span>  3.3 PENALIZED REGRESSION —-</a></li>
+  <li><a href="#new-recipe-preprocessing-1" id="toc-new-recipe-preprocessing-1" class="nav-link" data-scroll-target="#new-recipe-preprocessing-1"><span class="toc-section-number">5.18</span>  New Recipe (Preprocessing)</a></li>
+  <li><a href="#decision-tree-plot--" id="toc-decision-tree-plot--" class="nav-link" data-scroll-target="#decision-tree-plot--"><span class="toc-section-number">5.19</span>  4.1.2 Decision Tree Plot —-</a></li>
+  <li><a href="#xgboost--" id="toc-xgboost--" class="nav-link" data-scroll-target="#xgboost--"><span class="toc-section-number">5.20</span>  4.3 XGBOOST —-</a></li>
+  <li><a href="#model--" id="toc-model--" class="nav-link" data-scroll-target="#model--"><span class="toc-section-number">5.21</span>  4.3.1 Model —-</a></li>
+  <li><a href="#new-recipe-preprocessing-2" id="toc-new-recipe-preprocessing-2" class="nav-link" data-scroll-target="#new-recipe-preprocessing-2"><span class="toc-section-number">5.22</span>  New Recipe (Preprocessing)</a></li>
+  <li><a href="#feature-importance---2" id="toc-feature-importance---2" class="nav-link" data-scroll-target="#feature-importance---2"><span class="toc-section-number">5.23</span>  4.3.2 Feature Importance —-</a></li>
+  </ul>
+</li>
+  </ul></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title">Session 6 - Challenge - Company Segmentation</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Joschka Schwarz </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 24, 2020</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header><section id="libraries" class="level1" data-number="1"><h1 data-number="1">
+<span class="header-section-number">1</span> Libraries</h1>
+<p>Load the following libraries.</p>
+<div class="cell" data-hash="Chapter_2_Challenge_cache/html/unnamed-chunk-1_88e295b3a2ef7c2c5567f62f6d015335">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Standard</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co"># Modeling</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="fu">library</span>(parsnip)</span>
+<span id="cb1-6"><a href="#cb1-6"></a></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="co"># Preprocessing &amp; Sampling</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="fu">library</span>(recipes)</span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="fu">library</span>(rsample)</span>
+<span id="cb1-10"><a href="#cb1-10"></a></span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="co"># Modeling Error Metrics</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="fu">library</span>(yardstick)</span>
+<span id="cb1-13"><a href="#cb1-13"></a></span>
+<span id="cb1-14"><a href="#cb1-14"></a><span class="co"># Plotting Decision Trees</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a><span class="fu">library</span>(rpart.plot)</span>
+<span id="cb1-16"><a href="#cb1-16"></a></span>
+<span id="cb1-17"><a href="#cb1-17"></a><span class="fu">library</span>(forcats)</span>
+<span id="cb1-18"><a href="#cb1-18"></a></span>
+<span id="cb1-19"><a href="#cb1-19"></a><span class="fu">library</span>(workflows)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="modeling--" class="level1" data-number="2"><h1 data-number="2">
+<span class="header-section-number">2</span> Modeling —————————————————————-</h1>
+<div class="cell" data-hash="Chapter_2_Challenge_cache/html/unnamed-chunk-2_1a7d88d8a4f773277678a9ebaa52420c">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>bike_orderlines_tbl <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"bike_orderlines.rds"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">glimpse</span>(bike_orderlines_tbl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; Rows: 15,644
+#&gt; Columns: 18
+#&gt; $ order_id       &lt;dbl&gt; 1, 1, 2, 2, 3, 3, 3, 3, 3, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7…
+#&gt; $ order_line     &lt;dbl&gt; 1, 2, 1, 2, 1, 2, 3, 4, 5, 1, 1, 2, 3, 4, 1, 2, 3, 4, 1…
+#&gt; $ order_date     &lt;dttm&gt; 2015-01-07, 2015-01-07, 2015-01-10, 2015-01-10, 2015-0…
+#&gt; $ model          &lt;chr&gt; "Spectral CF 7 WMN", "Ultimate CF SLX Disc 8.0 ETAP", "…
+#&gt; $ model_year     &lt;dbl&gt; 2021, 2020, 2021, 2019, 2020, 2020, 2020, 2021, 2020, 2…
+#&gt; $ category_1     &lt;chr&gt; "Mountain", "Road", "Mountain", "Road", "Mountain", "Hy…
+#&gt; $ category_2     &lt;chr&gt; "Trail", "Race", "Trail", "Triathlon Bike", "Dirt Jump"…
+#&gt; $ category_3     &lt;chr&gt; "Spectral", "Ultimate", "Neuron", "Speedmax", "Stitched…
+#&gt; $ price          &lt;dbl&gt; 3119, 5359, 2729, 1749, 1219, 1359, 2529, 1559, 3899, 6…
+#&gt; $ quantity       &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1…
+#&gt; $ total_price    &lt;dbl&gt; 3119, 5359, 2729, 1749, 1219, 1359, 2529, 1559, 3899, 6…
+#&gt; $ frame_material &lt;chr&gt; "carbon", "carbon", "carbon", "carbon", "aluminium", "c…
+#&gt; $ weight         &lt;dbl&gt; 13.80, 7.44, 14.06, 8.80, 11.50, 8.80, 8.20, 8.85, 14.4…
+#&gt; $ url            &lt;chr&gt; "https://www.canyon.com/en-de/mountain-bikes/trail-bike…
+#&gt; $ bikeshop       &lt;chr&gt; "AlexandeRad", "AlexandeRad", "WITT-RAD", "WITT-RAD", "…
+#&gt; $ location       &lt;chr&gt; "Hamburg, Hamburg", "Hamburg, Hamburg", "Bremen, Bremen…
+#&gt; $ lat            &lt;dbl&gt; 53.57532, 53.57532, 53.07379, 53.07379, 48.78234, 48.78…
+#&gt; $ lng            &lt;dbl&gt; 10.015340, 10.015340, 8.826754, 8.826754, 9.180819, 9.1…</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>model_sales_tbl <span class="ot">&lt;-</span> bike_orderlines_tbl <span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>    <span class="fu">select</span>(total_price, model, category_2, frame_material) <span class="sc">%&gt;%</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a>    </span>
+<span id="cb4-4"><a href="#cb4-4"></a>    <span class="fu">group_by</span>(model, category_2, frame_material) <span class="sc">%&gt;%</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a>    <span class="fu">summarise</span>(<span class="at">total_sales =</span> <span class="fu">sum</span>(total_price)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a>    <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a>    </span>
+<span id="cb4-8"><a href="#cb4-8"></a>    <span class="fu">arrange</span>(<span class="fu">desc</span>(total_sales))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; `summarise()` has grouped output by 'model', 'category_2'. You can override
+#&gt; using the `.groups` argument.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>model_sales_tbl <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a>    <span class="fu">mutate</span>(<span class="at">category_2 =</span> <span class="fu">as_factor</span>(category_2) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-3"><a href="#cb6-3"></a>               <span class="fu">fct_reorder</span>(total_sales, <span class="at">.fun =</span> max) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-4"><a href="#cb6-4"></a>               <span class="fu">fct_rev</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a>    </span>
+<span id="cb6-6"><a href="#cb6-6"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(frame_material, total_sales)) <span class="sc">+</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a>    <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a>    <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"#2c3e50"</span>) <span class="sc">+</span></span>
+<span id="cb6-9"><a href="#cb6-9"></a>    <span class="co">#coord_flip() +</span></span>
+<span id="cb6-10"><a href="#cb6-10"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span> category_2) <span class="sc">+</span></span>
+<span id="cb6-11"><a href="#cb6-11"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">dollar_format</span>(<span class="at">scale =</span> <span class="fl">1e-6</span>, <span class="at">suffix =</span> <span class="st">"M"</span>, <span class="at">accuracy =</span> <span class="fl">0.1</span>)) <span class="sc">+</span></span>
+<span id="cb6-12"><a href="#cb6-12"></a>    tidyquant<span class="sc">::</span><span class="fu">theme_tq</span>() <span class="sc">+</span></span>
+<span id="cb6-13"><a href="#cb6-13"></a>    <span class="fu">labs</span>(</span>
+<span id="cb6-14"><a href="#cb6-14"></a>        <span class="at">title =</span> <span class="st">"Total Sales for Each Model"</span>,</span>
+<span id="cb6-15"><a href="#cb6-15"></a>        <span class="at">x =</span> <span class="st">"Frame Material"</span>, <span class="at">y =</span> <span class="st">"Revenue"</span></span>
+<span id="cb6-16"><a href="#cb6-16"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Registered S3 method overwritten by 'quantmod':
+#&gt;   method            from
+#&gt;   as.zoo.data.frame zoo</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Warning: Groups with fewer than two data points have been dropped.
+#&gt; Groups with fewer than two data points have been dropped.
+#&gt; Groups with fewer than two data points have been dropped.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Warning in max(data$density): kein nicht-fehlendes Argument für max; gebe -Inf
+#&gt; zurück</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Warning: Computation failed in `stat_ydensity()`
+#&gt; Caused by error in `$&lt;-.data.frame`:
+#&gt; ! Ersetzung hat 1 Zeile, Daten haben 0</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><a href="Chapter_2_Challenge_files/figure-html/unnamed-chunk-2-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="Chapter_2_Challenge_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="features" class="level1" data-number="3"><h1 data-number="3">
+<span class="header-section-number">3</span> Features</h1>
+<div class="cell" data-hash="Chapter_2_Challenge_cache/html/unnamed-chunk-3_b91e5e5d786953c188de619c6e30f0a8">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>bike_features_tbl <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"bike_features_tbl.rds"</span>)</span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="fu">glimpse</span>(bike_features_tbl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; Rows: 231
+#&gt; Columns: 67
+#&gt; $ bike_id                     &lt;dbl&gt; 2875, 2873, 2874, 2876, 2877, 2225, 2091, …
+#&gt; $ model                       &lt;chr&gt; "Aeroad CF SL Disc 8.0 Di2", "Aeroad CF SL…
+#&gt; $ model_year                  &lt;dbl&gt; 2020, 2020, 2020, 2020, 2020, 2019, 2019, …
+#&gt; $ frame_material              &lt;chr&gt; "carbon", "carbon", "carbon", "carbon", "c…
+#&gt; $ weight                      &lt;dbl&gt; 7.60, 7.27, 7.10, 7.73, 7.83, 6.80, 6.80, …
+#&gt; $ price                       &lt;dbl&gt; 4579, 6919, 6429, 5069, 3609, 6139, 5359, …
+#&gt; $ category_1                  &lt;chr&gt; "Road", "Road", "Road", "Road", "Road", "R…
+#&gt; $ category_2                  &lt;chr&gt; "Race", "Race", "Race", "Race", "Race", "R…
+#&gt; $ category_3                  &lt;chr&gt; "Aeroad", "Aeroad", "Aeroad", "Aeroad", "A…
+#&gt; $ gender                      &lt;chr&gt; "unisex", "unisex", "unisex", "unisex", "u…
+#&gt; $ url                         &lt;chr&gt; "https://www.canyon.com/en-de/road-bikes/r…
+#&gt; $ Frame                       &lt;chr&gt; "Canyon Aeroad CF SL Disc", "Canyon Aeroad…
+#&gt; $ Fork                        &lt;chr&gt; "Canyon FK0041 CF SLX Disc", "Canyon FK004…
+#&gt; $ `Rear Derailleur`           &lt;chr&gt; "Shimano Ultegra Di2 R8050 SS", "SRAM RED …
+#&gt; $ `Front Derailleur`          &lt;chr&gt; "Shimano Ultegra Di2 R8050", "SRAM RED eTa…
+#&gt; $ Cassette                    &lt;chr&gt; "Shimano Ultegra R8000, 11-speed, 11-28T",…
+#&gt; $ Crank                       &lt;chr&gt; "Shimano Ultegra R8000", "SRAM RED D1", "S…
+#&gt; $ `Bottom bracket`            &lt;chr&gt; "Shimano Pressfit BB72", "SRAM Pressfit RE…
+#&gt; $ `Thru Axle`                 &lt;chr&gt; "Canyon Thru Axle", "Canyon Thru Axle", "C…
+#&gt; $ Cockpit                     &lt;chr&gt; "Canyon H36 Aerocockpit CF", "Canyon H36 A…
+#&gt; $ Saddle                      &lt;chr&gt; "Selle Italia SLR", "Selle Italia SLR", "S…
+#&gt; $ Seatpost                    &lt;chr&gt; "Canyon S27 Aero VCLS CF", "Canyon S27 Aer…
+#&gt; $ Pedals                      &lt;chr&gt; "None included", "None included", "None in…
+#&gt; $ `Derailleur hanger`         &lt;chr&gt; "Shop Derailleur Hanger GP0211-01", "Shop …
+#&gt; $ Battery                     &lt;chr&gt; "", "SRAM eTap Powerpack", "", "SRAM eTap …
+#&gt; $ Brake                       &lt;chr&gt; "", "", "", "", "", "", "", "", "", "", ""…
+#&gt; $ `Shift Lever`               &lt;chr&gt; "", "", "", "", "", "", "Shimano Di2 Remot…
+#&gt; $ Chain                       &lt;chr&gt; "", "", "", "", "", "", "Shimano CN-HG901 …
+#&gt; $ Stem                        &lt;chr&gt; "", "", "", "", "", "", "", "Canyon V13", …
+#&gt; $ Handlebar                   &lt;chr&gt; "", "", "", "", "", "", "", "Canyon H16 Ae…
+#&gt; $ Headset                     &lt;chr&gt; "", "", "", "", "", "", "", "", "", "", ""…
+#&gt; $ Motor                       &lt;chr&gt; "", "", "", "", "", "", "", "", "", "", ""…
+#&gt; $ `Battery Charger`           &lt;chr&gt; "", "", "", "", "", "", "", "", "", "", ""…
+#&gt; $ `Flat Pedals`               &lt;chr&gt; "", "", "", "", "", "", "", "", "", "", ""…
+#&gt; $ Chainguard                  &lt;chr&gt; "", "", "", "", "", "", "", "", "", "", ""…
+#&gt; $ `Aero Bar`                  &lt;chr&gt; "", "", "", "", "", "", "", "", "", "", ""…
+#&gt; $ `Brake Lever / Master`      &lt;chr&gt; "", "", "", "", "", "", "", "", "", "", ""…
+#&gt; $ `Wheel Tire System`         &lt;chr&gt; "", "", "", "", "", "", "", "", "", "", ""…
+#&gt; $ `Suspension Fork`           &lt;chr&gt; "", "", "", "", "", "", "", "", "", "", ""…
+#&gt; $ `Disc Brake`                &lt;chr&gt; "", "", "", "", "", "", "", "", "", "", ""…
+#&gt; $ Grips                       &lt;chr&gt; "", "", "", "", "", "", "", "", "", "", ""…
+#&gt; $ Chainring                   &lt;chr&gt; "", "", "", "", "", "", "", "", "", "", ""…
+#&gt; $ Display                     &lt;chr&gt; "", "", "", "", "", "", "", "", "", "", ""…
+#&gt; $ Modeswitch                  &lt;chr&gt; "", "", "", "", "", "", "", "", "", "", ""…
+#&gt; $ `Rear Shock`                &lt;chr&gt; "", "", "", "", "", "", "", "", "", "", ""…
+#&gt; $ Light                       &lt;chr&gt; "", "", "", "", "", "", "", "", "", "", ""…
+#&gt; $ Fender                      &lt;chr&gt; "", "", "", "", "", "", "", "", "", "", ""…
+#&gt; $ `Bike Racks`                &lt;chr&gt; "", "", "", "", "", "", "", "", "", "", ""…
+#&gt; $ `Brake 1`                   &lt;chr&gt; "", "", "", "", "", "SRAM S-900 Direct Mou…
+#&gt; $ `Brake 2`                   &lt;chr&gt; "", "", "", "", "", "SRAM S-900 Direct Mou…
+#&gt; $ `Shift-/ Brake Lever 1`     &lt;chr&gt; "Shimano Ultegra Di2 R8070, 11-speed", "SR…
+#&gt; $ `Shift-/ Brake Lever 2`     &lt;chr&gt; "Shimano Ultegra Di2 R8070, 11-speed", "SR…
+#&gt; $ `Wheel 1`                   &lt;chr&gt; "DT Swiss ARC 1400 Dicut", "DT Swiss ARC 1…
+#&gt; $ `Wheel 2`                   &lt;chr&gt; "DT Swiss ARC 1400 Dicut", "DT Swiss ARC 1…
+#&gt; $ `Tyre 1`                    &lt;chr&gt; "Continental Grand Prix 5000 / Attack  23 …
+#&gt; $ `Tyre 2`                    &lt;chr&gt; "Continental Grand Prix 5000, 25 mm", "Con…
+#&gt; $ `Handlebar Tape 1`          &lt;chr&gt; "Canyon Ergospeed Gel", "Canyon Ergospeed …
+#&gt; $ `Handlebar Tape 2`          &lt;chr&gt; "Canyon bar-end plug", "Canyon bar-end plu…
+#&gt; $ `Manuals and Accessories 1` &lt;chr&gt; "Canyon tool case", "Canyon tool case", "C…
+#&gt; $ `Manuals and Accessories 2` &lt;chr&gt; "DT Swiss warranty &amp; intended use manual",…
+#&gt; $ `Manuals and Accessories 3` &lt;chr&gt; "Canyon starter box", "Canyon starter box"…
+#&gt; $ `Manuals and Accessories 4` &lt;chr&gt; "", "", "", "", "", "", "", "", "", "BAG R…
+#&gt; $ `Manuals and Accessories 5` &lt;chr&gt; "", "", "", "", "", "", "", "", "", "", ""…
+#&gt; $ `Manuals and Accessories 6` &lt;chr&gt; "", "", "", "", "", "", "", "", "", "", ""…
+#&gt; $ `Manuals and Accessories 7` &lt;chr&gt; "", "", "", "", "", "", "", "", "", "", ""…
+#&gt; $ `Manuals and Accessories 8` &lt;chr&gt; "", "", "", "", "", "", "", "", "", "", ""…
+#&gt; $ `Brake Rotor`               &lt;list&gt; "Shimano RT800", "SRAM Centerline X", "Sh…</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>bike_features_tbl <span class="ot">&lt;-</span> bike_features_tbl <span class="sc">%&gt;%</span> </span>
+<span id="cb13-2"><a href="#cb13-2"></a>    <span class="fu">select</span>(model<span class="sc">:</span>url, <span class="st">`</span><span class="at">Rear Derailleur</span><span class="st">`</span>, <span class="st">`</span><span class="at">Shift Lever</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-3"><a href="#cb13-3"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb13-4"><a href="#cb13-4"></a>      <span class="st">`</span><span class="at">shimano dura-ace</span><span class="st">`</span>        <span class="ot">=</span> <span class="st">`</span><span class="at">Rear Derailleur</span><span class="st">`</span> <span class="sc">%&gt;%</span> <span class="fu">str_to_lower</span>() <span class="sc">%&gt;%</span> <span class="fu">str_detect</span>(<span class="st">"shimano dura-ace "</span>) <span class="sc">%&gt;%</span> <span class="fu">as.numeric</span>(),</span>
+<span id="cb13-5"><a href="#cb13-5"></a>      <span class="st">`</span><span class="at">shimano ultegra</span><span class="st">`</span>         <span class="ot">=</span> <span class="st">`</span><span class="at">Rear Derailleur</span><span class="st">`</span> <span class="sc">%&gt;%</span> <span class="fu">str_to_lower</span>() <span class="sc">%&gt;%</span> <span class="fu">str_detect</span>(<span class="st">"shimano ultegra "</span>) <span class="sc">%&gt;%</span> <span class="fu">as.numeric</span>(),</span>
+<span id="cb13-6"><a href="#cb13-6"></a>      <span class="st">`</span><span class="at">shimano 105</span><span class="st">`</span>             <span class="ot">=</span> <span class="st">`</span><span class="at">Rear Derailleur</span><span class="st">`</span> <span class="sc">%&gt;%</span> <span class="fu">str_to_lower</span>() <span class="sc">%&gt;%</span> <span class="fu">str_detect</span>(<span class="st">"shimano 105 "</span>) <span class="sc">%&gt;%</span> <span class="fu">as.numeric</span>(),</span>
+<span id="cb13-7"><a href="#cb13-7"></a>      <span class="st">`</span><span class="at">shimano tiagra</span><span class="st">`</span>          <span class="ot">=</span> <span class="st">`</span><span class="at">Rear Derailleur</span><span class="st">`</span> <span class="sc">%&gt;%</span> <span class="fu">str_to_lower</span>() <span class="sc">%&gt;%</span> <span class="fu">str_detect</span>(<span class="st">"shimano tiagra "</span>) <span class="sc">%&gt;%</span> <span class="fu">as.numeric</span>(),</span>
+<span id="cb13-8"><a href="#cb13-8"></a>      <span class="st">`</span><span class="at">Shimano sora</span><span class="st">`</span>            <span class="ot">=</span> <span class="st">`</span><span class="at">Rear Derailleur</span><span class="st">`</span> <span class="sc">%&gt;%</span> <span class="fu">str_to_lower</span>() <span class="sc">%&gt;%</span> <span class="fu">str_detect</span>(<span class="st">"shimano sora"</span>) <span class="sc">%&gt;%</span> <span class="fu">as.numeric</span>(),</span>
+<span id="cb13-9"><a href="#cb13-9"></a>      <span class="st">`</span><span class="at">shimano deore</span><span class="st">`</span>           <span class="ot">=</span> <span class="st">`</span><span class="at">Rear Derailleur</span><span class="st">`</span> <span class="sc">%&gt;%</span> <span class="fu">str_to_lower</span>() <span class="sc">%&gt;%</span> <span class="fu">str_detect</span>(<span class="st">"shimano deore(?! xt)"</span>) <span class="sc">%&gt;%</span> <span class="fu">as.numeric</span>(),</span>
+<span id="cb13-10"><a href="#cb13-10"></a>      <span class="st">`</span><span class="at">shimano slx</span><span class="st">`</span>             <span class="ot">=</span> <span class="st">`</span><span class="at">Rear Derailleur</span><span class="st">`</span> <span class="sc">%&gt;%</span> <span class="fu">str_to_lower</span>() <span class="sc">%&gt;%</span> <span class="fu">str_detect</span>(<span class="st">"shimano slx"</span>) <span class="sc">%&gt;%</span> <span class="fu">as.numeric</span>(),</span>
+<span id="cb13-11"><a href="#cb13-11"></a>      <span class="st">`</span><span class="at">shimano grx</span><span class="st">`</span>             <span class="ot">=</span> <span class="st">`</span><span class="at">Rear Derailleur</span><span class="st">`</span> <span class="sc">%&gt;%</span> <span class="fu">str_to_lower</span>() <span class="sc">%&gt;%</span> <span class="fu">str_detect</span>(<span class="st">"shimano grx"</span>) <span class="sc">%&gt;%</span> <span class="fu">as.numeric</span>(),</span>
+<span id="cb13-12"><a href="#cb13-12"></a>      <span class="st">`</span><span class="at">Shimano xt</span><span class="st">`</span>              <span class="ot">=</span> <span class="st">`</span><span class="at">Rear Derailleur</span><span class="st">`</span> <span class="sc">%&gt;%</span> <span class="fu">str_to_lower</span>() <span class="sc">%&gt;%</span> <span class="fu">str_detect</span>(<span class="st">"shimano deore xt |shimano xt "</span>) <span class="sc">%&gt;%</span> <span class="fu">as.numeric</span>(),</span>
+<span id="cb13-13"><a href="#cb13-13"></a>      <span class="st">`</span><span class="at">Shimano xtr</span><span class="st">`</span>             <span class="ot">=</span> <span class="st">`</span><span class="at">Rear Derailleur</span><span class="st">`</span> <span class="sc">%&gt;%</span> <span class="fu">str_to_lower</span>() <span class="sc">%&gt;%</span> <span class="fu">str_detect</span>(<span class="st">"shimano xtr"</span>) <span class="sc">%&gt;%</span> <span class="fu">as.numeric</span>(),</span>
+<span id="cb13-14"><a href="#cb13-14"></a>      <span class="st">`</span><span class="at">Shimano saint</span><span class="st">`</span>           <span class="ot">=</span> <span class="st">`</span><span class="at">Rear Derailleur</span><span class="st">`</span> <span class="sc">%&gt;%</span> <span class="fu">str_to_lower</span>() <span class="sc">%&gt;%</span> <span class="fu">str_detect</span>(<span class="st">"shimano saint"</span>) <span class="sc">%&gt;%</span> <span class="fu">as.numeric</span>(),</span>
+<span id="cb13-15"><a href="#cb13-15"></a>      <span class="st">`</span><span class="at">SRAM red</span><span class="st">`</span>                <span class="ot">=</span> <span class="st">`</span><span class="at">Rear Derailleur</span><span class="st">`</span> <span class="sc">%&gt;%</span> <span class="fu">str_to_lower</span>() <span class="sc">%&gt;%</span> <span class="fu">str_detect</span>(<span class="st">"sram red"</span>) <span class="sc">%&gt;%</span> <span class="fu">as.numeric</span>(),</span>
+<span id="cb13-16"><a href="#cb13-16"></a>      <span class="st">`</span><span class="at">SRAM force</span><span class="st">`</span>              <span class="ot">=</span> <span class="st">`</span><span class="at">Rear Derailleur</span><span class="st">`</span> <span class="sc">%&gt;%</span> <span class="fu">str_to_lower</span>() <span class="sc">%&gt;%</span> <span class="fu">str_detect</span>(<span class="st">"sram force"</span>) <span class="sc">%&gt;%</span> <span class="fu">as.numeric</span>(),</span>
+<span id="cb13-17"><a href="#cb13-17"></a>      <span class="st">`</span><span class="at">SRAM rival</span><span class="st">`</span>              <span class="ot">=</span> <span class="st">`</span><span class="at">Rear Derailleur</span><span class="st">`</span> <span class="sc">%&gt;%</span> <span class="fu">str_to_lower</span>() <span class="sc">%&gt;%</span> <span class="fu">str_detect</span>(<span class="st">"sram rival"</span>) <span class="sc">%&gt;%</span> <span class="fu">as.numeric</span>(),</span>
+<span id="cb13-18"><a href="#cb13-18"></a>      <span class="st">`</span><span class="at">SRAM apex</span><span class="st">`</span>               <span class="ot">=</span> <span class="st">`</span><span class="at">Rear Derailleur</span><span class="st">`</span> <span class="sc">%&gt;%</span> <span class="fu">str_to_lower</span>() <span class="sc">%&gt;%</span> <span class="fu">str_detect</span>(<span class="st">"sram apex"</span>) <span class="sc">%&gt;%</span> <span class="fu">as.numeric</span>(),</span>
+<span id="cb13-19"><a href="#cb13-19"></a>      <span class="st">`</span><span class="at">SRAM xx1</span><span class="st">`</span>                <span class="ot">=</span> <span class="st">`</span><span class="at">Rear Derailleur</span><span class="st">`</span> <span class="sc">%&gt;%</span> <span class="fu">str_to_lower</span>() <span class="sc">%&gt;%</span> <span class="fu">str_detect</span>(<span class="st">"sram xx1"</span>) <span class="sc">%&gt;%</span> <span class="fu">as.numeric</span>(),</span>
+<span id="cb13-20"><a href="#cb13-20"></a>      <span class="st">`</span><span class="at">SRAM x01</span><span class="st">`</span>                <span class="ot">=</span> <span class="st">`</span><span class="at">Rear Derailleur</span><span class="st">`</span> <span class="sc">%&gt;%</span> <span class="fu">str_to_lower</span>() <span class="sc">%&gt;%</span> <span class="fu">str_detect</span>(<span class="st">"sram x01|sram xo1"</span>) <span class="sc">%&gt;%</span> <span class="fu">as.numeric</span>(),</span>
+<span id="cb13-21"><a href="#cb13-21"></a>      <span class="st">`</span><span class="at">SRAM gx</span><span class="st">`</span>                 <span class="ot">=</span> <span class="st">`</span><span class="at">Rear Derailleur</span><span class="st">`</span> <span class="sc">%&gt;%</span> <span class="fu">str_to_lower</span>() <span class="sc">%&gt;%</span> <span class="fu">str_detect</span>(<span class="st">"sram gx"</span>) <span class="sc">%&gt;%</span> <span class="fu">as.numeric</span>(),</span>
+<span id="cb13-22"><a href="#cb13-22"></a>      <span class="st">`</span><span class="at">SRAM nx</span><span class="st">`</span>                 <span class="ot">=</span> <span class="st">`</span><span class="at">Rear Derailleur</span><span class="st">`</span> <span class="sc">%&gt;%</span> <span class="fu">str_to_lower</span>() <span class="sc">%&gt;%</span> <span class="fu">str_detect</span>(<span class="st">"sram nx"</span>) <span class="sc">%&gt;%</span> <span class="fu">as.numeric</span>(),</span>
+<span id="cb13-23"><a href="#cb13-23"></a>      <span class="st">`</span><span class="at">SRAM sx</span><span class="st">`</span>                 <span class="ot">=</span> <span class="st">`</span><span class="at">Rear Derailleur</span><span class="st">`</span> <span class="sc">%&gt;%</span> <span class="fu">str_to_lower</span>() <span class="sc">%&gt;%</span> <span class="fu">str_detect</span>(<span class="st">"sram sx"</span>) <span class="sc">%&gt;%</span> <span class="fu">as.numeric</span>(),</span>
+<span id="cb13-24"><a href="#cb13-24"></a>      <span class="st">`</span><span class="at">SRAM sx</span><span class="st">`</span>                 <span class="ot">=</span> <span class="st">`</span><span class="at">Rear Derailleur</span><span class="st">`</span> <span class="sc">%&gt;%</span> <span class="fu">str_to_lower</span>() <span class="sc">%&gt;%</span> <span class="fu">str_detect</span>(<span class="st">"sram sx"</span>) <span class="sc">%&gt;%</span> <span class="fu">as.numeric</span>(),</span>
+<span id="cb13-25"><a href="#cb13-25"></a>      <span class="st">`</span><span class="at">Campagnolo potenza</span><span class="st">`</span>      <span class="ot">=</span> <span class="st">`</span><span class="at">Rear Derailleur</span><span class="st">`</span> <span class="sc">%&gt;%</span> <span class="fu">str_to_lower</span>() <span class="sc">%&gt;%</span> <span class="fu">str_detect</span>(<span class="st">"campagnolo potenza"</span>) <span class="sc">%&gt;%</span> <span class="fu">as.numeric</span>(),</span>
+<span id="cb13-26"><a href="#cb13-26"></a>      <span class="st">`</span><span class="at">Campagnolo super record</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">Rear Derailleur</span><span class="st">`</span> <span class="sc">%&gt;%</span> <span class="fu">str_to_lower</span>() <span class="sc">%&gt;%</span> <span class="fu">str_detect</span>(<span class="st">"campagnolo super record"</span>) <span class="sc">%&gt;%</span> <span class="fu">as.numeric</span>(),</span>
+<span id="cb13-27"><a href="#cb13-27"></a>      <span class="st">`</span><span class="at">shimano nexus</span><span class="st">`</span>           <span class="ot">=</span> <span class="st">`</span><span class="at">Shift Lever</span><span class="st">`</span>     <span class="sc">%&gt;%</span> <span class="fu">str_to_lower</span>() <span class="sc">%&gt;%</span> <span class="fu">str_detect</span>(<span class="st">"shimano nexus"</span>) <span class="sc">%&gt;%</span> <span class="fu">as.numeric</span>(),</span>
+<span id="cb13-28"><a href="#cb13-28"></a>      <span class="st">`</span><span class="at">shimano alfine</span><span class="st">`</span>          <span class="ot">=</span> <span class="st">`</span><span class="at">Shift Lever</span><span class="st">`</span>     <span class="sc">%&gt;%</span> <span class="fu">str_to_lower</span>() <span class="sc">%&gt;%</span> <span class="fu">str_detect</span>(<span class="st">"shimano alfine"</span>) <span class="sc">%&gt;%</span> <span class="fu">as.numeric</span>()</span>
+<span id="cb13-29"><a href="#cb13-29"></a>    ) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-30"><a href="#cb13-30"></a>  <span class="co"># Remove original columns  </span></span>
+<span id="cb13-31"><a href="#cb13-31"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="st">`</span><span class="at">Rear Derailleur</span><span class="st">`</span>, <span class="st">`</span><span class="at">Shift Lever</span><span class="st">`</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-32"><a href="#cb13-32"></a>  <span class="co"># Set all NAs to 0</span></span>
+<span id="cb13-33"><a href="#cb13-33"></a>  <span class="fu">mutate_if</span>(is.numeric, <span class="sc">~</span><span class="fu">replace</span>(., <span class="fu">is.na</span>(.), <span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="order-and-tidy-the-tibble" class="level1" data-number="4"><h1 data-number="4">
+<span class="header-section-number">4</span> Order and tidy the tibble</h1>
+<div class="cell" data-hash="Chapter_2_Challenge_cache/html/unnamed-chunk-4_844d37d7b37571addb6ffc9e14c93c04">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># 2.0 TRAINING &amp; </span><span class="al">TEST</span><span class="co"> SETS ----</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a>bike_features_tbl <span class="ot">&lt;-</span> bike_features_tbl <span class="sc">%&gt;%</span> </span>
+<span id="cb14-3"><a href="#cb14-3"></a>  </span>
+<span id="cb14-4"><a href="#cb14-4"></a>  <span class="fu">mutate</span>(<span class="at">id =</span> <span class="fu">row_number</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-5"><a href="#cb14-5"></a>  </span>
+<span id="cb14-6"><a href="#cb14-6"></a>  <span class="fu">select</span>(id, <span class="fu">everything</span>(), <span class="sc">-</span>url)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="recipe-challenge-2" class="level1" data-number="5"><h1 data-number="5">
+<span class="header-section-number">5</span> Recipe : Challenge 2 —————————————————–</h1>
+<section id="step-1-define-the-recipe" class="level2" data-number="5.1"><h2 data-number="5.1" class="anchored" data-anchor-id="step-1-define-the-recipe">
+<span class="header-section-number">5.1</span> Step 1: Define the recipe</h2>
+<div class="cell" data-hash="Chapter_2_Challenge_cache/html/unnamed-chunk-5_7a563d818fee42e556b4c1eb56f1ee75">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>bikes_rec <span class="ot">&lt;-</span> </span>
+<span id="cb15-2"><a href="#cb15-2"></a>  <span class="fu">recipe</span>(price <span class="sc">~</span> category_2 <span class="sc">+</span> frame_material, <span class="at">data =</span> bike_orderlines_tbl) <span class="sc">%&gt;%</span></span>
+<span id="cb15-3"><a href="#cb15-3"></a>  <span class="fu">step_dummy</span>(<span class="fu">all_nominal</span>(), <span class="sc">-</span><span class="fu">all_outcomes</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb15-4"><a href="#cb15-4"></a>  <span class="fu">step_unknown</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb15-5"><a href="#cb15-5"></a>  <span class="fu">prep</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="splitting-the-data" class="level2" data-number="5.2"><h2 data-number="5.2" class="anchored" data-anchor-id="splitting-the-data">
+<span class="header-section-number">5.2</span> Splitting the Data</h2>
+<div class="cell" data-hash="Chapter_2_Challenge_cache/html/unnamed-chunk-6_3cc3312213018b6370a0711e6cb5f867">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>bike_features_tbl <span class="sc">%&gt;%</span> <span class="fu">distinct</span>(category_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["category_2"],"name":[1],"type":["chr"],"align":["left"]}],"data":[{"1":"Race"},{"1":"Endurance"},{"1":"E-Road"},{"1":"Cyclocross"},{"1":"Triathlon Bike"},{"1":"Fat Bikes"},{"1":"Cross-Country"},{"1":"Adventure"},{"1":"All-Road"},{"1":"E-Gravel"},{"1":"Trail"},{"1":"E-Mountain"},{"1":"Downhill"},{"1":"Dirt Jump"},{"1":"Enduro"},{"1":"E-City"},{"1":"E-Trekking"},{"1":"E-Fitness"},{"1":"City"},{"1":"Touring"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># run both following commands at the same time</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a><span class="fu">set.seed</span>(<span class="at">seed =</span> <span class="dv">1113</span>)</span>
+<span id="cb17-3"><a href="#cb17-3"></a>split_obj <span class="ot">&lt;-</span> rsample<span class="sc">::</span><span class="fu">initial_split</span>(bike_features_tbl, <span class="at">prop   =</span> <span class="fl">0.80</span>, </span>
+<span id="cb17-4"><a href="#cb17-4"></a>                                                       <span class="at">strata =</span> <span class="st">"category_2"</span>)</span>
+<span id="cb17-5"><a href="#cb17-5"></a></span>
+<span id="cb17-6"><a href="#cb17-6"></a><span class="co"># Check if testing contains all category_2 values</span></span>
+<span id="cb17-7"><a href="#cb17-7"></a>split_obj <span class="sc">%&gt;%</span> <span class="fu">training</span>() <span class="sc">%&gt;%</span> <span class="fu">distinct</span>(category_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["category_2"],"name":[1],"type":["chr"],"align":["left"]}],"data":[{"1":"Race"},{"1":"Endurance"},{"1":"Cyclocross"},{"1":"Triathlon Bike"},{"1":"Fat Bikes"},{"1":"Cross-Country"},{"1":"Adventure"},{"1":"All-Road"},{"1":"E-Gravel"},{"1":"E-Mountain"},{"1":"Downhill"},{"1":"Dirt Jump"},{"1":"Enduro"},{"1":"E-City"},{"1":"E-Trekking"},{"1":"E-Fitness"},{"1":"City"},{"1":"Touring"},{"1":"Trail"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>split_obj <span class="sc">%&gt;%</span> <span class="fu">testing</span>() <span class="sc">%&gt;%</span> <span class="fu">distinct</span>(category_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["category_2"],"name":[1],"type":["chr"],"align":["left"]}],"data":[{"1":"Race"},{"1":"Endurance"},{"1":"E-Road"},{"1":"Cyclocross"},{"1":"Triathlon Bike"},{"1":"Cross-Country"},{"1":"All-Road"},{"1":"Trail"},{"1":"E-Mountain"},{"1":"Dirt Jump"},{"1":"Enduro"},{"1":"E-City"},{"1":"E-Fitness"},{"1":"City"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># Assign training and test data</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a>train_tbl <span class="ot">&lt;-</span> <span class="fu">training</span>(split_obj)</span>
+<span id="cb19-3"><a href="#cb19-3"></a>test_tbl  <span class="ot">&lt;-</span> <span class="fu">testing</span>(split_obj)</span>
+<span id="cb19-4"><a href="#cb19-4"></a></span>
+<span id="cb19-5"><a href="#cb19-5"></a><span class="co"># We have to remove spaces and dashes from the column names</span></span>
+<span id="cb19-6"><a href="#cb19-6"></a>train_tbl <span class="ot">&lt;-</span> train_tbl <span class="sc">%&gt;%</span> <span class="fu">set_names</span>(<span class="fu">str_replace_all</span>(<span class="fu">names</span>(train_tbl), <span class="st">" |-"</span>, <span class="st">"_"</span>))</span>
+<span id="cb19-7"><a href="#cb19-7"></a>test_tbl  <span class="ot">&lt;-</span> test_tbl  <span class="sc">%&gt;%</span> <span class="fu">set_names</span>(<span class="fu">str_replace_all</span>(<span class="fu">names</span>(test_tbl),  <span class="st">" |-"</span>, <span class="st">"_"</span>))</span>
+<span id="cb19-8"><a href="#cb19-8"></a></span>
+<span id="cb19-9"><a href="#cb19-9"></a><span class="co">#train_tbl$category_2 &lt;- factor(train_tbl$category_2, levels = unique(bike_features_tbl$category_2))</span></span>
+<span id="cb19-10"><a href="#cb19-10"></a><span class="co">#test_tbl$category_2 &lt;- factor(test_tbl$category_2, levels = unique(bike_features_tbl$category_2))</span></span>
+<span id="cb19-11"><a href="#cb19-11"></a></span>
+<span id="cb19-12"><a href="#cb19-12"></a>train_transformed_tbl <span class="ot">&lt;-</span> <span class="fu">bake</span>(bikes_rec, <span class="at">new_data =</span> train_tbl) </span>
+<span id="cb19-13"><a href="#cb19-13"></a>test_transformed_tbl <span class="ot">&lt;-</span> <span class="fu">bake</span>(bikes_rec, <span class="at">new_data =</span> test_tbl) </span>
+<span id="cb19-14"><a href="#cb19-14"></a></span>
+<span id="cb19-15"><a href="#cb19-15"></a><span class="co">#Deleted E-Road, because there is no E-Road in the training_Tbl. Thus, it can't be trained on. (diff. levels)</span></span>
+<span id="cb19-16"><a href="#cb19-16"></a><span class="co">#Not Necessary, if used a recipe, due to "step_unknown()" function</span></span>
+<span id="cb19-17"><a href="#cb19-17"></a><span class="co">#test_tbl &lt;- test_tbl[test_tbl$category_2 != "E-Road", ]</span></span>
+<span id="cb19-18"><a href="#cb19-18"></a></span>
+<span id="cb19-19"><a href="#cb19-19"></a>bike_features_tbl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["id"],"name":[1],"type":["int"],"align":["right"]},{"label":["model"],"name":[2],"type":["chr"],"align":["left"]},{"label":["model_year"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["frame_material"],"name":[4],"type":["chr"],"align":["left"]},{"label":["weight"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["price"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["category_1"],"name":[7],"type":["chr"],"align":["left"]},{"label":["category_2"],"name":[8],"type":["chr"],"align":["left"]},{"label":["category_3"],"name":[9],"type":["chr"],"align":["left"]},{"label":["gender"],"name":[10],"type":["chr"],"align":["left"]},{"label":["shimano dura-ace"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["shimano ultegra"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["shimano 105"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["shimano tiagra"],"name":[14],"type":["dbl"],"align":["right"]},{"label":["Shimano sora"],"name":[15],"type":["dbl"],"align":["right"]},{"label":["shimano deore"],"name":[16],"type":["dbl"],"align":["right"]},{"label":["shimano slx"],"name":[17],"type":["dbl"],"align":["right"]},{"label":["shimano grx"],"name":[18],"type":["dbl"],"align":["right"]},{"label":["Shimano xt"],"name":[19],"type":["dbl"],"align":["right"]},{"label":["Shimano xtr"],"name":[20],"type":["dbl"],"align":["right"]},{"label":["Shimano saint"],"name":[21],"type":["dbl"],"align":["right"]},{"label":["SRAM red"],"name":[22],"type":["dbl"],"align":["right"]},{"label":["SRAM force"],"name":[23],"type":["dbl"],"align":["right"]},{"label":["SRAM rival"],"name":[24],"type":["dbl"],"align":["right"]},{"label":["SRAM apex"],"name":[25],"type":["dbl"],"align":["right"]},{"label":["SRAM xx1"],"name":[26],"type":["dbl"],"align":["right"]},{"label":["SRAM x01"],"name":[27],"type":["dbl"],"align":["right"]},{"label":["SRAM gx"],"name":[28],"type":["dbl"],"align":["right"]},{"label":["SRAM nx"],"name":[29],"type":["dbl"],"align":["right"]},{"label":["SRAM sx"],"name":[30],"type":["dbl"],"align":["right"]},{"label":["Campagnolo potenza"],"name":[31],"type":["dbl"],"align":["right"]},{"label":["Campagnolo super record"],"name":[32],"type":["dbl"],"align":["right"]},{"label":["shimano nexus"],"name":[33],"type":["dbl"],"align":["right"]},{"label":["shimano alfine"],"name":[34],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"Aeroad CF SL Disc 8.0 Di2","3":"2020","4":"carbon","5":"7.60","6":"4579","7":"Road","8":"Race","9":"Aeroad","10":"unisex","11":"0","12":"1","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"2","2":"Aeroad CF SLX Disc 9.0 ETAP","3":"2020","4":"carbon","5":"7.27","6":"6919","7":"Road","8":"Race","9":"Aeroad","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"1","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"3","2":"Aeroad CF SLX Disc 9.0 Di2","3":"2020","4":"carbon","5":"7.10","6":"6429","7":"Road","8":"Race","9":"Aeroad","10":"unisex","11":"1","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"4","2":"Aeroad CF SL Disc 8.0 ETAP","3":"2020","4":"carbon","5":"7.73","6":"5069","7":"Road","8":"Race","9":"Aeroad","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"1","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"5","2":"Aeroad CF SL Disc 8.0","3":"2020","4":"carbon","5":"7.83","6":"3609","7":"Road","8":"Race","9":"Aeroad","10":"unisex","11":"0","12":"1","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"6","2":"Aeroad CF SLX 9.0 SL","3":"2019","4":"carbon","5":"6.80","6":"6139","7":"Road","8":"Race","9":"Aeroad","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"1","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"7","2":"Aeroad CF SLX 9.0 Di2","3":"2019","4":"carbon","5":"6.80","6":"5359","7":"Road","8":"Race","9":"Aeroad","10":"unisex","11":"1","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"8","2":"Aeroad CF SL 7.0","3":"2021","4":"carbon","5":"7.60","6":"2629","7":"Road","8":"Race","9":"Aeroad","10":"unisex","11":"0","12":"0","13":"1","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"9","2":"Aeroad CF SL 8.0 Di2","3":"2020","4":"carbon","5":"7.30","6":"3699","7":"Road","8":"Race","9":"Aeroad","10":"unisex","11":"0","12":"1","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"10","2":"Aeroad WMN CF SL 8.0","3":"2020","4":"carbon","5":"7.20","6":"3219","7":"Road","8":"Race","9":"Aeroad","10":"female","11":"0","12":"1","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"11","2":"Aeroad CF SL 8.0","3":"2020","4":"carbon","5":"7.30","6":"2829","7":"Road","8":"Race","9":"Aeroad","10":"unisex","11":"0","12":"1","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"12","2":"Endurace AL Disc 7.0","3":"2020","4":"aluminium","5":"8.72","6":"1559","7":"Road","8":"Endurance","9":"Endurace","10":"unisex","11":"0","12":"0","13":"1","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"13","2":"Endurace WMN AL Disc 7.0","3":"2020","4":"aluminium","5":"8.73","6":"1559","7":"Road","8":"Endurance","9":"Endurace","10":"female","11":"0","12":"0","13":"1","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"14","2":"Endurace AL Disc 6.0","3":"2020","4":"aluminium","5":"9.04","6":"1269","7":"Road","8":"Endurance","9":"Endurace","10":"unisex","11":"0","12":"0","13":"0","14":"1","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"15","2":"Endurace WMN AL Disc 6.0","3":"2020","4":"aluminium","5":"8.97","6":"1269","7":"Road","8":"Endurance","9":"Endurace","10":"female","11":"0","12":"0","13":"0","14":"1","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"16","2":"Endurace AL 7.0","3":"2020","4":"aluminium","5":"8.21","6":"1169","7":"Road","8":"Endurance","9":"Endurace","10":"unisex","11":"0","12":"0","13":"1","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"17","2":"Endurace WMN AL 7.0","3":"2020","4":"aluminium","5":"8.20","6":"1169","7":"Road","8":"Endurance","9":"Endurace","10":"female","11":"0","12":"0","13":"1","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"18","2":"Endurace AL 6.0","3":"2020","4":"aluminium","5":"8.58","6":"969","7":"Road","8":"Endurance","9":"Endurace","10":"unisex","11":"0","12":"0","13":"0","14":"1","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"19","2":"Endurace WMN AL 6.0","3":"2020","4":"aluminium","5":"8.50","6":"969","7":"Road","8":"Endurance","9":"Endurace","10":"female","11":"0","12":"0","13":"0","14":"1","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"20","2":"Endurace CF SLX Disc 9.0 ETAP","3":"2020","4":"carbon","5":"7.17","6":"7309","7":"Road","8":"Endurance","9":"Endurace","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"1","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"21","2":"Endurace CF SLX Disc 9.0 Di2","3":"2020","4":"carbon","5":"7.16","6":"6819","7":"Road","8":"Endurance","9":"Endurace","10":"unisex","11":"1","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"22","2":"Endurace CF SLX Disc 8.0 ETAP","3":"2020","4":"carbon","5":"7.70","6":"5359","7":"Road","8":"Endurance","9":"Endurace","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"1","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"23","2":"Endurace CF SL Disc 8.0 Aero Di2","3":"2020","4":"carbon","5":"7.64","6":"4189","7":"Road","8":"Endurance","9":"Endurace","10":"unisex","11":"0","12":"1","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"24","2":"Endurace CF SL Disc 8.0 Pro","3":"2020","4":"carbon","5":"7.58","6":"2729","7":"Road","8":"Endurance","9":"Endurace","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"1","32":"0","33":"0","34":"0"},{"1":"25","2":"Endurace CF SL Disc 8.0","3":"2020","4":"carbon","5":"8.10","6":"2629","7":"Road","8":"Endurance","9":"Endurace","10":"unisex","11":"0","12":"1","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"26","2":"Endurace WMN CF SL Disc 8.0","3":"2020","4":"carbon","5":"7.88","6":"2629","7":"Road","8":"Endurance","9":"Endurace","10":"female","11":"0","12":"1","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"27","2":"Endurace WMN CF SL Disc 7.0","3":"2020","4":"carbon","5":"8.28","6":"2049","7":"Road","8":"Endurance","9":"Endurace","10":"female","11":"0","12":"0","13":"1","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"28","2":"Endurace CF SL Disc 7.0","3":"2020","4":"carbon","5":"8.39","6":"2049","7":"Road","8":"Endurance","9":"Endurace","10":"unisex","11":"0","12":"0","13":"1","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"29","2":"Endurace CF 7.0","3":"2020","4":"carbon","5":"7.96","6":"1459","7":"Road","8":"Endurance","9":"Endurace","10":"unisex","11":"0","12":"0","13":"1","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"30","2":"Endurace CF SL Disc 8.0 Di2","3":"2020","4":"carbon","5":"8.00","6":"3219","7":"Road","8":"Endurance","9":"Endurace","10":"unisex","11":"0","12":"1","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"31","2":"Endurace WMN CF SL Disc 8.0 Di2","3":"2020","4":"carbon","5":"7.90","6":"3219","7":"Road","8":"Endurance","9":"Endurace","10":"female","11":"0","12":"1","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"32","2":"Endurace CF 8.0","3":"2020","4":"carbon","5":"7.46","6":"1949","7":"Road","8":"Endurance","9":"Endurace","10":"unisex","11":"0","12":"1","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"33","2":"Endurace:ON 7.0","3":"2020","4":"aluminium","5":"15.18","6":"2919","7":"E-Bikes","8":"E-Road","9":"Endurace:ON","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"1","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"34","2":"Inflite CF SLX 9 Team","3":"2021","4":"carbon","5":"7.80","6":"4389","7":"Road","8":"Cyclocross","9":"Inflite","10":"unisex","11":"0","12":"1","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"35","2":"Inflite CF SLX 9","3":"2021","4":"carbon","5":"7.81","6":"4089","7":"Road","8":"Cyclocross","9":"Inflite","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"1","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"36","2":"Inflite CF SL 8","3":"2021","4":"carbon","5":"7.90","6":"3309","7":"Road","8":"Cyclocross","9":"Inflite","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"1","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"37","2":"Inflite CF SL 7","3":"2021","4":"carbon","5":"8.26","6":"2729","7":"Road","8":"Cyclocross","9":"Inflite","10":"unisex","11":"0","12":"1","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"38","2":"Inflite CF SL 6","3":"2021","4":"carbon","5":"8.40","6":"2139","7":"Road","8":"Cyclocross","9":"Inflite","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"1","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"39","2":"Inflite 5","3":"2021","4":"aluminium","5":"8.85","6":"1559","7":"Road","8":"Cyclocross","9":"Inflite","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"1","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"40","2":"Inflite CF SLX 9","3":"2020","4":"carbon","5":"7.40","6":"3599","7":"Road","8":"Cyclocross","9":"Inflite","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"1","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"41","2":"Inflite CF SL 8","3":"2020","4":"carbon","5":"7.90","6":"2919","7":"Road","8":"Cyclocross","9":"Inflite","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"1","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"42","2":"Speedmax CF SLX 9.0 LTD","3":"2020","4":"carbon","5":"8.50","6":"7799","7":"Road","8":"Triathlon Bike","9":"Speedmax","10":"unisex","11":"1","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"43","2":"Speedmax CF 8.0","3":"2020","4":"carbon","5":"8.40","6":"2529","7":"Road","8":"Triathlon Bike","9":"Speedmax","10":"unisex","11":"0","12":"1","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"44","2":"Speedmax CF 7.0","3":"2020","4":"carbon","5":"8.50","6":"2339","7":"Road","8":"Triathlon Bike","9":"Speedmax","10":"unisex","11":"0","12":"0","13":"1","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"45","2":"Speedmax CF 8.0 SL","3":"2020","4":"carbon","5":"8.40","6":"2829","7":"Road","8":"Triathlon Bike","9":"Speedmax","10":"unisex","11":"0","12":"1","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"46","2":"Speedmax WMN CF 8.0 Di2","3":"2020","4":"carbon","5":"8.10","6":"3599","7":"Road","8":"Triathlon Bike","9":"Speedmax","10":"female","11":"0","12":"1","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"47","2":"Speedmax CF SLX 9.0 SL","3":"2020","4":"carbon","5":"8.50","6":"6339","7":"Road","8":"Triathlon Bike","9":"Speedmax","10":"unisex","11":"1","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"48","2":"Speedmax WMN CF 8.0 LTD","3":"2020","4":"carbon","5":"8.40","6":"4189","7":"Road","8":"Triathlon Bike","9":"Speedmax","10":"female","11":"0","12":"1","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"49","2":"Speedmax CF SLX 9.0 TT","3":"2020","4":"carbon","5":"8.20","6":"8769","7":"Road","8":"Triathlon Bike","9":"Speedmax","10":"unisex","11":"1","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"50","2":"Speedmax CF 8.0 Di2","3":"2020","4":"carbon","5":"8.50","6":"3599","7":"Road","8":"Triathlon Bike","9":"Speedmax","10":"unisex","11":"0","12":"1","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"51","2":"Speedmax CF SLX 8.0","3":"2020","4":"carbon","5":"8.70","6":"4479","7":"Road","8":"Triathlon Bike","9":"Speedmax","10":"unisex","11":"0","12":"1","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"52","2":"Speedmax WMN CF SLX 8.0 SL","3":"2020","4":"carbon","5":"8.60","6":"4879","7":"Road","8":"Triathlon Bike","9":"Speedmax","10":"female","11":"0","12":"1","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"53","2":"Speedmax WMN CF 8.0","3":"2020","4":"carbon","5":"8.20","6":"2529","7":"Road","8":"Triathlon Bike","9":"Speedmax","10":"female","11":"0","12":"1","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"54","2":"Speedmax CF 8.0 LTD","3":"2020","4":"carbon","5":"8.50","6":"4089","7":"Road","8":"Triathlon Bike","9":"Speedmax","10":"unisex","11":"0","12":"1","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"55","2":"Speedmax WMN CF 7.0","3":"2020","4":"carbon","5":"8.30","6":"2139","7":"Road","8":"Triathlon Bike","9":"Speedmax","10":"female","11":"0","12":"0","13":"1","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"56","2":"Speedmax CF SLX 8.0 SL","3":"2020","4":"carbon","5":"8.70","6":"5359","7":"Road","8":"Triathlon Bike","9":"Speedmax","10":"unisex","11":"0","12":"1","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"57","2":"Speedmax CF 7.0","3":"2019","4":"carbon","5":"8.80","6":"1749","7":"Road","8":"Triathlon Bike","9":"Speedmax","10":"unisex","11":"0","12":"0","13":"1","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"58","2":"Ultimate CFR Disc EPS","3":"2021","4":"carbon","5":"6.29","6":"8769","7":"Road","8":"Race","9":"Ultimate","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"1","33":"0","34":"0"},{"1":"59","2":"Ultimate CFR Disc Di2","3":"2021","4":"carbon","5":"6.59","6":"7409","7":"Road","8":"Race","9":"Ultimate","10":"unisex","11":"1","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"60","2":"Ultimate CF SL 8.0","3":"2020","4":"carbon","5":"7.00","6":"2239","7":"Road","8":"Race","9":"Ultimate","10":"unisex","11":"0","12":"1","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"61","2":"Ultimate CF SLX Disc 9.0 ETAP","3":"2020","4":"carbon","5":"6.89","6":"7019","7":"Road","8":"Race","9":"Ultimate","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"1","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"62","2":"Ultimate CF SLX Disc 9.0 Di2","3":"2020","4":"carbon","5":"7.10","6":"6819","7":"Road","8":"Race","9":"Ultimate","10":"unisex","11":"1","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"63","2":"Ultimate CF SLX 9.0 Di2","3":"2020","4":"carbon","5":"6.50","6":"6629","7":"Road","8":"Race","9":"Ultimate","10":"unisex","11":"1","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"64","2":"Ultimate CF SLX 9.0 ETAP","3":"2020","4":"carbon","5":"6.50","6":"6039","7":"Road","8":"Race","9":"Ultimate","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"1","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"65","2":"Ultimate WMN CF SLX Disc 9.0 ETAP","3":"2020","4":"carbon","5":"7.07","6":"5849","7":"Road","8":"Race","9":"Ultimate","10":"female","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"1","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"66","2":"Ultimate CF SLX Disc 8.0 ETAP","3":"2020","4":"carbon","5":"7.44","6":"5359","7":"Road","8":"Race","9":"Ultimate","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"1","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"67","2":"Ultimate CF SL Disc 8.0 Di2 Aero","3":"2020","4":"carbon","5":"7.35","6":"4089","7":"Road","8":"Race","9":"Ultimate","10":"unisex","11":"0","12":"1","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"68","2":"Ultimate CF SLX 8.0 Di2","3":"2020","4":"carbon","5":"6.80","6":"4089","7":"Road","8":"Race","9":"Ultimate","10":"unisex","11":"0","12":"1","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"69","2":"Ultimate WMN CF SL Disc 8.0 ETAP","3":"2020","4":"carbon","5":"7.58","6":"3899","7":"Road","8":"Race","9":"Ultimate","10":"female","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"1","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"70","2":"Ultimate WMN CF SL Disc 8.0 Di2","3":"2020","4":"carbon","5":"7.40","6":"3219","7":"Road","8":"Race","9":"Ultimate","10":"female","11":"0","12":"1","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"71","2":"Ultimate WMN CF SL Disc 8.0","3":"2020","4":"carbon","5":"7.40","6":"2529","7":"Road","8":"Race","9":"Ultimate","10":"female","11":"0","12":"1","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"72","2":"Ultimate WMN CF SL Disc 7.0","3":"2020","4":"carbon","5":"7.96","6":"2049","7":"Road","8":"Race","9":"Ultimate","10":"female","11":"0","12":"0","13":"1","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"73","2":"Ultimate CF SL 7.0","3":"2020","4":"carbon","5":"7.54","6":"1659","7":"Road","8":"Race","9":"Ultimate","10":"unisex","11":"0","12":"0","13":"1","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"74","2":"Ultimate CF SLX Disc 9.0 Team Movistar","3":"2020","4":"carbon","5":"7.00","6":"6629","7":"Road","8":"Race","9":"Ultimate","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"1","33":"0","34":"0"},{"1":"75","2":"Ultimate CF SL Disc 8.0 Di2","3":"2020","4":"carbon","5":"7.50","6":"3219","7":"Road","8":"Race","9":"Ultimate","10":"unisex","11":"0","12":"1","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"76","2":"Ultimate CF SL 8.0 Di2","3":"2020","4":"carbon","5":"7.00","6":"2919","7":"Road","8":"Race","9":"Ultimate","10":"unisex","11":"0","12":"1","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"77","2":"Ultimate CF SL Disc 8.0","3":"2020","4":"carbon","5":"7.60","6":"2529","7":"Road","8":"Race","9":"Ultimate","10":"unisex","11":"0","12":"1","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"78","2":"Ultimate CF SLX 9.0 Di2","3":"2019","4":"carbon","5":"6.60","6":"5359","7":"Road","8":"Race","9":"Ultimate","10":"unisex","11":"1","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"79","2":"Ultimate CF SL Disc 7.0","3":"2019","4":"carbon","5":"7.90","6":"2049","7":"Road","8":"Race","9":"Ultimate","10":"unisex","11":"0","12":"0","13":"1","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"80","2":"Dude CF 8.0 Trail","3":"2020","4":"carbon","5":"14.20","6":"2139","7":"Mountain","8":"Fat Bikes","9":"Dude","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"1","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"81","2":"Dude CF 9.0 Trail","3":"2020","4":"carbon","5":"13.80","6":"2629","7":"Mountain","8":"Fat Bikes","9":"Dude","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"1","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"82","2":"Exceed CFR LTD","3":"2021","4":"carbon","5":"8.90","6":"6339","7":"Mountain","8":"Cross-Country","9":"Exceed","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"1","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"83","2":"Exceed CFR Team","3":"2021","4":"carbon","5":"8.87","6":"5559","7":"Mountain","8":"Cross-Country","9":"Exceed","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"84","2":"Exceed CF SLX 9","3":"2021","4":"carbon","5":"9.73","6":"4579","7":"Mountain","8":"Cross-Country","9":"Exceed","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"1","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"85","2":"Exceed CF SLX 8","3":"2021","4":"carbon","5":"9.90","6":"3609","7":"Mountain","8":"Cross-Country","9":"Exceed","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"1","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"86","2":"Exceed CF 7 WMN","3":"2021","4":"carbon","5":"10.30","6":"2629","7":"Mountain","8":"Cross-Country","9":"Exceed","10":"female","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"1","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"87","2":"Exceed CF 7","3":"2021","4":"carbon","5":"10.55","6":"2629","7":"Mountain","8":"Cross-Country","9":"Exceed","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"1","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"88","2":"Exceed CF 6","3":"2021","4":"carbon","5":"10.86","6":"2139","7":"Mountain","8":"Cross-Country","9":"Exceed","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"89","2":"Exceed CF 5 WMN","3":"2021","4":"carbon","5":"12.08","6":"1659","7":"Mountain","8":"Cross-Country","9":"Exceed","10":"female","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"1","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"90","2":"Exceed CF 5","3":"2021","4":"carbon","5":"12.25","6":"1659","7":"Mountain","8":"Cross-Country","9":"Exceed","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"1","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"91","2":"Exceed CF SLX 9.0 Race LTD","3":"2020","4":"carbon","5":"8.97","6":"4389","7":"Mountain","8":"Cross-Country","9":"Exceed","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"1","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"92","2":"Exceed CF SLX 9.0 Race","3":"2020","4":"carbon","5":"9.00","6":"4189","7":"Mountain","8":"Cross-Country","9":"Exceed","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"93","2":"Exceed CF SLX 9.0","3":"2020","4":"carbon","5":"9.30","6":"3599","7":"Gravel","8":"Adventure","9":"Exceed","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"1","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"94","2":"Grail CF SLX 8 eTap","3":"2021","4":"carbon","5":"8.47","6":"4779","7":"Gravel","8":"All-Road","9":"Grail","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"1","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"95","2":"Grail CF SLX 8 Di2","3":"2021","4":"carbon","5":"8.44","6":"4479","7":"Gravel","8":"All-Road","9":"Grail","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"1","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"96","2":"Grail CF SL 8 eTap","3":"2021","4":"carbon","5":"8.66","6":"3899","7":"Gravel","8":"All-Road","9":"Grail","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"1","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"97","2":"Grail CF SL 8 Di2","3":"2021","4":"carbon","5":"8.88","6":"3409","7":"Gravel","8":"All-Road","9":"Grail","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"1","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"98","2":"Grail CF SL 8 WMN Di2","3":"2021","4":"carbon","5":"8.82","6":"3409","7":"Gravel","8":"All-Road","9":"Grail","10":"female","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"1","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"99","2":"Grail CF SL 8","3":"2021","4":"carbon","5":"8.91","6":"2729","7":"Gravel","8":"All-Road","9":"Grail","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"1","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"100","2":"Grail 7 1by","3":"2021","4":"aluminium","5":"9.54","6":"1749","7":"Gravel","8":"All-Road","9":"Grail","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"1","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"101","2":"Grail:ON CF 8 eTap","3":"2021","4":"carbon","5":"15.90","6":"5849","7":"E-Bikes","8":"E-Gravel","9":"Grail:ON","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"1","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"102","2":"Grail:ON CF 8","3":"2021","4":"carbon","5":"16.70","6":"5169","7":"E-Bikes","8":"E-Gravel","9":"Grail:ON","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"1","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"103","2":"Grail:ON CF 7","3":"2021","4":"carbon","5":"17.10","6":"4869","7":"E-Bikes","8":"E-Gravel","9":"Grail:ON","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"1","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"104","2":"Grail:ON CF 7 WMN","3":"2021","4":"carbon","5":"17.10","6":"4869","7":"E-Bikes","8":"E-Gravel","9":"Grail:ON","10":"female","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"1","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"105","2":"Grail 7","3":"2021","4":"aluminium","5":"9.39","6":"1749","7":"Gravel","8":"All-Road","9":"Grail","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"1","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"106","2":"Grail 7 WMN","3":"2021","4":"aluminium","5":"9.37","6":"1749","7":"Gravel","8":"All-Road","9":"Grail","10":"female","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"1","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"107","2":"Grail 6","3":"2021","4":"aluminium","5":"9.50","6":"1459","7":"Gravel","8":"All-Road","9":"Grail","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"1","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"108","2":"Grail 6 WMN","3":"2021","4":"aluminium","5":"9.42","6":"1459","7":"Gravel","8":"All-Road","9":"Grail","10":"female","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"1","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"109","2":"Grail CF SL 7","3":"2021","4":"carbon","5":"8.88","6":"2339","7":"Gravel","8":"All-Road","9":"Grail","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"1","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"110","2":"Grail CF SL 7 WMN","3":"2021","4":"carbon","5":"8.86","6":"2339","7":"Gravel","8":"All-Road","9":"Grail","10":"female","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"1","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"111","2":"Grail CF SL 8.0 ETAP","3":"2020","4":"carbon","5":"8.60","6":"3119","7":"Gravel","8":"All-Road","9":"Grail","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"1","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"112","2":"Grail CF SLX 8.0 Di2","3":"2020","4":"carbon","5":"8.30","6":"4089","7":"Gravel","8":"Adventure","9":"Grail","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"1","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"113","2":"Grand Canyon Young Hero","3":"2021","4":"aluminium","5":"13.57","6":"579","7":"Mountain","8":"Trail","9":"Grand Canyon","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"1","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"114","2":"Grand Canyon 5","3":"2021","4":"aluminium","5":"14.13","6":"779","7":"Mountain","8":"Trail","9":"Grand Canyon","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"1","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"115","2":"Grand Canyon 5 WMN","3":"2021","4":"aluminium","5":"13.66","6":"779","7":"Mountain","8":"Trail","9":"Grand Canyon","10":"female","11":"0","12":"0","13":"0","14":"0","15":"0","16":"1","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"116","2":"Grand Canyon 6","3":"2021","4":"aluminium","5":"13.95","6":"969","7":"Mountain","8":"Trail","9":"Grand Canyon","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"117","2":"Grand Canyon 6 WMN","3":"2021","4":"aluminium","5":"13.56","6":"969","7":"Mountain","8":"Trail","9":"Grand Canyon","10":"female","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"118","2":"Grand Canyon 7","3":"2021","4":"aluminium","5":"13.99","6":"1169","7":"Mountain","8":"Trail","9":"Grand Canyon","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"1","31":"0","32":"0","33":"0","34":"0"},{"1":"119","2":"Grand Canyon 7 WMN","3":"2021","4":"aluminium","5":"13.66","6":"1169","7":"Mountain","8":"Trail","9":"Grand Canyon","10":"female","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"1","31":"0","32":"0","33":"0","34":"0"},{"1":"120","2":"Grand Canyon 8","3":"2021","4":"aluminium","5":"13.58","6":"1359","7":"Mountain","8":"Trail","9":"Grand Canyon","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"121","2":"Grand Canyon 8 WMN","3":"2021","4":"aluminium","5":"13.29","6":"1359","7":"Mountain","8":"Trail","9":"Grand Canyon","10":"female","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"122","2":"Grand Canyon 9","3":"2021","4":"aluminium","5":"13.38","6":"1749","7":"Mountain","8":"Trail","9":"Grand Canyon","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"123","2":"Grand Canyon:ON AL 9.0","3":"2020","4":"aluminium","5":"21.89","6":"3309","7":"E-Bikes","8":"E-Mountain","9":"Grand Canyon:ON","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"124","2":"Grand Canyon:ON WMN AL 8.0","3":"2020","4":"aluminium","5":"21.25","6":"2919","7":"E-Bikes","8":"E-Mountain","9":"Grand Canyon:ON","10":"female","11":"0","12":"0","13":"0","14":"0","15":"0","16":"1","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"125","2":"Grand Canyon:ON AL 8.0","3":"2020","4":"aluminium","5":"21.45","6":"2529","7":"E-Bikes","8":"E-Mountain","9":"Grand Canyon:ON","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"1","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"126","2":"Lux CF SLX 9.0","3":"2020","4":"carbon","5":"10.80","6":"4279","7":"Mountain","8":"Cross-Country","9":"Lux","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"1","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"127","2":"Lux CF 7","3":"2021","4":"carbon","5":"11.94","6":"3409","7":"Mountain","8":"Cross-Country","9":"Lux","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"128","2":"Lux CF 6","3":"2021","4":"carbon","5":"12.11","6":"2919","7":"Mountain","8":"Cross-Country","9":"Lux","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"1","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"129","2":"Lux CF 8","3":"2021","4":"carbon","5":"11.64","6":"3899","7":"Mountain","8":"Cross-Country","9":"Lux","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"1","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"130","2":"Lux CF SLX 9","3":"2021","4":"carbon","5":"10.71","6":"4869","7":"Mountain","8":"Cross-Country","9":"Lux","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"1","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"131","2":"Lux CF SLX 9 Team","3":"2021","4":"carbon","5":"10.22","6":"5849","7":"Mountain","8":"Cross-Country","9":"Lux","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"132","2":"Lux CF SLX 9 LTD","3":"2021","4":"carbon","5":"10.13","6":"6819","7":"Mountain","8":"Cross-Country","9":"Lux","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"1","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"133","2":"Lux CF 7 WMN","3":"2021","4":"carbon","5":"11.78","6":"3409","7":"Mountain","8":"Cross-Country","9":"Lux","10":"female","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"134","2":"Lux CF SLX 9.0 Race Limited","3":"2020","4":"carbon","5":"10.20","6":"6039","7":"Mountain","8":"Cross-Country","9":"Lux","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"1","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"135","2":"Lux CF SLX 9.0 Team","3":"2020","4":"carbon","5":"10.10","6":"5559","7":"Mountain","8":"Cross-Country","9":"Lux","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"136","2":"Lux CF SL 8.0","3":"2020","4":"carbon","5":"11.40","6":"3599","7":"Mountain","8":"Cross-Country","9":"Lux","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"1","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"137","2":"Lux CF SL 6.0","3":"2020","4":"carbon","5":"11.70","6":"2439","7":"Mountain","8":"Cross-Country","9":"Lux","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"1","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"138","2":"Neuron CF SLX 9","3":"2021","4":"carbon","5":"12.38","6":"5459","7":"Mountain","8":"Trail","9":"Neuron","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"139","2":"Neuron CF LTD","3":"2021","4":"carbon","5":"13.26","6":"4869","7":"Mountain","8":"Trail","9":"Neuron","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"1","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"140","2":"Neuron CF 9 SL","3":"2021","4":"carbon","5":"13.08","6":"3899","7":"Mountain","8":"Trail","9":"Neuron","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"1","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"141","2":"Neuron CF 9 WMN","3":"2021","4":"carbon","5":"13.34","6":"3219","7":"Mountain","8":"Trail","9":"Neuron","10":"female","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"142","2":"Neuron CF 9","3":"2021","4":"carbon","5":"13.75","6":"3219","7":"Mountain","8":"Trail","9":"Neuron","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"143","2":"Neuron CF 8","3":"2021","4":"carbon","5":"14.06","6":"2729","7":"Mountain","8":"Trail","9":"Neuron","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"1","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"144","2":"Neuron 7 WMN","3":"2021","4":"aluminium","5":"14.37","6":"2239","7":"Mountain","8":"Trail","9":"Neuron","10":"female","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"145","2":"Neuron 7","3":"2021","4":"aluminium","5":"14.77","6":"2239","7":"Mountain","8":"Trail","9":"Neuron","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"146","2":"Neuron 6 WMN","3":"2021","4":"aluminium","5":"14.94","6":"1849","7":"Mountain","8":"Trail","9":"Neuron","10":"female","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"147","2":"Neuron 6","3":"2021","4":"aluminium","5":"15.26","6":"1849","7":"Mountain","8":"Trail","9":"Neuron","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"148","2":"Neuron Young Hero","3":"2021","4":"aluminium","5":"13.96","6":"1459","7":"Mountain","8":"Trail","9":"Neuron","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"1","31":"0","32":"0","33":"0","34":"0"},{"1":"149","2":"Neuron WMN AL 7.0","3":"2020","4":"aluminium","5":"13.60","6":"2139","7":"Mountain","8":"Trail","9":"Neuron","10":"female","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"1","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"150","2":"Neuron AL 7.0","3":"2020","4":"aluminium","5":"14.20","6":"2139","7":"Mountain","8":"Trail","9":"Neuron","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"1","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"151","2":"Neuron AL 6.0","3":"2020","4":"aluminium","5":"14.60","6":"1749","7":"Mountain","8":"Trail","9":"Neuron","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"152","2":"Neuron CF 9.0 SL","3":"2020","4":"carbon","5":"12.80","6":"3609","7":"Mountain","8":"Trail","9":"Neuron","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"1","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"153","2":"Neuron:ON 9.0","3":"2020","4":"aluminium","5":"22.90","6":"4389","7":"E-Bikes","8":"E-Mountain","9":"Neuron:ON","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"154","2":"Neuron:ON 8.0","3":"2020","4":"aluminium","5":"23.40","6":"3899","7":"E-Bikes","8":"E-Mountain","9":"Neuron:ON","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"155","2":"Neuron:ON WMN 7.0","3":"2020","4":"aluminium","5":"23.00","6":"3609","7":"E-Bikes","8":"E-Mountain","9":"Neuron:ON","10":"female","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"156","2":"Neuron:ON 7.0","3":"2020","4":"aluminium","5":"23.68","6":"3609","7":"E-Bikes","8":"E-Mountain","9":"Neuron:ON","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"157","2":"Sender CFR","3":"2021","4":"aluminium","5":"15.80","6":"5649","7":"Mountain","8":"Downhill","9":"Sender","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"1","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"158","2":"Sender CFR FMD","3":"2021","4":"carbon","5":"17.20","6":"4579","7":"Mountain","8":"Downhill","9":"Sender","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"1","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"159","2":"Sender 6","3":"2020","4":"aluminium","5":"16.69","6":"2339","7":"Mountain","8":"Downhill","9":"Sender","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"1","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"160","2":"Spectral 6","3":"2021","4":"aluminium","5":"14.82","6":"2529","7":"Mountain","8":"Trail","9":"Spectral","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"1","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"161","2":"Spectral 5","3":"2021","4":"aluminium","5":"14.61","6":"2139","7":"Mountain","8":"Trail","9":"Spectral","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"1","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"162","2":"Spectral 6 WMN","3":"2021","4":"aluminium","5":"14.50","6":"2139","7":"Mountain","8":"Trail","9":"Spectral","10":"female","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"1","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"163","2":"Spectral CF 8","3":"2021","4":"carbon","5":"14.16","6":"3509","7":"Mountain","8":"Trail","9":"Spectral","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"164","2":"Spectral CF 7 WMN","3":"2021","4":"carbon","5":"13.80","6":"3119","7":"Mountain","8":"Trail","9":"Spectral","10":"female","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"1","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"165","2":"Spectral CF 9","3":"2021","4":"carbon","5":"13.33","6":"4189","7":"Mountain","8":"Trail","9":"Spectral","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"1","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"166","2":"Spectral CF 7","3":"2021","4":"carbon","5":"13.84","6":"2919","7":"Mountain","8":"Trail","9":"Spectral","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"1","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"167","2":"Spectral WMN CFR 9.0","3":"2020","4":"carbon","5":"12.90","6":"3899","7":"Mountain","8":"Trail","9":"Spectral","10":"female","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"1","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"168","2":"Spectral CFR 9.0","3":"2020","4":"carbon","5":"12.70","6":"4579","7":"Mountain","8":"Trail","9":"Spectral","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"169","2":"Spectral CF 9.0","3":"2020","4":"carbon","5":"13.30","6":"3509","7":"Mountain","8":"Trail","9":"Spectral","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"1","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"170","2":"Spectral WMN CF 8.0","3":"2020","4":"carbon","5":"13.40","6":"2729","7":"Mountain","8":"Trail","9":"Spectral","10":"female","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"171","2":"Spectral:ON CF 9.0","3":"2020","4":"carbon","5":"21.35","6":"5839","7":"E-Bikes","8":"E-Mountain","9":"Spectral:ON","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"172","2":"Spectral:ON CF 8.0","3":"2020","4":"carbon","5":"21.85","6":"4869","7":"E-Bikes","8":"E-Mountain","9":"Spectral:ON","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"173","2":"Spectral:ON CF 7.0","3":"2020","4":"carbon","5":"22.15","6":"3889","7":"E-Bikes","8":"E-Mountain","9":"Spectral:ON","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"174","2":"Spectral:ON WMN CF 7.0","3":"2020","4":"carbon","5":"22.02","6":"3889","7":"E-Bikes","8":"E-Mountain","9":"Spectral:ON","10":"female","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"175","2":"Stitched 720","3":"2020","4":"aluminium","5":"12.55","6":"1749","7":"Mountain","8":"Dirt Jump","9":"Stitched","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"176","2":"Stitched 360 Pro","3":"2020","4":"aluminium","5":"11.50","6":"1219","7":"Mountain","8":"Dirt Jump","9":"Stitched","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"177","2":"Stitched 360","3":"2020","4":"aluminium","5":"12.20","6":"829","7":"Mountain","8":"Dirt Jump","9":"Stitched","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"178","2":"Strive CF 9.0","3":"2020","4":"carbon","5":"14.18","6":"4679","7":"Mountain","8":"Enduro","9":"Strive","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"1","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"179","2":"Strive CFR","3":"2020","4":"aluminium","5":"13.36","6":"5849","7":"Mountain","8":"Enduro","9":"Strive","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"180","2":"Strive CF 7.0","3":"2020","4":"carbon","5":"15.04","6":"2919","7":"Mountain","8":"Enduro","9":"Strive","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"1","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"181","2":"Strive CF 8.0","3":"2020","4":"carbon","5":"14.60","6":"3699","7":"Mountain","8":"Enduro","9":"Strive","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"182","2":"Torque CF 8.0","3":"2020","4":"carbon","5":"14.40","6":"3899","7":"Mountain","8":"Enduro","9":"Torque","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"183","2":"Torque CF 9.0","3":"2020","4":"carbon","5":"14.35","6":"4679","7":"Mountain","8":"Enduro","9":"Torque","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"1","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"184","2":"Torque AL 6.0","3":"2020","4":"aluminium","5":"15.60","6":"2729","7":"Mountain","8":"Enduro","9":"Torque","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"1","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"185","2":"Torque CF 7.0","3":"2020","4":"carbon","5":"14.60","6":"3219","7":"Mountain","8":"Enduro","9":"Torque","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"1","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"186","2":"Torque CF 9.0","3":"2019","4":"carbon","5":"14.40","6":"4679","7":"Mountain","8":"Enduro","9":"Torque","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"1","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"187","2":"Torque AL 5.0","3":"2020","4":"aluminium","5":"15.75","6":"2239","7":"Mountain","8":"Enduro","9":"Torque","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"1","31":"0","32":"0","33":"0","34":"0"},{"1":"188","2":"Commuter:ON 7","3":"2021","4":"aluminium","5":"17.60","6":"3219","7":"E-Bikes","8":"E-City","9":"Commuter:ON","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"189","2":"Commuter:ON 7 WMN","3":"2021","4":"aluminium","5":"17.80","6":"3219","7":"E-Bikes","8":"E-City","9":"Commuter:ON","10":"female","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"190","2":"Pathlite:ON 7","3":"2021","4":"aluminium","5":"24.20","6":"3309","7":"E-Bikes","8":"E-Trekking","9":"Pathlite:ON","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"191","2":"Pathlite:ON 6","3":"2021","4":"aluminium","5":"21.30","6":"2829","7":"E-Bikes","8":"E-Trekking","9":"Pathlite:ON","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"192","2":"Pathlite:ON 9.0","3":"2020","4":"aluminium","5":"27.50","6":"4869","7":"E-Bikes","8":"E-Trekking","9":"Pathlite:ON","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"193","2":"Pathlite:ON 8.0","3":"2020","4":"aluminium","5":"27.04","6":"3789","7":"E-Bikes","8":"E-Trekking","9":"Pathlite:ON","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"1","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"194","2":"Pathlite:ON 7.0","3":"2020","4":"aluminium","5":"24.06","6":"3119","7":"E-Bikes","8":"E-Trekking","9":"Pathlite:ON","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"1","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"195","2":"Pathlite:ON 6.0","3":"2020","4":"aluminium","5":"21.15","6":"2829","7":"E-Bikes","8":"E-Trekking","9":"Pathlite:ON","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"196","2":"Pathlite:ON 5.0","3":"2020","4":"aluminium","5":"21.05","6":"2529","7":"E-Bikes","8":"E-Trekking","9":"Pathlite:ON","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"1","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"197","2":"Precede:ON CF 9","3":"2021","4":"carbon","5":"22.15","6":"4869","7":"E-Bikes","8":"E-City","9":"Precede:ON","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"198","2":"Precede:ON CF 9 ST","3":"2021","4":"carbon","5":"23.20","6":"4869","7":"E-Bikes","8":"E-City","9":"Precede:ON","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"199","2":"Precede:ON CF 8 ST","3":"2021","4":"carbon","5":"21.85","6":"4189","7":"E-Bikes","8":"E-City","9":"Precede:ON","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"200","2":"Precede:ON CF 8","3":"2021","4":"carbon","5":"21.06","6":"4189","7":"E-Bikes","8":"E-City","9":"Precede:ON","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"201","2":"Roadlite:ON AL 7.0","3":"2020","4":"aluminium","5":"15.50","6":"2299","7":"E-Bikes","8":"E-Fitness","9":"Roadlite:ON","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"1","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"202","2":"Roadlite:ON AL 8.0","3":"2020","4":"aluminium","5":"15.40","6":"3219","7":"E-Bikes","8":"E-Fitness","9":"Roadlite:ON","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"203","2":"Roadlite:ON AL 9.0","3":"2020","4":"aluminium","5":"14.90","6":"3609","7":"E-Bikes","8":"E-Fitness","9":"Roadlite:ON","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"204","2":"Commuter 5.0","3":"2020","4":"aluminium","5":"12.10","6":"1359","7":"Hybrid / City","8":"City","9":"Commuter","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"1","34":"0"},{"1":"205","2":"Commuter 8.0","3":"2020","4":"aluminium","5":"12.20","6":"2339","7":"Hybrid / City","8":"City","9":"Commuter","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"1"},{"1":"206","2":"Commuter 6.0","3":"2020","4":"aluminium","5":"11.90","6":"1499","7":"Hybrid / City","8":"City","9":"Commuter","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"1"},{"1":"207","2":"Commuter Sport 8.0","3":"2020","4":"aluminium","5":"10.60","6":"1599","7":"Hybrid / City","8":"City","9":"Commuter","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"1"},{"1":"208","2":"Commuter 4.0","3":"2020","4":"aluminium","5":"12.10","6":"1069","7":"Hybrid / City","8":"City","9":"Commuter","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"1","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"209","2":"Commuter Sport 5.0","3":"2020","4":"aluminium","5":"10.80","6":"899","7":"Hybrid / City","8":"City","9":"Commuter","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"1","34":"0"},{"1":"210","2":"Commuter 3.0","3":"2020","4":"aluminium","5":"11.00","6":"799","7":"Hybrid / City","8":"City","9":"Commuter","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"211","2":"Pathlite 7 WMN","3":"2021","4":"aluminium","5":"11.97","6":"1459","7":"Hybrid / City","8":"Touring","9":"Pathlite","10":"female","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"212","2":"Pathlite 6 WMN","3":"2021","4":"aluminium","5":"12.70","6":"1069","7":"Hybrid / City","8":"Touring","9":"Pathlite","10":"female","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"213","2":"Pathlite 5 WMN","3":"2021","4":"aluminium","5":"12.84","6":"879","7":"Hybrid / City","8":"Touring","9":"Pathlite","10":"female","11":"0","12":"0","13":"0","14":"0","15":"0","16":"1","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"214","2":"Pathlite 5","3":"2021","4":"aluminium","5":"12.92","6":"879","7":"Hybrid / City","8":"Touring","9":"Pathlite","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"1","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"215","2":"Pathlite AL SL 8.0","3":"2020","4":"aluminium","5":"11.70","6":"1659","7":"Hybrid / City","8":"Touring","9":"Pathlite","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"1","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"216","2":"Pathlite AL SL 7.0","3":"2020","4":"aluminium","5":"11.40","6":"1459","7":"Hybrid / City","8":"Touring","9":"Pathlite","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"1","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"217","2":"Pathlite AL 6.0","3":"2020","4":"aluminium","5":"12.69","6":"1069","7":"Hybrid / City","8":"Touring","9":"Pathlite","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"1","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"218","2":"Pathlite WMN AL 6.0","3":"2020","4":"aluminium","5":"12.79","6":"899","7":"Hybrid / City","8":"Touring","9":"Pathlite","10":"female","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"1","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"219","2":"Roadlite 6 WMN","3":"2021","4":"aluminium","5":"9.75","6":"1069","7":"Hybrid / City","8":"City","9":"Roadlite","10":"female","11":"0","12":"0","13":"1","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"220","2":"Roadlite 6","3":"2021","4":"aluminium","5":"9.90","6":"1069","7":"Hybrid / City","8":"City","9":"Roadlite","10":"unisex","11":"0","12":"0","13":"1","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"221","2":"Roadlite 5 WMN","3":"2021","4":"aluminium","5":"9.80","6":"779","7":"Hybrid / City","8":"City","9":"Roadlite","10":"female","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"1","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"222","2":"Roadlite 5","3":"2021","4":"aluminium","5":"9.90","6":"779","7":"Hybrid / City","8":"City","9":"Roadlite","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"1","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"223","2":"Roadlite AL SL 8.0","3":"2020","4":"aluminium","5":"9.25","6":"1359","7":"Hybrid / City","8":"City","9":"Roadlite","10":"unisex","11":"0","12":"1","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"224","2":"Roadlite WMN AL SL 8.0","3":"2020","4":"aluminium","5":"9.15","6":"1159","7":"Hybrid / City","8":"City","9":"Roadlite","10":"female","11":"0","12":"1","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"225","2":"Roadlite AL 7.0","3":"2020","4":"aluminium","5":"9.98","6":"999","7":"Hybrid / City","8":"City","9":"Roadlite","10":"unisex","11":"0","12":"0","13":"1","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"226","2":"Roadlite CF 9.0","3":"2020","4":"carbon","5":"8.00","6":"2149","7":"Hybrid / City","8":"City","9":"Roadlite","10":"unisex","11":"1","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"227","2":"Roadlite WMN CF 8.0","3":"2020","4":"carbon","5":"8.30","6":"1949","7":"Hybrid / City","8":"City","9":"Roadlite","10":"female","11":"0","12":"1","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"228","2":"Roadlite CF 9.0 LTD","3":"2020","4":"carbon","5":"7.90","6":"2919","7":"Hybrid / City","8":"City","9":"Roadlite","10":"unisex","11":"0","12":"0","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"1","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"229","2":"Roadlite CF 8.0","3":"2020","4":"carbon","5":"8.30","6":"1749","7":"Hybrid / City","8":"City","9":"Roadlite","10":"unisex","11":"0","12":"1","13":"0","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"230","2":"Roadlite WMN CF 7.0","3":"2020","4":"carbon","5":"8.80","6":"1559","7":"Hybrid / City","8":"City","9":"Roadlite","10":"female","11":"0","12":"0","13":"1","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"},{"1":"231","2":"Roadlite CF 7.0","3":"2020","4":"carbon","5":"8.80","6":"1359","7":"Hybrid / City","8":"City","9":"Roadlite","10":"unisex","11":"0","12":"0","13":"1","14":"0","15":"0","16":"0","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"0","26":"0","27":"0","28":"0","29":"0","30":"0","31":"0","32":"0","33":"0","34":"0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+</section><section id="linear-methods--" class="level2" data-number="5.3"><h2 data-number="5.3" class="anchored" data-anchor-id="linear-methods--">
+<span class="header-section-number">5.3</span> 3.0 LINEAR METHODS —-</h2>
+</section><section id="linear-regression---no-engineered-features--" class="level2" data-number="5.4"><h2 data-number="5.4" class="anchored" data-anchor-id="linear-regression---no-engineered-features--">
+<span class="header-section-number">5.4</span> 3.1 LINEAR REGRESSION - NO ENGINEERED FEATURES —-</h2>
+<div class="cell" data-hash="Chapter_2_Challenge_cache/html/unnamed-chunk-7_23952ad691bdc0fafbb561dd1bc64522">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="co"># 3.1.1 Model ----</span></span>
+<span id="cb20-2"><a href="#cb20-2"></a></span>
+<span id="cb20-3"><a href="#cb20-3"></a>model_01_linear_lm_simple <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>(<span class="at">mode =</span> <span class="st">"regression"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb20-4"><a href="#cb20-4"></a>    <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="co">#%&gt;%</span></span>
+<span id="cb20-5"><a href="#cb20-5"></a> <span class="co"># fit(price ~ category_2 + frame_material, data = train_tbl)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-hash="Chapter_2_Challenge_cache/html/unnamed-chunk-8_5760e37da56ba963210300b1e49b57d0">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>bikes_wflow <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb21-2"><a href="#cb21-2"></a>  <span class="fu">add_model</span>(model_01_linear_lm_simple) <span class="sc">%&gt;%</span></span>
+<span id="cb21-3"><a href="#cb21-3"></a>  <span class="fu">add_recipe</span>(bikes_rec)</span>
+<span id="cb21-4"><a href="#cb21-4"></a>bikes_wflow</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; ══ Workflow ════════════════════════════════════════════════════════════════════
+#&gt; Preprocessor: Recipe
+#&gt; Model: linear_reg()
+#&gt; 
+#&gt; ── Preprocessor ────────────────────────────────────────────────────────────────
+#&gt; 2 Recipe Steps
+#&gt; 
+#&gt; • step_dummy()
+#&gt; • step_unknown()
+#&gt; 
+#&gt; ── Model ───────────────────────────────────────────────────────────────────────
+#&gt; Linear Regression Model Specification (regression)
+#&gt; 
+#&gt; Computational engine: lm</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>bikes_fit <span class="ot">&lt;-</span></span>
+<span id="cb23-2"><a href="#cb23-2"></a>  bikes_wflow <span class="sc">%&gt;%</span></span>
+<span id="cb23-3"><a href="#cb23-3"></a>  <span class="fu">fit</span>(<span class="at">data =</span> train_tbl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="predicting-with-a-recipe" class="level2" data-number="5.5"><h2 data-number="5.5" class="anchored" data-anchor-id="predicting-with-a-recipe">
+<span class="header-section-number">5.5</span> Predicting with a Recipe</h2>
+<div class="cell" data-hash="Chapter_2_Challenge_cache/html/unnamed-chunk-9_4214c089cbf73e76867a7fb6f1f00a86">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>bikes_pred <span class="ot">&lt;-</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a>  <span class="fu">predict</span>(bikes_fit,test_tbl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Warning: There are new levels in a factor: E-Road</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>bikes_pred</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":[".pred"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"4731.069"},{"1":"4731.069"},{"1":"4731.069"},{"1":"1639.762"},{"1":"1639.762"},{"1":"3256.919"},{"1":"3256.919"},{"1":"3256.919"},{"1":"3256.919"},{"1":"3256.919"},{"1":"3256.919"},{"1":"NA"},{"1":"3353.526"},{"1":"3353.526"},{"1":"4350.111"},{"1":"4350.111"},{"1":"4350.111"},{"1":"4350.111"},{"1":"4350.111"},{"1":"4350.111"},{"1":"4350.111"},{"1":"4731.069"},{"1":"3985.000"},{"1":"3985.000"},{"1":"3329.147"},{"1":"3329.147"},{"1":"1711.990"},{"1":"1711.990"},{"1":"1798.388"},{"1":"1798.388"},{"1":"3294.098"},{"1":"3985.000"},{"1":"3294.098"},{"1":"3415.545"},{"1":"4911.255"},{"1":"4911.255"},{"1":"1289.000"},{"1":"4505.737"},{"1":"2888.580"},{"1":"2888.580"},{"1":"4583.863"},{"1":"2954.000"},{"1":"1049.758"},{"1":"1049.758"},{"1":"1049.758"},{"1":"2666.915"},{"1":"2666.915"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+</section><section id="calculating-the-common-metrics-comparing-a-truth-price-to-an-estimate-.pred." class="level2" data-number="5.6"><h2 data-number="5.6" class="anchored" data-anchor-id="calculating-the-common-metrics-comparing-a-truth-price-to-an-estimate-.pred.">
+<span class="header-section-number">5.6</span> Calculating the common metrics comparing a “truth” (price) to an “estimate” (.pred).</h2>
+<div class="cell" data-hash="Chapter_2_Challenge_cache/html/unnamed-chunk-10_fb835e30ac5771761b5480c159729c50">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="co">#model_01_linear_lm_simple %&gt;%</span></span>
+<span id="cb27-2"><a href="#cb27-2"></a><span class="co">#  predict(new_data = test_tbl) %&gt;%</span></span>
+<span id="cb27-3"><a href="#cb27-3"></a>bikes_pred <span class="sc">%&gt;%</span></span>
+<span id="cb27-4"><a href="#cb27-4"></a></span>
+<span id="cb27-5"><a href="#cb27-5"></a>    <span class="fu">bind_cols</span>(test_tbl <span class="sc">%&gt;%</span> <span class="fu">select</span>(price)) <span class="sc">%&gt;%</span></span>
+<span id="cb27-6"><a href="#cb27-6"></a>    </span>
+<span id="cb27-7"><a href="#cb27-7"></a>    yardstick<span class="sc">::</span><span class="fu">metrics</span>(<span class="at">truth =</span> price, <span class="at">estimate =</span> .pred)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":[".metric"],"name":[1],"type":["chr"],"align":["left"]},{"label":[".estimator"],"name":[2],"type":["chr"],"align":["left"]},{"label":[".estimate"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"rmse","2":"standard","3":"1053.4458524"},{"1":"rsq","2":"standard","3":"0.5006732"},{"1":"mae","2":"standard","3":"768.4889104"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+</section><section id="extracting-the-model-of-the-workflow" class="level2" data-number="5.7"><h2 data-number="5.7" class="anchored" data-anchor-id="extracting-the-model-of-the-workflow">
+<span class="header-section-number">5.7</span> Extracting the Model of the Workflow</h2>
+<div class="cell" data-hash="Chapter_2_Challenge_cache/html/unnamed-chunk-11_936583dba2fe29258e263629ff6d5d85">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>model_01_linear_lm_simple <span class="ot">&lt;-</span> bikes_fit <span class="sc">%&gt;%</span> </span>
+<span id="cb28-2"><a href="#cb28-2"></a>  <span class="fu">pull_workflow_fit</span>() <span class="co">#%&gt;% </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Warning: `pull_workflow_fit()` was deprecated in workflows 0.2.3.
+#&gt; ℹ Please use `extract_fit_parsnip()` instead.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a> <span class="co"># tidy() </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="model-explanation" class="level2" data-number="5.8"><h2 data-number="5.8" class="anchored" data-anchor-id="model-explanation">
+<span class="header-section-number">5.8</span> Model Explanation</h2>
+</section><section id="feature-importance--" class="level2" data-number="5.9"><h2 data-number="5.9" class="anchored" data-anchor-id="feature-importance--">
+<span class="header-section-number">5.9</span> 3.1.2 Feature Importance —-</h2>
+<div class="cell" data-hash="Chapter_2_Challenge_cache/html/unnamed-chunk-12_c0a33cf41974aa428d03c97953c776b8">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="co">#View(model_01_linear_lm_simple) # You will see the coefficients in the element "fit"</span></span>
+<span id="cb31-2"><a href="#cb31-2"></a></span>
+<span id="cb31-3"><a href="#cb31-3"></a><span class="co"># tidy() function is applicable for objects with class "lm"</span></span>
+<span id="cb31-4"><a href="#cb31-4"></a><span class="co">#model_01_linear_lm_simple %&gt;% class()</span></span>
+<span id="cb31-5"><a href="#cb31-5"></a></span>
+<span id="cb31-6"><a href="#cb31-6"></a>model_01_linear_lm_simple <span class="sc">%&gt;%</span></span>
+<span id="cb31-7"><a href="#cb31-7"></a>  broom<span class="sc">::</span><span class="fu">tidy</span>() <span class="sc">%&gt;%</span><span class="co"># NOT NECESSARY with a recipe, because while extracting the model, it gets tidied already</span></span>
+<span id="cb31-8"><a href="#cb31-8"></a>  <span class="fu">arrange</span>(p.value) <span class="sc">%&gt;%</span></span>
+<span id="cb31-9"><a href="#cb31-9"></a>  <span class="fu">mutate</span>(<span class="at">term =</span> <span class="fu">as_factor</span>(term) <span class="sc">%&gt;%</span> <span class="fu">fct_rev</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb31-10"><a href="#cb31-10"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> estimate, <span class="at">y =</span> term)) <span class="sc">+</span></span>
+<span id="cb31-11"><a href="#cb31-11"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"#2dc6d6"</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb31-12"><a href="#cb31-12"></a>  ggrepel<span class="sc">::</span><span class="fu">geom_label_repel</span>(<span class="fu">aes</span>(<span class="at">label =</span> scales<span class="sc">::</span><span class="fu">dollar</span>(estimate, <span class="at">accuracy =</span> <span class="dv">1</span>, <span class="at">suffix =</span> <span class="st">" €"</span>, <span class="at">prefix =</span> <span class="st">""</span>)),</span>
+<span id="cb31-13"><a href="#cb31-13"></a>                            <span class="at">size =</span> <span class="dv">4</span>, <span class="at">fill =</span> <span class="st">"#272A36"</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb31-14"><a href="#cb31-14"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">dollar_format</span>(<span class="at">suffix =</span> <span class="st">" €"</span>, <span class="at">prefix =</span> <span class="st">""</span>)) <span class="sc">+</span></span>
+<span id="cb31-15"><a href="#cb31-15"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Linear Regression: Feature Importance"</span>,</span>
+<span id="cb31-16"><a href="#cb31-16"></a>       <span class="at">subtitle =</span> <span class="st">"Model 01: Simple lm Model"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><a href="Chapter_2_Challenge_files/figure-html/unnamed-chunk-12-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="Chapter_2_Challenge_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="function-to-calculate-metrics-without-recipe--" class="level2" data-number="5.10"><h2 data-number="5.10" class="anchored" data-anchor-id="function-to-calculate-metrics-without-recipe--">
+<span class="header-section-number">5.10</span> 3.1.3 Function to Calculate Metrics Without Recipe —-</h2>
+</section><section id="code-we-used-earlier" class="level2" data-number="5.11"><h2 data-number="5.11" class="anchored" data-anchor-id="code-we-used-earlier">
+<span class="header-section-number">5.11</span> Code we used earlier</h2>
+<p>model_01_linear_lm_simple %&gt;% predict(new_data = test_tbl) %&gt;%</p>
+<pre><code>bind_cols(test_tbl %&gt;% select(price)) %&gt;%
+yardstick::metrics(truth = price, estimate = .pred)</code></pre>
+</section><section id="generalized-into-a-function" class="level2" data-number="5.12"><h2 data-number="5.12" class="anchored" data-anchor-id="generalized-into-a-function">
+<span class="header-section-number">5.12</span> Generalized into a function</h2>
+<p>calc_metrics &lt;- function(model, new_data = test_tbl) {</p>
+<pre><code>model %&gt;%
+    predict(new_data = new_data) %&gt;%
+
+    bind_cols(new_data %&gt;% select(price)) %&gt;%
+    yardstick::metrics(truth = price, estimate = .pred)</code></pre>
+<p>}</p>
+<p>model_01_linear_lm_simple %&gt;% calc_metrics(test_tbl)</p>
+</section><section id="function-to-calculate-metrics-with-a-recipe" class="level2" data-number="5.13"><h2 data-number="5.13" class="anchored" data-anchor-id="function-to-calculate-metrics-with-a-recipe">
+<span class="header-section-number">5.13</span> Function to Calculate Metrics With a Recipe</h2>
+<div class="cell" data-hash="Chapter_2_Challenge_cache/html/unnamed-chunk-13_f1705d06a2864361a665413c4e56af57">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a>calc_metrics <span class="ot">&lt;-</span> <span class="cf">function</span>(model, <span class="at">new_data =</span> test_tbl) {</span>
+<span id="cb34-2"><a href="#cb34-2"></a></span>
+<span id="cb34-3"><a href="#cb34-3"></a>    bikes_wflow <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb34-4"><a href="#cb34-4"></a>      <span class="fu">add_model</span>(model) <span class="sc">%&gt;%</span></span>
+<span id="cb34-5"><a href="#cb34-5"></a>      <span class="fu">add_recipe</span>(bikes_rec)</span>
+<span id="cb34-6"><a href="#cb34-6"></a>      bikes_wflow</span>
+<span id="cb34-7"><a href="#cb34-7"></a>      </span>
+<span id="cb34-8"><a href="#cb34-8"></a>    bikes_fit <span class="ot">&lt;-</span></span>
+<span id="cb34-9"><a href="#cb34-9"></a>     bikes_wflow <span class="sc">%&gt;%</span></span>
+<span id="cb34-10"><a href="#cb34-10"></a>     <span class="fu">fit</span>(<span class="at">data =</span> train_tbl)</span>
+<span id="cb34-11"><a href="#cb34-11"></a>    </span>
+<span id="cb34-12"><a href="#cb34-12"></a>    bikes_pred <span class="ot">&lt;-</span></span>
+<span id="cb34-13"><a href="#cb34-13"></a>     <span class="fu">predict</span>(bikes_fit,test_tbl)</span>
+<span id="cb34-14"><a href="#cb34-14"></a>     bikes_pred</span>
+<span id="cb34-15"><a href="#cb34-15"></a>     </span>
+<span id="cb34-16"><a href="#cb34-16"></a>    bikes_pred <span class="sc">%&gt;%</span></span>
+<span id="cb34-17"><a href="#cb34-17"></a>      <span class="fu">bind_cols</span>(test_tbl <span class="sc">%&gt;%</span> <span class="fu">select</span>(price)) <span class="sc">%&gt;%</span></span>
+<span id="cb34-18"><a href="#cb34-18"></a>      yardstick<span class="sc">::</span><span class="fu">metrics</span>(<span class="at">truth =</span> price, <span class="at">estimate =</span> .pred)</span>
+<span id="cb34-19"><a href="#cb34-19"></a>    </span>
+<span id="cb34-20"><a href="#cb34-20"></a>    model <span class="ot">&lt;-</span> </span>
+<span id="cb34-21"><a href="#cb34-21"></a>     <span class="fu">pull_workflow_fit</span>(bikes_fit) </span>
+<span id="cb34-22"><a href="#cb34-22"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="linear-regression---with-engineered-features--" class="level2" data-number="5.14"><h2 data-number="5.14" class="anchored" data-anchor-id="linear-regression---with-engineered-features--">
+<span class="header-section-number">5.14</span> 3.2 LINEAR REGRESSION - WITH ENGINEERED FEATURES —-</h2>
+<div class="cell" data-hash="Chapter_2_Challenge_cache/html/unnamed-chunk-14_3736944f7a102b8e2ef4b53eddad62f1">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="co"># 3.2.1 Model ----</span></span>
+<span id="cb35-2"><a href="#cb35-2"></a>model_02_linear_lm_complex <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>(<span class="st">"regression"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb35-3"><a href="#cb35-3"></a>    <span class="fu">set_engine</span>(<span class="st">"lm"</span>)<span class="co"># %&gt;%</span></span>
+<span id="cb35-4"><a href="#cb35-4"></a>    </span>
+<span id="cb35-5"><a href="#cb35-5"></a>    <span class="co"># This is going to be different. Remove unnecessary columns.</span></span>
+<span id="cb35-6"><a href="#cb35-6"></a>  <span class="co">#  fit(price ~ ., data = train_tbl %&gt;% select(-c(id:weight), -category_1, -c(category_3:gender)))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="new-recipe-preprocessing" class="level2" data-number="5.15"><h2 data-number="5.15" class="anchored" data-anchor-id="new-recipe-preprocessing">
+<span class="header-section-number">5.15</span> New Recipe (Preprocessing)</h2>
+<div class="cell" data-hash="Chapter_2_Challenge_cache/html/unnamed-chunk-15_8a726b30b45cf3b39ff6ff3c70afec55">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a>bikes_rec <span class="ot">&lt;-</span> </span>
+<span id="cb36-2"><a href="#cb36-2"></a>  <span class="fu">recipe</span>(price <span class="sc">~</span> ., <span class="at">data =</span> train_tbl <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(id<span class="sc">:</span>weight), <span class="sc">-</span>category_1, <span class="sc">-</span><span class="fu">c</span>(category_3<span class="sc">:</span>gender))) <span class="sc">%&gt;%</span></span>
+<span id="cb36-3"><a href="#cb36-3"></a>  <span class="fu">step_dummy</span>(<span class="fu">all_nominal</span>(), <span class="sc">-</span><span class="fu">all_outcomes</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb36-4"><a href="#cb36-4"></a>  <span class="fu">step_unknown</span>(<span class="fu">all_nominal</span>())</span>
+<span id="cb36-5"><a href="#cb36-5"></a></span>
+<span id="cb36-6"><a href="#cb36-6"></a>model_02_linear_lm_complex <span class="ot">&lt;-</span> <span class="fu">calc_metrics</span>(model_02_linear_lm_complex, test_tbl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Warning: There are new levels in a factor: E-Road</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Warning in predict.lm(object = object$fit, newdata = new_data, type =
+#&gt; "response"): Vorhersage durch Fit ohne vollen Rang mag täuschen</code></pre>
+</div>
+</div>
+</section><section id="feature-importance---1" class="level2" data-number="5.16"><h2 data-number="5.16" class="anchored" data-anchor-id="feature-importance---1">
+<span class="header-section-number">5.16</span> 3.2.2 Feature importance —-</h2>
+<div class="cell" data-hash="Chapter_2_Challenge_cache/html/unnamed-chunk-16_6f905c7443554dd17a95f3bb29bb78e1">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a>model_02_linear_lm_complex <span class="sc">%&gt;%</span></span>
+<span id="cb39-2"><a href="#cb39-2"></a>  broom<span class="sc">::</span><span class="fu">tidy</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb39-3"><a href="#cb39-3"></a>  <span class="fu">arrange</span>(p.value) <span class="sc">%&gt;%</span></span>
+<span id="cb39-4"><a href="#cb39-4"></a>  <span class="fu">mutate</span>(<span class="at">term =</span> <span class="fu">as_factor</span>(term) <span class="sc">%&gt;%</span> <span class="fu">fct_rev</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb39-5"><a href="#cb39-5"></a>  </span>
+<span id="cb39-6"><a href="#cb39-6"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> estimate, <span class="at">y =</span> term)) <span class="sc">+</span></span>
+<span id="cb39-7"><a href="#cb39-7"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"#2dc6d6"</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb39-8"><a href="#cb39-8"></a>  ggrepel<span class="sc">::</span><span class="fu">geom_label_repel</span>(<span class="fu">aes</span>(<span class="at">label =</span> scales<span class="sc">::</span><span class="fu">dollar</span>(estimate, <span class="at">accuracy =</span> <span class="dv">1</span>, <span class="at">suffix =</span> <span class="st">" €"</span>, <span class="at">prefix =</span> <span class="st">""</span>)),</span>
+<span id="cb39-9"><a href="#cb39-9"></a>                            <span class="at">size =</span> <span class="dv">4</span>, <span class="at">fill =</span> <span class="st">"#272A36"</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb39-10"><a href="#cb39-10"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">dollar_format</span>(<span class="at">suffix =</span> <span class="st">" €"</span>, <span class="at">prefix =</span> <span class="st">""</span>)) <span class="sc">+</span></span>
+<span id="cb39-11"><a href="#cb39-11"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Linear Regression: Feature Importance"</span>,</span>
+<span id="cb39-12"><a href="#cb39-12"></a>       <span class="at">subtitle =</span> <span class="st">"Model 02: Complex lm Model"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Warning: Removed 3 rows containing missing values (`geom_point()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Warning: Removed 3 rows containing missing values (`geom_label_repel()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><a href="Chapter_2_Challenge_files/figure-html/unnamed-chunk-16-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="Chapter_2_Challenge_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="penalized-regression--" class="level2" data-number="5.17"><h2 data-number="5.17" class="anchored" data-anchor-id="penalized-regression--">
+<span class="header-section-number">5.17</span> 3.3 PENALIZED REGRESSION —-</h2>
+<div class="cell" data-hash="Chapter_2_Challenge_cache/html/unnamed-chunk-17_dd0d80272170f766bc4f64a2fab270ee">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="co"># 3.3.1 Model ----</span></span>
+<span id="cb42-2"><a href="#cb42-2"></a></span>
+<span id="cb42-3"><a href="#cb42-3"></a></span>
+<span id="cb42-4"><a href="#cb42-4"></a>model_03_linear_glmnet <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>(<span class="at">mode    =</span> <span class="st">"regression"</span>, </span>
+<span id="cb42-5"><a href="#cb42-5"></a>                                     <span class="at">penalty =</span> <span class="dv">10</span>, </span>
+<span id="cb42-6"><a href="#cb42-6"></a>                                     <span class="at">mixture =</span> <span class="fl">0.1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb42-7"><a href="#cb42-7"></a>    <span class="fu">set_engine</span>(<span class="st">"glmnet"</span>) </span>
+<span id="cb42-8"><a href="#cb42-8"></a>   <span class="co"># fit(price ~ ., data = train_tbl %&gt;% select(-c(id:weight), -category_1, -c(category_3:gender)))</span></span>
+<span id="cb42-9"><a href="#cb42-9"></a></span>
+<span id="cb42-10"><a href="#cb42-10"></a><span class="co">#model_03_linear_glmnet %&gt;% calc_metrics(test_tbl)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="new-recipe-preprocessing-1" class="level2" data-number="5.18"><h2 data-number="5.18" class="anchored" data-anchor-id="new-recipe-preprocessing-1">
+<span class="header-section-number">5.18</span> New Recipe (Preprocessing)</h2>
+<div class="cell" data-hash="Chapter_2_Challenge_cache/html/unnamed-chunk-18_5f14b9639da56a96b37d43a69c809670">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a>bikes_rec <span class="ot">&lt;-</span> </span>
+<span id="cb43-2"><a href="#cb43-2"></a>  <span class="fu">recipe</span>(price <span class="sc">~</span> ., <span class="at">data =</span> train_tbl <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(id<span class="sc">:</span>weight), <span class="sc">-</span>category_1, <span class="sc">-</span><span class="fu">c</span>(category_3<span class="sc">:</span>gender))) <span class="sc">%&gt;%</span></span>
+<span id="cb43-3"><a href="#cb43-3"></a>  <span class="fu">step_dummy</span>(<span class="fu">all_nominal</span>(), <span class="sc">-</span><span class="fu">all_outcomes</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb43-4"><a href="#cb43-4"></a>  <span class="fu">step_unknown</span>(<span class="fu">all_nominal</span>())</span>
+<span id="cb43-5"><a href="#cb43-5"></a></span>
+<span id="cb43-6"><a href="#cb43-6"></a>model_03_linear_glmnet <span class="ot">&lt;-</span> <span class="fu">calc_metrics</span>(model_03_linear_glmnet, test_tbl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Warning: There are new levels in a factor: E-Road</code></pre>
+</div>
+</div>
+<div class="cell" data-hash="Chapter_2_Challenge_cache/html/unnamed-chunk-19_53ec89c482623d8e83943b618dc74b66">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a><span class="co"># 3.3.2 Feature Importance ----</span></span>
+<span id="cb45-2"><a href="#cb45-2"></a>model_03_linear_glmnet <span class="sc">%&gt;%</span></span>
+<span id="cb45-3"><a href="#cb45-3"></a>    broom<span class="sc">::</span><span class="fu">tidy</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb45-4"><a href="#cb45-4"></a>    <span class="co">#filter(lambda &gt;= 10 &amp; lambda &lt; 11) %&gt;%</span></span>
+<span id="cb45-5"><a href="#cb45-5"></a>    </span>
+<span id="cb45-6"><a href="#cb45-6"></a>    <span class="co"># No p value here</span></span>
+<span id="cb45-7"><a href="#cb45-7"></a>    <span class="fu">arrange</span>(<span class="fu">desc</span>(<span class="fu">abs</span>(estimate))) <span class="sc">%&gt;%</span></span>
+<span id="cb45-8"><a href="#cb45-8"></a>    <span class="fu">mutate</span>(<span class="at">term =</span> <span class="fu">as_factor</span>(term) <span class="sc">%&gt;%</span> <span class="fu">fct_rev</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb45-9"><a href="#cb45-9"></a></span>
+<span id="cb45-10"><a href="#cb45-10"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> estimate, <span class="at">y =</span> term)) <span class="sc">+</span></span>
+<span id="cb45-11"><a href="#cb45-11"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb45-12"><a href="#cb45-12"></a>    ggrepel<span class="sc">::</span><span class="fu">geom_label_repel</span>(<span class="fu">aes</span>(<span class="at">label =</span> scales<span class="sc">::</span><span class="fu">dollar</span>(estimate, <span class="at">accuracy =</span> <span class="dv">1</span>)),</span>
+<span id="cb45-13"><a href="#cb45-13"></a>                              <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb45-14"><a href="#cb45-14"></a>    <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">dollar_format</span>()) <span class="sc">+</span></span>
+<span id="cb45-15"><a href="#cb45-15"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Linear Regression: Feature Importance"</span>,</span>
+<span id="cb45-16"><a href="#cb45-16"></a>         <span class="at">subtitle =</span> <span class="st">"Model 03: GLMNET Model"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><a href="Chapter_2_Challenge_files/figure-html/unnamed-chunk-19-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="Chapter_2_Challenge_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-hash="Chapter_2_Challenge_cache/html/unnamed-chunk-20_652587f78dde1801fd4b1c44c8adfdb9">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a><span class="co"># 4.0 TREE-BASED METHODS ----</span></span>
+<span id="cb46-2"><a href="#cb46-2"></a><span class="co"># 4.1 DECISION TREES ----</span></span>
+<span id="cb46-3"><a href="#cb46-3"></a><span class="co"># 4.1.1 Model ----</span></span>
+<span id="cb46-4"><a href="#cb46-4"></a></span>
+<span id="cb46-5"><a href="#cb46-5"></a>model_04_tree_decision_tree <span class="ot">&lt;-</span> <span class="fu">decision_tree</span>(<span class="at">mode =</span> <span class="st">"regression"</span>,</span>
+<span id="cb46-6"><a href="#cb46-6"></a>              </span>
+<span id="cb46-7"><a href="#cb46-7"></a>              <span class="co"># Set the values accordingly to get started</span></span>
+<span id="cb46-8"><a href="#cb46-8"></a>              <span class="at">cost_complexity =</span> <span class="fl">0.001</span>,</span>
+<span id="cb46-9"><a href="#cb46-9"></a>              <span class="at">tree_depth      =</span> <span class="dv">5</span>,</span>
+<span id="cb46-10"><a href="#cb46-10"></a>              <span class="at">min_n           =</span> <span class="dv">7</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb46-11"><a href="#cb46-11"></a>              </span>
+<span id="cb46-12"><a href="#cb46-12"></a>    <span class="fu">set_engine</span>(<span class="st">"rpart"</span>)</span>
+<span id="cb46-13"><a href="#cb46-13"></a>    <span class="co">#fit(price ~ ., data = train_tbl %&gt;% select(-c(id:weight), -category_1, -c(category_3:gender)))</span></span>
+<span id="cb46-14"><a href="#cb46-14"></a></span>
+<span id="cb46-15"><a href="#cb46-15"></a><span class="co">#model_04_tree_decision_tree %&gt;% calc_metrics(test_tbl)</span></span>
+<span id="cb46-16"><a href="#cb46-16"></a>model_04_tree_decision_tree <span class="ot">&lt;-</span> <span class="fu">calc_metrics</span>(model_04_tree_decision_tree, test_tbl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Warning: There are new levels in a factor: E-Road</code></pre>
+</div>
+</div>
+</section><section id="decision-tree-plot--" class="level2" data-number="5.19"><h2 data-number="5.19" class="anchored" data-anchor-id="decision-tree-plot--">
+<span class="header-section-number">5.19</span> 4.1.2 Decision Tree Plot —-</h2>
+<div class="cell" data-hash="Chapter_2_Challenge_cache/html/unnamed-chunk-21_d2f2c17507d60bfbacfe5a0032e00f3f">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a>model_04_tree_decision_tree<span class="sc">$</span>fit <span class="sc">%&gt;%</span></span>
+<span id="cb48-2"><a href="#cb48-2"></a>    <span class="fu">rpart.plot</span>(<span class="at">roundint =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><a href="Chapter_2_Challenge_files/figure-html/unnamed-chunk-21-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="Chapter_2_Challenge_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a><span class="co"># Optimze plot</span></span>
+<span id="cb49-2"><a href="#cb49-2"></a>model_04_tree_decision_tree<span class="sc">$</span>fit <span class="sc">%&gt;%</span></span>
+<span id="cb49-3"><a href="#cb49-3"></a>    <span class="fu">rpart.plot</span>(</span>
+<span id="cb49-4"><a href="#cb49-4"></a>        <span class="at">roundint =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb49-5"><a href="#cb49-5"></a>        <span class="at">type =</span> <span class="dv">4</span>,</span>
+<span id="cb49-6"><a href="#cb49-6"></a>        <span class="at">extra =</span> <span class="dv">101</span>, <span class="co"># see help page</span></span>
+<span id="cb49-7"><a href="#cb49-7"></a>        <span class="at">fallen.leaves =</span> <span class="cn">FALSE</span>, <span class="co"># changes the angles from 90 to 45-degree</span></span>
+<span id="cb49-8"><a href="#cb49-8"></a>        <span class="at">cex =</span> <span class="fl">0.6</span>, <span class="co"># font size</span></span>
+<span id="cb49-9"><a href="#cb49-9"></a>        <span class="at">main =</span> <span class="st">"Model 04: Decision Tree"</span>, <span class="co"># Adds title</span></span>
+<span id="cb49-10"><a href="#cb49-10"></a>        <span class="at">box.palette =</span> <span class="st">"Blues"</span>,</span>
+<span id="cb49-11"><a href="#cb49-11"></a>        <span class="at">box.col =</span> <span class="st">"lightblue"</span></span>
+<span id="cb49-12"><a href="#cb49-12"></a>        )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Warning: labs do not fit even at cex 0.15, there may be some overplotting</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><a href="Chapter_2_Challenge_files/figure-html/unnamed-chunk-21-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="Chapter_2_Challenge_files/figure-html/unnamed-chunk-21-2.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="fu">show.prp.palettes</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><a href="Chapter_2_Challenge_files/figure-html/unnamed-chunk-21-3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="Chapter_2_Challenge_files/figure-html/unnamed-chunk-21-3.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="xgboost--" class="level2" data-number="5.20"><h2 data-number="5.20" class="anchored" data-anchor-id="xgboost--">
+<span class="header-section-number">5.20</span> 4.3 XGBOOST —-</h2>
+</section><section id="model--" class="level2" data-number="5.21"><h2 data-number="5.21" class="anchored" data-anchor-id="model--">
+<span class="header-section-number">5.21</span> 4.3.1 Model —-</h2>
+<div class="cell" data-hash="Chapter_2_Challenge_cache/html/unnamed-chunk-22_438a4cec625eb514b8897cb3b4dd620c">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb52-2"><a href="#cb52-2"></a>model_07_boost_tree_xgboost <span class="ot">&lt;-</span> <span class="fu">boost_tree</span>(</span>
+<span id="cb52-3"><a href="#cb52-3"></a>    <span class="at">mode =</span> <span class="st">"regression"</span>,</span>
+<span id="cb52-4"><a href="#cb52-4"></a>    <span class="at">mtry =</span> <span class="dv">30</span>,</span>
+<span id="cb52-5"><a href="#cb52-5"></a>    <span class="at">learn_rate =</span> <span class="fl">0.25</span>,</span>
+<span id="cb52-6"><a href="#cb52-6"></a>    <span class="at">tree_depth =</span> <span class="dv">7</span></span>
+<span id="cb52-7"><a href="#cb52-7"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb52-8"><a href="#cb52-8"></a>    <span class="fu">set_engine</span>(<span class="st">"xgboost"</span>)</span>
+<span id="cb52-9"><a href="#cb52-9"></a>   <span class="co"># fit(price ~ ., data = train_tbl %&gt;% select(-c(id:weight), -category_1, -c(category_3:gender)))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="new-recipe-preprocessing-2" class="level2" data-number="5.22"><h2 data-number="5.22" class="anchored" data-anchor-id="new-recipe-preprocessing-2">
+<span class="header-section-number">5.22</span> New Recipe (Preprocessing)</h2>
+<div class="cell" data-hash="Chapter_2_Challenge_cache/html/unnamed-chunk-23_082bcf8ca50aaaa8a219707cf559f9d1">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a>bikes_rec <span class="ot">&lt;-</span> </span>
+<span id="cb53-2"><a href="#cb53-2"></a>  <span class="fu">recipe</span>(price <span class="sc">~</span> ., <span class="at">data =</span> train_tbl <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(id<span class="sc">:</span>weight), <span class="sc">-</span>category_1, <span class="sc">-</span><span class="fu">c</span>(category_3<span class="sc">:</span>gender))) <span class="sc">%&gt;%</span></span>
+<span id="cb53-3"><a href="#cb53-3"></a>  <span class="fu">step_dummy</span>(<span class="fu">all_nominal</span>(), <span class="sc">-</span><span class="fu">all_outcomes</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb53-4"><a href="#cb53-4"></a>  <span class="fu">step_unknown</span>(<span class="fu">all_nominal</span>())</span>
+<span id="cb53-5"><a href="#cb53-5"></a></span>
+<span id="cb53-6"><a href="#cb53-6"></a>model_07_boost_tree_xgboost <span class="ot">&lt;-</span> <span class="fu">calc_metrics</span>(model_07_boost_tree_xgboost, test_tbl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Warning: There are new levels in a factor: E-Road</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a><span class="co">#model_07_boost_tree_xgboost %&gt;% calc_metrics(test_tbl)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="feature-importance---2" class="level2" data-number="5.23"><h2 data-number="5.23" class="anchored" data-anchor-id="feature-importance---2">
+<span class="header-section-number">5.23</span> 4.3.2 Feature Importance —-</h2>
+<div class="cell" data-hash="Chapter_2_Challenge_cache/html/unnamed-chunk-24_09dedcb0f86c5fd5041eaf2cf80e3bea">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a>model_07_boost_tree_xgboost<span class="sc">$</span>fit <span class="sc">%&gt;%</span></span>
+<span id="cb56-2"><a href="#cb56-2"></a>    xgboost<span class="sc">::</span><span class="fu">xgb.importance</span>(<span class="at">model =</span> .) <span class="sc">%&gt;%</span></span>
+<span id="cb56-3"><a href="#cb56-3"></a>    <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb56-4"><a href="#cb56-4"></a>    <span class="fu">arrange</span>(<span class="fu">desc</span>(Gain)) <span class="sc">%&gt;%</span></span>
+<span id="cb56-5"><a href="#cb56-5"></a>    <span class="fu">mutate</span>(<span class="at">Feature =</span> <span class="fu">as_factor</span>(Feature) <span class="sc">%&gt;%</span> <span class="fu">fct_rev</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb56-6"><a href="#cb56-6"></a></span>
+<span id="cb56-7"><a href="#cb56-7"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(Gain, Feature)) <span class="sc">+</span></span>
+<span id="cb56-8"><a href="#cb56-8"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb56-9"><a href="#cb56-9"></a>    <span class="fu">labs</span>(</span>
+<span id="cb56-10"><a href="#cb56-10"></a>        <span class="at">title =</span> <span class="st">"XGBoost: Variable Importance"</span>,</span>
+<span id="cb56-11"><a href="#cb56-11"></a>        <span class="at">subtitle =</span> <span class="st">"Model 07: XGBoost Model"</span></span>
+<span id="cb56-12"><a href="#cb56-12"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><a href="Chapter_2_Challenge_files/figure-html/unnamed-chunk-24-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="Chapter_2_Challenge_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
+
+
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'alternate';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","loop":true,"selector":".lightbox","openEffect":"zoom"});</script>
+
+
+</body></html>
