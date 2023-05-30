@@ -24,6 +24,16 @@ website:
             file: content/01_journal/04_data_visualization.qmd
           - text: "05 Machine Learning Fundamentals"
             file: content/01_journal/Challenge1/05_Machine_Learning_Fundamentals.qmd
+          - text: "06 Supervised ML - Regression (II)"
+            file: content/01_journal/Challenge2/Chapter_2_Challenge.qmd
+          - text: "07 Automated Machine Learning with H2O (I)"
+            file: content/01_journal/Challenge3/Challenge3.qmd
+          - text: "07 Automated Machine Learning with H2O (II)"
+            file: content/01_journal/Challenge4/Challenge4.qmd
+          - text: "08 Performance Measure"
+            file: content/01_journal/Challenge5/Challenge5.qmd
+          - text: "09 Explaining Black-Box Models with LIME"
+            file: content/01_journal/Challenge6/Challenge6.qmd
       - text: "Class notes"
         file: content/02_notes/05_class_notes.qmd
       - text: "Links"

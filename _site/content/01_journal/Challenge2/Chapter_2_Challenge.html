@@ -169,6 +169,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <a class="dropdown-item" href="../../../content/01_journal/Challenge1/05_Machine_Learning_Fundamentals.html">
  <span class="dropdown-text">05 Machine Learning Fundamentals</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../../content/01_journal/Challenge2/Chapter_2_Challenge.html">
+ <span class="dropdown-text">06 Supervised ML - Regression (II)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../content/01_journal/Challenge3/Challenge3.html">
+ <span class="dropdown-text">07 Automated Machine Learning with H2O (I)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../content/01_journal/Challenge4/Challenge4.html">
+ <span class="dropdown-text">07 Automated Machine Learning with H2O (II)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../content/01_journal/Challenge5/Challenge5.html">
+ <span class="dropdown-text">08 Performance Measure</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../content/01_journal/Challenge6/Challenge6.html">
+ <span class="dropdown-text">09 Explaining Black-Box Models with LIME</span></a>
+  </li>  
     </ul>
 </li>
   <li class="nav-item">
@@ -197,22 +217,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#modeling--" id="toc-modeling--" class="nav-link" data-scroll-target="#modeling--"><span class="toc-section-number">2</span>  Modeling —————————————————————-</a></li>
   <li><a href="#features" id="toc-features" class="nav-link" data-scroll-target="#features"><span class="toc-section-number">3</span>  Features</a></li>
   <li><a href="#order-and-tidy-the-tibble" id="toc-order-and-tidy-the-tibble" class="nav-link" data-scroll-target="#order-and-tidy-the-tibble"><span class="toc-section-number">4</span>  Order and tidy the tibble</a></li>
-  <li><a href="#step-1-define-the-recipe" id="toc-step-1-define-the-recipe" class="nav-link" data-scroll-target="#step-1-define-the-recipe"><span class="toc-section-number">5</span>  Step 1: Define the recipe</a></li>
-  <li><a href="#splitting-the-data" id="toc-splitting-the-data" class="nav-link" data-scroll-target="#splitting-the-data"><span class="toc-section-number">6</span>  Splitting the Data</a></li>
-  <li><a href="#linear-methods--" id="toc-linear-methods--" class="nav-link" data-scroll-target="#linear-methods--"><span class="toc-section-number">7</span>  3.0 LINEAR METHODS —-</a></li>
-  <li><a href="#linear-regression---no-engineered-features--" id="toc-linear-regression---no-engineered-features--" class="nav-link" data-scroll-target="#linear-regression---no-engineered-features--"><span class="toc-section-number">8</span>  3.1 LINEAR REGRESSION - NO ENGINEERED FEATURES —-</a></li>
-  <li><a href="#model-explanation" id="toc-model-explanation" class="nav-link" data-scroll-target="#model-explanation"><span class="toc-section-number">9</span>  Model Explanation</a></li>
-  <li><a href="#feature-importance--" id="toc-feature-importance--" class="nav-link" data-scroll-target="#feature-importance--"><span class="toc-section-number">10</span>  3.1.2 Feature Importance —-</a></li>
-  <li><a href="#function-to-calculate-metrics-without-recipe--" id="toc-function-to-calculate-metrics-without-recipe--" class="nav-link" data-scroll-target="#function-to-calculate-metrics-without-recipe--"><span class="toc-section-number">11</span>  3.1.3 Function to Calculate Metrics Without Recipe —-</a></li>
-  <li><a href="#code-we-used-earlier" id="toc-code-we-used-earlier" class="nav-link" data-scroll-target="#code-we-used-earlier"><span class="toc-section-number">12</span>  Code we used earlier</a></li>
-  <li><a href="#generalized-into-a-function" id="toc-generalized-into-a-function" class="nav-link" data-scroll-target="#generalized-into-a-function"><span class="toc-section-number">13</span>  Generalized into a function</a></li>
-  <li><a href="#linear-regression---with-engineered-features--" id="toc-linear-regression---with-engineered-features--" class="nav-link" data-scroll-target="#linear-regression---with-engineered-features--"><span class="toc-section-number">14</span>  3.2 LINEAR REGRESSION - WITH ENGINEERED FEATURES —-</a></li>
-  <li><a href="#feature-importance---1" id="toc-feature-importance---1" class="nav-link" data-scroll-target="#feature-importance---1"><span class="toc-section-number">15</span>  3.2.2 Feature importance —-</a></li>
-  <li><a href="#penalized-regression--" id="toc-penalized-regression--" class="nav-link" data-scroll-target="#penalized-regression--"><span class="toc-section-number">16</span>  3.3 PENALIZED REGRESSION —-</a></li>
-  <li><a href="#decision-tree-plot--" id="toc-decision-tree-plot--" class="nav-link" data-scroll-target="#decision-tree-plot--"><span class="toc-section-number">17</span>  4.1.2 Decision Tree Plot —-</a></li>
-  <li><a href="#xgboost--" id="toc-xgboost--" class="nav-link" data-scroll-target="#xgboost--"><span class="toc-section-number">18</span>  4.3 XGBOOST —-</a></li>
-  <li><a href="#model--" id="toc-model--" class="nav-link" data-scroll-target="#model--"><span class="toc-section-number">19</span>  4.3.1 Model —-</a></li>
-  <li><a href="#feature-importance---2" id="toc-feature-importance---2" class="nav-link" data-scroll-target="#feature-importance---2"><span class="toc-section-number">20</span>  4.3.2 Feature Importance —-</a></li>
+  <li>
+<a href="#recipe-challenge-2" id="toc-recipe-challenge-2" class="nav-link" data-scroll-target="#recipe-challenge-2"><span class="toc-section-number">5</span>  Recipe : Challenge 2 —————————————————–</a>
+  <ul class="collapse">
+<li><a href="#step-1-define-the-recipe" id="toc-step-1-define-the-recipe" class="nav-link" data-scroll-target="#step-1-define-the-recipe"><span class="toc-section-number">5.1</span>  Step 1: Define the recipe</a></li>
+  <li><a href="#splitting-the-data" id="toc-splitting-the-data" class="nav-link" data-scroll-target="#splitting-the-data"><span class="toc-section-number">5.2</span>  Splitting the Data</a></li>
+  <li><a href="#linear-methods--" id="toc-linear-methods--" class="nav-link" data-scroll-target="#linear-methods--"><span class="toc-section-number">5.3</span>  3.0 LINEAR METHODS —-</a></li>
+  <li><a href="#linear-regression---no-engineered-features--" id="toc-linear-regression---no-engineered-features--" class="nav-link" data-scroll-target="#linear-regression---no-engineered-features--"><span class="toc-section-number">5.4</span>  3.1 LINEAR REGRESSION - NO ENGINEERED FEATURES —-</a></li>
+  <li><a href="#predicting-with-a-recipe" id="toc-predicting-with-a-recipe" class="nav-link" data-scroll-target="#predicting-with-a-recipe"><span class="toc-section-number">5.5</span>  Predicting with a Recipe</a></li>
+  <li><a href="#calculating-the-common-metrics-comparing-a-truth-price-to-an-estimate-.pred." id="toc-calculating-the-common-metrics-comparing-a-truth-price-to-an-estimate-.pred." class="nav-link" data-scroll-target="#calculating-the-common-metrics-comparing-a-truth-price-to-an-estimate-.pred."><span class="toc-section-number">5.6</span>  Calculating the common metrics comparing a “truth” (price) to an “estimate” (.pred).</a></li>
+  <li><a href="#extracting-the-model-of-the-workflow" id="toc-extracting-the-model-of-the-workflow" class="nav-link" data-scroll-target="#extracting-the-model-of-the-workflow"><span class="toc-section-number">5.7</span>  Extracting the Model of the Workflow</a></li>
+  <li><a href="#model-explanation" id="toc-model-explanation" class="nav-link" data-scroll-target="#model-explanation"><span class="toc-section-number">5.8</span>  Model Explanation</a></li>
+  <li><a href="#feature-importance--" id="toc-feature-importance--" class="nav-link" data-scroll-target="#feature-importance--"><span class="toc-section-number">5.9</span>  3.1.2 Feature Importance —-</a></li>
+  <li><a href="#function-to-calculate-metrics-without-recipe--" id="toc-function-to-calculate-metrics-without-recipe--" class="nav-link" data-scroll-target="#function-to-calculate-metrics-without-recipe--"><span class="toc-section-number">5.10</span>  3.1.3 Function to Calculate Metrics Without Recipe —-</a></li>
+  <li><a href="#code-we-used-earlier" id="toc-code-we-used-earlier" class="nav-link" data-scroll-target="#code-we-used-earlier"><span class="toc-section-number">5.11</span>  Code we used earlier</a></li>
+  <li><a href="#generalized-into-a-function" id="toc-generalized-into-a-function" class="nav-link" data-scroll-target="#generalized-into-a-function"><span class="toc-section-number">5.12</span>  Generalized into a function</a></li>
+  <li><a href="#function-to-calculate-metrics-with-a-recipe" id="toc-function-to-calculate-metrics-with-a-recipe" class="nav-link" data-scroll-target="#function-to-calculate-metrics-with-a-recipe"><span class="toc-section-number">5.13</span>  Function to Calculate Metrics With a Recipe</a></li>
+  <li><a href="#linear-regression---with-engineered-features--" id="toc-linear-regression---with-engineered-features--" class="nav-link" data-scroll-target="#linear-regression---with-engineered-features--"><span class="toc-section-number">5.14</span>  3.2 LINEAR REGRESSION - WITH ENGINEERED FEATURES —-</a></li>
+  <li><a href="#new-recipe-preprocessing" id="toc-new-recipe-preprocessing" class="nav-link" data-scroll-target="#new-recipe-preprocessing"><span class="toc-section-number">5.15</span>  New Recipe (Preprocessing)</a></li>
+  <li><a href="#feature-importance---1" id="toc-feature-importance---1" class="nav-link" data-scroll-target="#feature-importance---1"><span class="toc-section-number">5.16</span>  3.2.2 Feature importance —-</a></li>
+  <li><a href="#penalized-regression--" id="toc-penalized-regression--" class="nav-link" data-scroll-target="#penalized-regression--"><span class="toc-section-number">5.17</span>  3.3 PENALIZED REGRESSION —-</a></li>
+  <li><a href="#new-recipe-preprocessing-1" id="toc-new-recipe-preprocessing-1" class="nav-link" data-scroll-target="#new-recipe-preprocessing-1"><span class="toc-section-number">5.18</span>  New Recipe (Preprocessing)</a></li>
+  <li><a href="#decision-tree-plot--" id="toc-decision-tree-plot--" class="nav-link" data-scroll-target="#decision-tree-plot--"><span class="toc-section-number">5.19</span>  4.1.2 Decision Tree Plot —-</a></li>
+  <li><a href="#xgboost--" id="toc-xgboost--" class="nav-link" data-scroll-target="#xgboost--"><span class="toc-section-number">5.20</span>  4.3 XGBOOST —-</a></li>
+  <li><a href="#model--" id="toc-model--" class="nav-link" data-scroll-target="#model--"><span class="toc-section-number">5.21</span>  4.3.1 Model —-</a></li>
+  <li><a href="#new-recipe-preprocessing-2" id="toc-new-recipe-preprocessing-2" class="nav-link" data-scroll-target="#new-recipe-preprocessing-2"><span class="toc-section-number">5.22</span>  New Recipe (Preprocessing)</a></li>
+  <li><a href="#feature-importance---2" id="toc-feature-importance---2" class="nav-link" data-scroll-target="#feature-importance---2"><span class="toc-section-number">5.23</span>  4.3.2 Feature Importance —-</a></li>
+  </ul>
+</li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -467,9 +499,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb14-5"><a href="#cb14-5"></a>  </span>
 <span id="cb14-6"><a href="#cb14-6"></a>  <span class="fu">select</span>(id, <span class="fu">everything</span>(), <span class="sc">-</span>url)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>#Recipe : Challenge 2</p>
-</section><section id="step-1-define-the-recipe" class="level1" data-number="5"><h1 data-number="5">
-<span class="header-section-number">5</span> Step 1: Define the recipe</h1>
+</section><section id="recipe-challenge-2" class="level1" data-number="5"><h1 data-number="5">
+<span class="header-section-number">5</span> Recipe : Challenge 2 —————————————————–</h1>
+<section id="step-1-define-the-recipe" class="level2" data-number="5.1"><h2 data-number="5.1" class="anchored" data-anchor-id="step-1-define-the-recipe">
+<span class="header-section-number">5.1</span> Step 1: Define the recipe</h2>
 <div class="cell" data-hash="Chapter_2_Challenge_cache/html/unnamed-chunk-5_7a563d818fee42e556b4c1eb56f1ee75">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>bikes_rec <span class="ot">&lt;-</span> </span>
 <span id="cb15-2"><a href="#cb15-2"></a>  <span class="fu">recipe</span>(price <span class="sc">~</span> category_2 <span class="sc">+</span> frame_material, <span class="at">data =</span> bike_orderlines_tbl) <span class="sc">%&gt;%</span></span>
@@ -477,8 +510,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb15-4"><a href="#cb15-4"></a>  <span class="fu">step_unknown</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb15-5"><a href="#cb15-5"></a>  <span class="fu">prep</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="splitting-the-data" class="level1" data-number="6"><h1 data-number="6">
-<span class="header-section-number">6</span> Splitting the Data</h1>
+</section><section id="splitting-the-data" class="level2" data-number="5.2"><h2 data-number="5.2" class="anchored" data-anchor-id="splitting-the-data">
+<span class="header-section-number">5.2</span> Splitting the Data</h2>
 <div class="cell" data-hash="Chapter_2_Challenge_cache/html/unnamed-chunk-6_3cc3312213018b6370a0711e6cb5f867">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>bike_features_tbl <span class="sc">%&gt;%</span> <span class="fu">distinct</span>(category_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -541,10 +574,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-</section><section id="linear-methods--" class="level1" data-number="7"><h1 data-number="7">
-<span class="header-section-number">7</span> 3.0 LINEAR METHODS —-</h1>
-</section><section id="linear-regression---no-engineered-features--" class="level1" data-number="8"><h1 data-number="8">
-<span class="header-section-number">8</span> 3.1 LINEAR REGRESSION - NO ENGINEERED FEATURES —-</h1>
+</section><section id="linear-methods--" class="level2" data-number="5.3"><h2 data-number="5.3" class="anchored" data-anchor-id="linear-methods--">
+<span class="header-section-number">5.3</span> 3.0 LINEAR METHODS —-</h2>
+</section><section id="linear-regression---no-engineered-features--" class="level2" data-number="5.4"><h2 data-number="5.4" class="anchored" data-anchor-id="linear-regression---no-engineered-features--">
+<span class="header-section-number">5.4</span> 3.1 LINEAR REGRESSION - NO ENGINEERED FEATURES —-</h2>
 <div class="cell" data-hash="Chapter_2_Challenge_cache/html/unnamed-chunk-7_23952ad691bdc0fafbb561dd1bc64522">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="co"># 3.1.1 Model ----</span></span>
 <span id="cb20-2"><a href="#cb20-2"></a></span>
@@ -577,7 +610,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb23-2"><a href="#cb23-2"></a>  bikes_wflow <span class="sc">%&gt;%</span></span>
 <span id="cb23-3"><a href="#cb23-3"></a>  <span class="fu">fit</span>(<span class="at">data =</span> train_tbl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>#Predicting with a Recipe</p>
+</section><section id="predicting-with-a-recipe" class="level2" data-number="5.5"><h2 data-number="5.5" class="anchored" data-anchor-id="predicting-with-a-recipe">
+<span class="header-section-number">5.5</span> Predicting with a Recipe</h2>
 <div class="cell" data-hash="Chapter_2_Challenge_cache/html/unnamed-chunk-9_4214c089cbf73e76867a7fb6f1f00a86">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>bikes_pred <span class="ot">&lt;-</span></span>
 <span id="cb24-2"><a href="#cb24-2"></a>  <span class="fu">predict</span>(bikes_fit,test_tbl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -594,9 +628,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<p>#Not Necessary anymore, because the prediction is done differently with a recipe</p>
-<p>model_01_linear_lm_simple %&gt;% predict(new_data = test_tbl)</p>
-<p>#Calculating the common metrics comparing a “truth” (price) to an “estimate” (.pred).</p>
+</section><section id="calculating-the-common-metrics-comparing-a-truth-price-to-an-estimate-.pred." class="level2" data-number="5.6"><h2 data-number="5.6" class="anchored" data-anchor-id="calculating-the-common-metrics-comparing-a-truth-price-to-an-estimate-.pred.">
+<span class="header-section-number">5.6</span> Calculating the common metrics comparing a “truth” (price) to an “estimate” (.pred).</h2>
 <div class="cell" data-hash="Chapter_2_Challenge_cache/html/unnamed-chunk-10_fb835e30ac5771761b5480c159729c50">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="co">#model_01_linear_lm_simple %&gt;%</span></span>
 <span id="cb27-2"><a href="#cb27-2"></a><span class="co">#  predict(new_data = test_tbl) %&gt;%</span></span>
@@ -614,7 +647,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<p>#Extracting the Model of the Workflow</p>
+</section><section id="extracting-the-model-of-the-workflow" class="level2" data-number="5.7"><h2 data-number="5.7" class="anchored" data-anchor-id="extracting-the-model-of-the-workflow">
+<span class="header-section-number">5.7</span> Extracting the Model of the Workflow</h2>
 <div class="cell" data-hash="Chapter_2_Challenge_cache/html/unnamed-chunk-11_936583dba2fe29258e263629ff6d5d85">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>model_01_linear_lm_simple <span class="ot">&lt;-</span> bikes_fit <span class="sc">%&gt;%</span> </span>
 <span id="cb28-2"><a href="#cb28-2"></a>  <span class="fu">pull_workflow_fit</span>() <span class="co">#%&gt;% </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -624,10 +658,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a> <span class="co"># tidy() </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="model-explanation" class="level1" data-number="9"><h1 data-number="9">
-<span class="header-section-number">9</span> Model Explanation</h1>
-</section><section id="feature-importance--" class="level1" data-number="10"><h1 data-number="10">
-<span class="header-section-number">10</span> 3.1.2 Feature Importance —-</h1>
+</section><section id="model-explanation" class="level2" data-number="5.8"><h2 data-number="5.8" class="anchored" data-anchor-id="model-explanation">
+<span class="header-section-number">5.8</span> Model Explanation</h2>
+</section><section id="feature-importance--" class="level2" data-number="5.9"><h2 data-number="5.9" class="anchored" data-anchor-id="feature-importance--">
+<span class="header-section-number">5.9</span> 3.1.2 Feature Importance —-</h2>
 <div class="cell" data-hash="Chapter_2_Challenge_cache/html/unnamed-chunk-12_c0a33cf41974aa428d03c97953c776b8">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="co">#View(model_01_linear_lm_simple) # You will see the coefficients in the element "fit"</span></span>
 <span id="cb31-2"><a href="#cb31-2"></a></span>
@@ -652,15 +686,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-</section><section id="function-to-calculate-metrics-without-recipe--" class="level1" data-number="11"><h1 data-number="11">
-<span class="header-section-number">11</span> 3.1.3 Function to Calculate Metrics Without Recipe —-</h1>
-</section><section id="code-we-used-earlier" class="level1" data-number="12"><h1 data-number="12">
-<span class="header-section-number">12</span> Code we used earlier</h1>
+</section><section id="function-to-calculate-metrics-without-recipe--" class="level2" data-number="5.10"><h2 data-number="5.10" class="anchored" data-anchor-id="function-to-calculate-metrics-without-recipe--">
+<span class="header-section-number">5.10</span> 3.1.3 Function to Calculate Metrics Without Recipe —-</h2>
+</section><section id="code-we-used-earlier" class="level2" data-number="5.11"><h2 data-number="5.11" class="anchored" data-anchor-id="code-we-used-earlier">
+<span class="header-section-number">5.11</span> Code we used earlier</h2>
 <p>model_01_linear_lm_simple %&gt;% predict(new_data = test_tbl) %&gt;%</p>
 <pre><code>bind_cols(test_tbl %&gt;% select(price)) %&gt;%
 yardstick::metrics(truth = price, estimate = .pred)</code></pre>
-</section><section id="generalized-into-a-function" class="level1" data-number="13"><h1 data-number="13">
-<span class="header-section-number">13</span> Generalized into a function</h1>
+</section><section id="generalized-into-a-function" class="level2" data-number="5.12"><h2 data-number="5.12" class="anchored" data-anchor-id="generalized-into-a-function">
+<span class="header-section-number">5.12</span> Generalized into a function</h2>
 <p>calc_metrics &lt;- function(model, new_data = test_tbl) {</p>
 <pre><code>model %&gt;%
     predict(new_data = new_data) %&gt;%
@@ -669,7 +703,8 @@ yardstick::metrics(truth = price, estimate = .pred)</code></pre>
     yardstick::metrics(truth = price, estimate = .pred)</code></pre>
 <p>}</p>
 <p>model_01_linear_lm_simple %&gt;% calc_metrics(test_tbl)</p>
-<p>#Function to Calculate Metrics With a Recipe</p>
+</section><section id="function-to-calculate-metrics-with-a-recipe" class="level2" data-number="5.13"><h2 data-number="5.13" class="anchored" data-anchor-id="function-to-calculate-metrics-with-a-recipe">
+<span class="header-section-number">5.13</span> Function to Calculate Metrics With a Recipe</h2>
 <div class="cell" data-hash="Chapter_2_Challenge_cache/html/unnamed-chunk-13_f1705d06a2864361a665413c4e56af57">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a>calc_metrics <span class="ot">&lt;-</span> <span class="cf">function</span>(model, <span class="at">new_data =</span> test_tbl) {</span>
 <span id="cb34-2"><a href="#cb34-2"></a></span>
@@ -694,8 +729,8 @@ yardstick::metrics(truth = price, estimate = .pred)</code></pre>
 <span id="cb34-21"><a href="#cb34-21"></a>     <span class="fu">pull_workflow_fit</span>(bikes_fit) </span>
 <span id="cb34-22"><a href="#cb34-22"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="linear-regression---with-engineered-features--" class="level1" data-number="14"><h1 data-number="14">
-<span class="header-section-number">14</span> 3.2 LINEAR REGRESSION - WITH ENGINEERED FEATURES —-</h1>
+</section><section id="linear-regression---with-engineered-features--" class="level2" data-number="5.14"><h2 data-number="5.14" class="anchored" data-anchor-id="linear-regression---with-engineered-features--">
+<span class="header-section-number">5.14</span> 3.2 LINEAR REGRESSION - WITH ENGINEERED FEATURES —-</h2>
 <div class="cell" data-hash="Chapter_2_Challenge_cache/html/unnamed-chunk-14_3736944f7a102b8e2ef4b53eddad62f1">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="co"># 3.2.1 Model ----</span></span>
 <span id="cb35-2"><a href="#cb35-2"></a>model_02_linear_lm_complex <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>(<span class="st">"regression"</span>) <span class="sc">%&gt;%</span></span>
@@ -704,7 +739,8 @@ yardstick::metrics(truth = price, estimate = .pred)</code></pre>
 <span id="cb35-5"><a href="#cb35-5"></a>    <span class="co"># This is going to be different. Remove unnecessary columns.</span></span>
 <span id="cb35-6"><a href="#cb35-6"></a>  <span class="co">#  fit(price ~ ., data = train_tbl %&gt;% select(-c(id:weight), -category_1, -c(category_3:gender)))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>#New Recipe (Preprocessing)</p>
+</section><section id="new-recipe-preprocessing" class="level2" data-number="5.15"><h2 data-number="5.15" class="anchored" data-anchor-id="new-recipe-preprocessing">
+<span class="header-section-number">5.15</span> New Recipe (Preprocessing)</h2>
 <div class="cell" data-hash="Chapter_2_Challenge_cache/html/unnamed-chunk-15_8a726b30b45cf3b39ff6ff3c70afec55">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a>bikes_rec <span class="ot">&lt;-</span> </span>
 <span id="cb36-2"><a href="#cb36-2"></a>  <span class="fu">recipe</span>(price <span class="sc">~</span> ., <span class="at">data =</span> train_tbl <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(id<span class="sc">:</span>weight), <span class="sc">-</span>category_1, <span class="sc">-</span><span class="fu">c</span>(category_3<span class="sc">:</span>gender))) <span class="sc">%&gt;%</span></span>
@@ -720,8 +756,8 @@ yardstick::metrics(truth = price, estimate = .pred)</code></pre>
 #&gt; "response"): Vorhersage durch Fit ohne vollen Rang mag täuschen</code></pre>
 </div>
 </div>
-</section><section id="feature-importance---1" class="level1" data-number="15"><h1 data-number="15">
-<span class="header-section-number">15</span> 3.2.2 Feature importance —-</h1>
+</section><section id="feature-importance---1" class="level2" data-number="5.16"><h2 data-number="5.16" class="anchored" data-anchor-id="feature-importance---1">
+<span class="header-section-number">5.16</span> 3.2.2 Feature importance —-</h2>
 <div class="cell" data-hash="Chapter_2_Challenge_cache/html/unnamed-chunk-16_6f905c7443554dd17a95f3bb29bb78e1">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a>model_02_linear_lm_complex <span class="sc">%&gt;%</span></span>
 <span id="cb39-2"><a href="#cb39-2"></a>  broom<span class="sc">::</span><span class="fu">tidy</span>() <span class="sc">%&gt;%</span></span>
@@ -748,8 +784,8 @@ yardstick::metrics(truth = price, estimate = .pred)</code></pre>
 </div>
 </div>
 </div>
-</section><section id="penalized-regression--" class="level1" data-number="16"><h1 data-number="16">
-<span class="header-section-number">16</span> 3.3 PENALIZED REGRESSION —-</h1>
+</section><section id="penalized-regression--" class="level2" data-number="5.17"><h2 data-number="5.17" class="anchored" data-anchor-id="penalized-regression--">
+<span class="header-section-number">5.17</span> 3.3 PENALIZED REGRESSION —-</h2>
 <div class="cell" data-hash="Chapter_2_Challenge_cache/html/unnamed-chunk-17_dd0d80272170f766bc4f64a2fab270ee">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="co"># 3.3.1 Model ----</span></span>
 <span id="cb42-2"><a href="#cb42-2"></a></span>
@@ -762,7 +798,8 @@ yardstick::metrics(truth = price, estimate = .pred)</code></pre>
 <span id="cb42-9"><a href="#cb42-9"></a></span>
 <span id="cb42-10"><a href="#cb42-10"></a><span class="co">#model_03_linear_glmnet %&gt;% calc_metrics(test_tbl)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>#New Recipe (Preprocessing)</p>
+</section><section id="new-recipe-preprocessing-1" class="level2" data-number="5.18"><h2 data-number="5.18" class="anchored" data-anchor-id="new-recipe-preprocessing-1">
+<span class="header-section-number">5.18</span> New Recipe (Preprocessing)</h2>
 <div class="cell" data-hash="Chapter_2_Challenge_cache/html/unnamed-chunk-18_5f14b9639da56a96b37d43a69c809670">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a>bikes_rec <span class="ot">&lt;-</span> </span>
 <span id="cb43-2"><a href="#cb43-2"></a>  <span class="fu">recipe</span>(price <span class="sc">~</span> ., <span class="at">data =</span> train_tbl <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(id<span class="sc">:</span>weight), <span class="sc">-</span>category_1, <span class="sc">-</span><span class="fu">c</span>(category_3<span class="sc">:</span>gender))) <span class="sc">%&gt;%</span></span>
@@ -791,21 +828,6 @@ yardstick::metrics(truth = price, estimate = .pred)</code></pre>
 <span id="cb45-14"><a href="#cb45-14"></a>    <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">dollar_format</span>()) <span class="sc">+</span></span>
 <span id="cb45-15"><a href="#cb45-15"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Linear Regression: Feature Importance"</span>,</span>
 <span id="cb45-16"><a href="#cb45-16"></a>         <span class="at">subtitle =</span> <span class="st">"Model 03: GLMNET Model"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>#&gt; Lade nötiges Paket: Matrix</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>#&gt; 
-#&gt; Attache Paket: 'Matrix'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>#&gt; Die folgenden Objekte sind maskiert von 'package:tidyr':
-#&gt; 
-#&gt;     expand, pack, unpack</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>#&gt; Loaded glmnet 4.1-7</code></pre>
-</div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><a href="Chapter_2_Challenge_files/figure-html/unnamed-chunk-19-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="Chapter_2_Challenge_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></a></p>
@@ -814,49 +836,49 @@ yardstick::metrics(truth = price, estimate = .pred)</code></pre>
 </div>
 </div>
 <div class="cell" data-hash="Chapter_2_Challenge_cache/html/unnamed-chunk-20_652587f78dde1801fd4b1c44c8adfdb9">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a><span class="co"># 4.0 TREE-BASED METHODS ----</span></span>
-<span id="cb50-2"><a href="#cb50-2"></a><span class="co"># 4.1 DECISION TREES ----</span></span>
-<span id="cb50-3"><a href="#cb50-3"></a><span class="co"># 4.1.1 Model ----</span></span>
-<span id="cb50-4"><a href="#cb50-4"></a></span>
-<span id="cb50-5"><a href="#cb50-5"></a>model_04_tree_decision_tree <span class="ot">&lt;-</span> <span class="fu">decision_tree</span>(<span class="at">mode =</span> <span class="st">"regression"</span>,</span>
-<span id="cb50-6"><a href="#cb50-6"></a>              </span>
-<span id="cb50-7"><a href="#cb50-7"></a>              <span class="co"># Set the values accordingly to get started</span></span>
-<span id="cb50-8"><a href="#cb50-8"></a>              <span class="at">cost_complexity =</span> <span class="fl">0.001</span>,</span>
-<span id="cb50-9"><a href="#cb50-9"></a>              <span class="at">tree_depth      =</span> <span class="dv">5</span>,</span>
-<span id="cb50-10"><a href="#cb50-10"></a>              <span class="at">min_n           =</span> <span class="dv">7</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb50-11"><a href="#cb50-11"></a>              </span>
-<span id="cb50-12"><a href="#cb50-12"></a>    <span class="fu">set_engine</span>(<span class="st">"rpart"</span>)</span>
-<span id="cb50-13"><a href="#cb50-13"></a>    <span class="co">#fit(price ~ ., data = train_tbl %&gt;% select(-c(id:weight), -category_1, -c(category_3:gender)))</span></span>
-<span id="cb50-14"><a href="#cb50-14"></a></span>
-<span id="cb50-15"><a href="#cb50-15"></a><span class="co">#model_04_tree_decision_tree %&gt;% calc_metrics(test_tbl)</span></span>
-<span id="cb50-16"><a href="#cb50-16"></a>model_04_tree_decision_tree <span class="ot">&lt;-</span> <span class="fu">calc_metrics</span>(model_04_tree_decision_tree, test_tbl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a><span class="co"># 4.0 TREE-BASED METHODS ----</span></span>
+<span id="cb46-2"><a href="#cb46-2"></a><span class="co"># 4.1 DECISION TREES ----</span></span>
+<span id="cb46-3"><a href="#cb46-3"></a><span class="co"># 4.1.1 Model ----</span></span>
+<span id="cb46-4"><a href="#cb46-4"></a></span>
+<span id="cb46-5"><a href="#cb46-5"></a>model_04_tree_decision_tree <span class="ot">&lt;-</span> <span class="fu">decision_tree</span>(<span class="at">mode =</span> <span class="st">"regression"</span>,</span>
+<span id="cb46-6"><a href="#cb46-6"></a>              </span>
+<span id="cb46-7"><a href="#cb46-7"></a>              <span class="co"># Set the values accordingly to get started</span></span>
+<span id="cb46-8"><a href="#cb46-8"></a>              <span class="at">cost_complexity =</span> <span class="fl">0.001</span>,</span>
+<span id="cb46-9"><a href="#cb46-9"></a>              <span class="at">tree_depth      =</span> <span class="dv">5</span>,</span>
+<span id="cb46-10"><a href="#cb46-10"></a>              <span class="at">min_n           =</span> <span class="dv">7</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb46-11"><a href="#cb46-11"></a>              </span>
+<span id="cb46-12"><a href="#cb46-12"></a>    <span class="fu">set_engine</span>(<span class="st">"rpart"</span>)</span>
+<span id="cb46-13"><a href="#cb46-13"></a>    <span class="co">#fit(price ~ ., data = train_tbl %&gt;% select(-c(id:weight), -category_1, -c(category_3:gender)))</span></span>
+<span id="cb46-14"><a href="#cb46-14"></a></span>
+<span id="cb46-15"><a href="#cb46-15"></a><span class="co">#model_04_tree_decision_tree %&gt;% calc_metrics(test_tbl)</span></span>
+<span id="cb46-16"><a href="#cb46-16"></a>model_04_tree_decision_tree <span class="ot">&lt;-</span> <span class="fu">calc_metrics</span>(model_04_tree_decision_tree, test_tbl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>#&gt; Warning: There are new levels in a factor: E-Road</code></pre>
 </div>
 </div>
-</section><section id="decision-tree-plot--" class="level1" data-number="17"><h1 data-number="17">
-<span class="header-section-number">17</span> 4.1.2 Decision Tree Plot —-</h1>
+</section><section id="decision-tree-plot--" class="level2" data-number="5.19"><h2 data-number="5.19" class="anchored" data-anchor-id="decision-tree-plot--">
+<span class="header-section-number">5.19</span> 4.1.2 Decision Tree Plot —-</h2>
 <div class="cell" data-hash="Chapter_2_Challenge_cache/html/unnamed-chunk-21_d2f2c17507d60bfbacfe5a0032e00f3f">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a>model_04_tree_decision_tree<span class="sc">$</span>fit <span class="sc">%&gt;%</span></span>
-<span id="cb52-2"><a href="#cb52-2"></a>    <span class="fu">rpart.plot</span>(<span class="at">roundint =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a>model_04_tree_decision_tree<span class="sc">$</span>fit <span class="sc">%&gt;%</span></span>
+<span id="cb48-2"><a href="#cb48-2"></a>    <span class="fu">rpart.plot</span>(<span class="at">roundint =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><a href="Chapter_2_Challenge_files/figure-html/unnamed-chunk-21-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="Chapter_2_Challenge_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a><span class="co"># Optimze plot</span></span>
-<span id="cb53-2"><a href="#cb53-2"></a>model_04_tree_decision_tree<span class="sc">$</span>fit <span class="sc">%&gt;%</span></span>
-<span id="cb53-3"><a href="#cb53-3"></a>    <span class="fu">rpart.plot</span>(</span>
-<span id="cb53-4"><a href="#cb53-4"></a>        <span class="at">roundint =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb53-5"><a href="#cb53-5"></a>        <span class="at">type =</span> <span class="dv">4</span>,</span>
-<span id="cb53-6"><a href="#cb53-6"></a>        <span class="at">extra =</span> <span class="dv">101</span>, <span class="co"># see help page</span></span>
-<span id="cb53-7"><a href="#cb53-7"></a>        <span class="at">fallen.leaves =</span> <span class="cn">FALSE</span>, <span class="co"># changes the angles from 90 to 45-degree</span></span>
-<span id="cb53-8"><a href="#cb53-8"></a>        <span class="at">cex =</span> <span class="fl">0.6</span>, <span class="co"># font size</span></span>
-<span id="cb53-9"><a href="#cb53-9"></a>        <span class="at">main =</span> <span class="st">"Model 04: Decision Tree"</span>, <span class="co"># Adds title</span></span>
-<span id="cb53-10"><a href="#cb53-10"></a>        <span class="at">box.palette =</span> <span class="st">"Blues"</span>,</span>
-<span id="cb53-11"><a href="#cb53-11"></a>        <span class="at">box.col =</span> <span class="st">"lightblue"</span></span>
-<span id="cb53-12"><a href="#cb53-12"></a>        )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a><span class="co"># Optimze plot</span></span>
+<span id="cb49-2"><a href="#cb49-2"></a>model_04_tree_decision_tree<span class="sc">$</span>fit <span class="sc">%&gt;%</span></span>
+<span id="cb49-3"><a href="#cb49-3"></a>    <span class="fu">rpart.plot</span>(</span>
+<span id="cb49-4"><a href="#cb49-4"></a>        <span class="at">roundint =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb49-5"><a href="#cb49-5"></a>        <span class="at">type =</span> <span class="dv">4</span>,</span>
+<span id="cb49-6"><a href="#cb49-6"></a>        <span class="at">extra =</span> <span class="dv">101</span>, <span class="co"># see help page</span></span>
+<span id="cb49-7"><a href="#cb49-7"></a>        <span class="at">fallen.leaves =</span> <span class="cn">FALSE</span>, <span class="co"># changes the angles from 90 to 45-degree</span></span>
+<span id="cb49-8"><a href="#cb49-8"></a>        <span class="at">cex =</span> <span class="fl">0.6</span>, <span class="co"># font size</span></span>
+<span id="cb49-9"><a href="#cb49-9"></a>        <span class="at">main =</span> <span class="st">"Model 04: Decision Tree"</span>, <span class="co"># Adds title</span></span>
+<span id="cb49-10"><a href="#cb49-10"></a>        <span class="at">box.palette =</span> <span class="st">"Blues"</span>,</span>
+<span id="cb49-11"><a href="#cb49-11"></a>        <span class="at">box.col =</span> <span class="st">"lightblue"</span></span>
+<span id="cb49-12"><a href="#cb49-12"></a>        )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>#&gt; Warning: labs do not fit even at cex 0.15, there may be some overplotting</code></pre>
 </div>
@@ -866,7 +888,7 @@ yardstick::metrics(truth = price, estimate = .pred)</code></pre>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a><span class="fu">show.prp.palettes</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="fu">show.prp.palettes</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><a href="Chapter_2_Challenge_files/figure-html/unnamed-chunk-21-3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="Chapter_2_Challenge_files/figure-html/unnamed-chunk-21-3.png" class="img-fluid figure-img" width="672"></a></p>
@@ -874,49 +896,50 @@ yardstick::metrics(truth = price, estimate = .pred)</code></pre>
 </div>
 </div>
 </div>
-</section><section id="xgboost--" class="level1" data-number="18"><h1 data-number="18">
-<span class="header-section-number">18</span> 4.3 XGBOOST —-</h1>
-</section><section id="model--" class="level1" data-number="19"><h1 data-number="19">
-<span class="header-section-number">19</span> 4.3.1 Model —-</h1>
+</section><section id="xgboost--" class="level2" data-number="5.20"><h2 data-number="5.20" class="anchored" data-anchor-id="xgboost--">
+<span class="header-section-number">5.20</span> 4.3 XGBOOST —-</h2>
+</section><section id="model--" class="level2" data-number="5.21"><h2 data-number="5.21" class="anchored" data-anchor-id="model--">
+<span class="header-section-number">5.21</span> 4.3.1 Model —-</h2>
 <div class="cell" data-hash="Chapter_2_Challenge_cache/html/unnamed-chunk-22_438a4cec625eb514b8897cb3b4dd620c">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
-<span id="cb56-2"><a href="#cb56-2"></a>model_07_boost_tree_xgboost <span class="ot">&lt;-</span> <span class="fu">boost_tree</span>(</span>
-<span id="cb56-3"><a href="#cb56-3"></a>    <span class="at">mode =</span> <span class="st">"regression"</span>,</span>
-<span id="cb56-4"><a href="#cb56-4"></a>    <span class="at">mtry =</span> <span class="dv">30</span>,</span>
-<span id="cb56-5"><a href="#cb56-5"></a>    <span class="at">learn_rate =</span> <span class="fl">0.25</span>,</span>
-<span id="cb56-6"><a href="#cb56-6"></a>    <span class="at">tree_depth =</span> <span class="dv">7</span></span>
-<span id="cb56-7"><a href="#cb56-7"></a>    ) <span class="sc">%&gt;%</span></span>
-<span id="cb56-8"><a href="#cb56-8"></a>    <span class="fu">set_engine</span>(<span class="st">"xgboost"</span>)</span>
-<span id="cb56-9"><a href="#cb56-9"></a>   <span class="co"># fit(price ~ ., data = train_tbl %&gt;% select(-c(id:weight), -category_1, -c(category_3:gender)))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb52-2"><a href="#cb52-2"></a>model_07_boost_tree_xgboost <span class="ot">&lt;-</span> <span class="fu">boost_tree</span>(</span>
+<span id="cb52-3"><a href="#cb52-3"></a>    <span class="at">mode =</span> <span class="st">"regression"</span>,</span>
+<span id="cb52-4"><a href="#cb52-4"></a>    <span class="at">mtry =</span> <span class="dv">30</span>,</span>
+<span id="cb52-5"><a href="#cb52-5"></a>    <span class="at">learn_rate =</span> <span class="fl">0.25</span>,</span>
+<span id="cb52-6"><a href="#cb52-6"></a>    <span class="at">tree_depth =</span> <span class="dv">7</span></span>
+<span id="cb52-7"><a href="#cb52-7"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb52-8"><a href="#cb52-8"></a>    <span class="fu">set_engine</span>(<span class="st">"xgboost"</span>)</span>
+<span id="cb52-9"><a href="#cb52-9"></a>   <span class="co"># fit(price ~ ., data = train_tbl %&gt;% select(-c(id:weight), -category_1, -c(category_3:gender)))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>#New Recipe (Preprocessing)</p>
+</section><section id="new-recipe-preprocessing-2" class="level2" data-number="5.22"><h2 data-number="5.22" class="anchored" data-anchor-id="new-recipe-preprocessing-2">
+<span class="header-section-number">5.22</span> New Recipe (Preprocessing)</h2>
 <div class="cell" data-hash="Chapter_2_Challenge_cache/html/unnamed-chunk-23_082bcf8ca50aaaa8a219707cf559f9d1">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a>bikes_rec <span class="ot">&lt;-</span> </span>
-<span id="cb57-2"><a href="#cb57-2"></a>  <span class="fu">recipe</span>(price <span class="sc">~</span> ., <span class="at">data =</span> train_tbl <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(id<span class="sc">:</span>weight), <span class="sc">-</span>category_1, <span class="sc">-</span><span class="fu">c</span>(category_3<span class="sc">:</span>gender))) <span class="sc">%&gt;%</span></span>
-<span id="cb57-3"><a href="#cb57-3"></a>  <span class="fu">step_dummy</span>(<span class="fu">all_nominal</span>(), <span class="sc">-</span><span class="fu">all_outcomes</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb57-4"><a href="#cb57-4"></a>  <span class="fu">step_unknown</span>(<span class="fu">all_nominal</span>())</span>
-<span id="cb57-5"><a href="#cb57-5"></a></span>
-<span id="cb57-6"><a href="#cb57-6"></a>model_07_boost_tree_xgboost <span class="ot">&lt;-</span> <span class="fu">calc_metrics</span>(model_07_boost_tree_xgboost, test_tbl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a>bikes_rec <span class="ot">&lt;-</span> </span>
+<span id="cb53-2"><a href="#cb53-2"></a>  <span class="fu">recipe</span>(price <span class="sc">~</span> ., <span class="at">data =</span> train_tbl <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(id<span class="sc">:</span>weight), <span class="sc">-</span>category_1, <span class="sc">-</span><span class="fu">c</span>(category_3<span class="sc">:</span>gender))) <span class="sc">%&gt;%</span></span>
+<span id="cb53-3"><a href="#cb53-3"></a>  <span class="fu">step_dummy</span>(<span class="fu">all_nominal</span>(), <span class="sc">-</span><span class="fu">all_outcomes</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb53-4"><a href="#cb53-4"></a>  <span class="fu">step_unknown</span>(<span class="fu">all_nominal</span>())</span>
+<span id="cb53-5"><a href="#cb53-5"></a></span>
+<span id="cb53-6"><a href="#cb53-6"></a>model_07_boost_tree_xgboost <span class="ot">&lt;-</span> <span class="fu">calc_metrics</span>(model_07_boost_tree_xgboost, test_tbl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>#&gt; Warning: There are new levels in a factor: E-Road</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1"></a><span class="co">#model_07_boost_tree_xgboost %&gt;% calc_metrics(test_tbl)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a><span class="co">#model_07_boost_tree_xgboost %&gt;% calc_metrics(test_tbl)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="feature-importance---2" class="level1" data-number="20"><h1 data-number="20">
-<span class="header-section-number">20</span> 4.3.2 Feature Importance —-</h1>
+</section><section id="feature-importance---2" class="level2" data-number="5.23"><h2 data-number="5.23" class="anchored" data-anchor-id="feature-importance---2">
+<span class="header-section-number">5.23</span> 4.3.2 Feature Importance —-</h2>
 <div class="cell" data-hash="Chapter_2_Challenge_cache/html/unnamed-chunk-24_09dedcb0f86c5fd5041eaf2cf80e3bea">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1"></a>model_07_boost_tree_xgboost<span class="sc">$</span>fit <span class="sc">%&gt;%</span></span>
-<span id="cb60-2"><a href="#cb60-2"></a>    xgboost<span class="sc">::</span><span class="fu">xgb.importance</span>(<span class="at">model =</span> .) <span class="sc">%&gt;%</span></span>
-<span id="cb60-3"><a href="#cb60-3"></a>    <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb60-4"><a href="#cb60-4"></a>    <span class="fu">arrange</span>(<span class="fu">desc</span>(Gain)) <span class="sc">%&gt;%</span></span>
-<span id="cb60-5"><a href="#cb60-5"></a>    <span class="fu">mutate</span>(<span class="at">Feature =</span> <span class="fu">as_factor</span>(Feature) <span class="sc">%&gt;%</span> <span class="fu">fct_rev</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb60-6"><a href="#cb60-6"></a></span>
-<span id="cb60-7"><a href="#cb60-7"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(Gain, Feature)) <span class="sc">+</span></span>
-<span id="cb60-8"><a href="#cb60-8"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb60-9"><a href="#cb60-9"></a>    <span class="fu">labs</span>(</span>
-<span id="cb60-10"><a href="#cb60-10"></a>        <span class="at">title =</span> <span class="st">"XGBoost: Variable Importance"</span>,</span>
-<span id="cb60-11"><a href="#cb60-11"></a>        <span class="at">subtitle =</span> <span class="st">"Model 07: XGBoost Model"</span></span>
-<span id="cb60-12"><a href="#cb60-12"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a>model_07_boost_tree_xgboost<span class="sc">$</span>fit <span class="sc">%&gt;%</span></span>
+<span id="cb56-2"><a href="#cb56-2"></a>    xgboost<span class="sc">::</span><span class="fu">xgb.importance</span>(<span class="at">model =</span> .) <span class="sc">%&gt;%</span></span>
+<span id="cb56-3"><a href="#cb56-3"></a>    <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb56-4"><a href="#cb56-4"></a>    <span class="fu">arrange</span>(<span class="fu">desc</span>(Gain)) <span class="sc">%&gt;%</span></span>
+<span id="cb56-5"><a href="#cb56-5"></a>    <span class="fu">mutate</span>(<span class="at">Feature =</span> <span class="fu">as_factor</span>(Feature) <span class="sc">%&gt;%</span> <span class="fu">fct_rev</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb56-6"><a href="#cb56-6"></a></span>
+<span id="cb56-7"><a href="#cb56-7"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(Gain, Feature)) <span class="sc">+</span></span>
+<span id="cb56-8"><a href="#cb56-8"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb56-9"><a href="#cb56-9"></a>    <span class="fu">labs</span>(</span>
+<span id="cb56-10"><a href="#cb56-10"></a>        <span class="at">title =</span> <span class="st">"XGBoost: Variable Importance"</span>,</span>
+<span id="cb56-11"><a href="#cb56-11"></a>        <span class="at">subtitle =</span> <span class="st">"Model 07: XGBoost Model"</span></span>
+<span id="cb56-12"><a href="#cb56-12"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><a href="Chapter_2_Challenge_files/figure-html/unnamed-chunk-24-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="Chapter_2_Challenge_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></a></p>
@@ -926,7 +949,7 @@ yardstick::metrics(truth = price, estimate = .pred)</code></pre>
 </div>
 
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1175,7 +1198,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","loop":true,"closeEffect":"zoom","selector":".lightbox","descPosition":"bottom"});</script>
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","loop":true,"selector":".lightbox","openEffect":"zoom"});</script>
 
 
 </body></html>
